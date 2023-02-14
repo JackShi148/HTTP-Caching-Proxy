@@ -6,7 +6,7 @@ int Server::buildServer(){
   host_info.ai_socktype = SOCK_STREAM;
   host_info.ai_flags = AI_PASSIVE;
   if((status = getaddrinfo(hostname,port,&host_info,&host_info_list)) != 0){
-    throw Exception("ERROR: unable to get address information of server.");
+    throw Exception("ERROR: getaddrinfo failed, unable to get address information of server.");
   }
   for(p = host_info_list; p != NULL; p = p->ai_next){
     //create socket descriptor
@@ -15,7 +15,7 @@ int Server::buildServer(){
     }
     //test whether address already be in use
     if(setsockopt(listen_socket_fd,SOL_SOCKET,SO_REUSEADDR,&yes,sizeof(int)) == -1){
-      throw Exception("ERROR: address already be in used.");
+      throw Exception("ERROR: setsockopt failed, socket already be in used.");
     }
     //bind IP address and port to socket
     if(bind(listen_socket_fd,p->ai_addr,p->ai_addrlen) == -1){
@@ -25,16 +25,16 @@ int Server::buildServer(){
     break;
   }
   if(p == NULL){
-    throw Exception("ERROR: server unable to bind address.");
+    throw Exception("ERROR: socket or bind failed, server unable to create socket or bind any IP address.");
   }
   //listen to the port
   if(listen(listen_socket_fd,backlog) == -1){
-    throw Exception("ERROR: cannot listen to port: ",port);
+    throw Exception("ERROR: listen failed, cannot listen to port: ",port);
   }
   if(hostname == NULL){
-    std::cout<<"Server (ADDR_ANY): Listening on port "<<port<<std::endl;
+    std::cout<<"Server (ADDR_ANY): Listening on port "<<port<<", waitting for client connections..."<<std::endl;
   }else{
-    std::cout<<"Server ("<<getHostAddr()<<"): Listening on port "<<port<<std::endl;
+    std::cout<<"Server ("<<getHostAddr()<<"): Listening on port "<<port<<", waitting for client connections..."<<std::endl;
   }
   freeaddrinfo(host_info_list);
   return listen_socket_fd;
@@ -45,12 +45,13 @@ int Server::acceptConnections(std::string *ip_addr){
   socklen_t socket_addr_len = sizeof(socket_addr);
   int connect_socket_fd = accept(listen_socket_fd,(struct sockaddr *)&socket_addr,&socket_addr_len);
   if(connect_socket_fd == -1){
-    throw Exception("ERROR: cannot connect to the client.");
+    throw Exception("ERROR: accept failed, cannot connect to the client.");
   }
   //return IP address of client
   struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
   //may need change
   *ip_addr = inet_ntoa(addr->sin_addr);
+  std::cout<<"Server: get connection from "<<*ip_addr<<std::endl;
   return connect_socket_fd;
 }
 
@@ -82,3 +83,4 @@ const char * Server::getHostName(){
 const char * Server::getPortNum(){
   return this->port;
 }
+

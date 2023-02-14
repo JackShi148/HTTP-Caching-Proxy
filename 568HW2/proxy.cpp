@@ -1,21 +1,17 @@
 #include "proxy.h"
 
 void Proxy::startProxy(){
-  try{
-    Server server(hostname, port);
-    int socket_fd = server.buildServer();
-    int thread_id = 0;
-    while(1){
-      std::string ip_addr;
-      int connect_fd = server.acceptConnections(&ip_addr);
-      Hook * ahook = new Hook(thread_id,connect_fd,ip_addr);
-      pthread_t thread;
-      pthread_create(&thread, NULL, routeRequest, ahook);
-      std::cout<<"New Thread Created: thread_id: "<<thread_id<<", connect_socket_fd: "<<connect_fd<<", ip_address: "<<ip_addr<<std::endl;
-      ++thread_id;
-    }
-  }catch(std::exception e){
-    //write to log file
+  Server server(hostname, port);
+  int socket_fd = server.buildServer();
+  int thread_id = 0;
+  while(1){
+    std::string ip_addr;
+    int connect_fd = server.acceptConnections(&ip_addr);
+    Hook * ahook = new Hook(thread_id,connect_fd,ip_addr);
+    pthread_t thread;
+    pthread_create(&thread, NULL, routeRequest, ahook);
+    std::cout<<"New Thread Created: thread_id: "<<thread_id<<", connect_socket_fd: "<<connect_fd<<", ip_address: "<<ip_addr<<std::endl;
+    ++thread_id;
   }
 }
 
