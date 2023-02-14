@@ -9,9 +9,9 @@
 #include <vector>
 #include <cstdlib>
 
-#include "response.h"
+#include "response.hpp"
 #include "assert.h"
-#include "myexception.h"
+#include "exception.h"
 
 using namespace std;
 

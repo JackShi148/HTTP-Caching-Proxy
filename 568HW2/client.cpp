@@ -13,7 +13,7 @@ void Client::initClient()
     this->status = getaddrinfo(this->hostname, this->port, &host_info, &host_info_list);
     if (this->status != 0)
     {
-        throw MyException("Cannot get IP address for this host, please double check your host or port\n");
+        throw Exception("Cannot get IP address for this host, please double check your host or port\n");
     }
     // construct socket for client
     this->socket_fd = socket(this->host_info_list->ai_family,
@@ -21,7 +21,7 @@ void Client::initClient()
                              this->host_info_list->ai_protocol);
     if (this->socket_fd == -1)
     {
-        throw MyException("Something wrong during constructing socket\n");
+        throw Exception("Something wrong during constructing socket\n");
     }
     // construct connection with server
     this->status = connect(this->socket_fd,
@@ -29,9 +29,8 @@ void Client::initClient()
                            this->host_info_list->ai_addrlen);
     if (this->status == -1)
     {
-        throw MyException("Cannot connect with server\n");
+        throw Exception("Cannot connect with server\n");
     }
-    std::cout << "Client has connected with hostname: " << this->hostname << " and port: " << this->port << std::endl; 
 }
 
 void Client::clientRecv(vector<char> &msg)
@@ -101,7 +100,7 @@ void sendHelper(int socket_fd, vector<char> &msg)
     int buf_size = send(socket_fd, msg.data(), msg.size(), 0);
     if (buf_size == -1)
     {
-        throw MyException("Error occurs during sending\n");
+        throw Exception("Error occurs during sending\n");
     }
 }
 
@@ -109,10 +108,10 @@ void validateMsg(int msg_len)
 {
     if (msg_len == 0)
     {
-        throw MyException("The content is empty\n");
+        throw Exception("The content is empty\n");
     }
     if (msg_len = -1)
     {
-        throw MyException("Error occurs during receiving\n");
+        throw Exception("Error occurs during receiving\n");
     }
 }
