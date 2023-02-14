@@ -13,7 +13,7 @@
 
 #include "server.h"
 #include "client.h"
-#include "Exception.h"
+#include "exception.h"
 #include "hook.h"
 
 #define PORT "8080"

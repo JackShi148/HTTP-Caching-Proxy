@@ -1,33 +1,50 @@
 #ifndef __CLIENT_H__
 #define __CLIENT_H__
-#include <cstdio>
-#include <cstdlib>
-#include <unistd.h>
-#include <errno.h>
-#include <cstring>
-#include <netdb.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include <netinet/in.h>
 #include <iostream>
+#include <cstring>
+#include <netdb.h>
+#include <unistd.h>
+#include <vector>
+#include <cstdlib>
 
-#include "Exception.h"
+#include "response.hpp"
+#include "assert.h"
+#include "exception.h"
 
-class Client{
-  private:
-    const char * server_hostname;
-    const char * server_port;
-    struct addrinfo server_info;
-    struct addrinfo * server_info_list;
-    struct addrinfo * p;
-    int client_socket_fd;
+using namespace std;
+
+class Client {
+public:
     int status;
-  
-  public:
-    Client(const char * server_hostname, const char * server_port): server_hostname(server_hostname),server_port(server_port){}
-    std::string getServerAddr();
-    int createClient();
+    int socket_fd;
+    const char * hostname;
+    const char * port;
+    struct addrinfo host_info;
+    struct addrinfo * host_info_list;
+
+    Client(const char * hostname, const char * port) : status(0), socket_fd(0), hostname(hostname), port(port), host_info_list(NULL) {
+        initClient();
+    }
+
+    ~Client() {
+        if(socket_fd != 0) {
+            close(socket_fd);
+        }
+        if(host_info_list != NULL) {
+            free(host_info_list);
+        }
+    }
+
+    void initClient();
+    void clientSend(vector<char> &msg);
+    void clientRecv(vector<char> &msg);
 };
+
+void validateMsg(int msg_len);
+void recvHelper(int socket_fd, vector<char> &msg);
+void sendHelper(int socket_fd, vector<char> &msg);
+
 
 #endif

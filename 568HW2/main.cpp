@@ -1,11 +1,7 @@
-#include "proxy.h"
+#include "client.h"
 
-int main(){
-  try{
-    Proxy p("172.16.222.129","8000");
-    p.startProxy();
-  }catch(Exception e){
-    std::cerr<<e.what()<<std::endl;
-  }
-  return 1;
+int main() {
+    Client c = Client("127.0.0.1", "123");
+    std::cout << "Client has connected with hostname: " << c.hostname << " and port: " << c.port << std::endl; 
+    return 0;
 }

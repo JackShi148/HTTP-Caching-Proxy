@@ -1,7 +1,10 @@
 all: main
 
-main: main.cpp server.cpp proxy.cpp client.cpp
-	g++ -g  -o main main.cpp server.cpp proxy.cpp client.cpp -lpthread
+main: main.cpp client.cpp response.cpp request.cpp
+	g++ -g  -o main main.cpp client.cpp response.cpp request.cpp -lpthread
+# test: test.cpp proxy.cpp log.cpp cache.cpp request.cpp response.cpp server.cpp
+# 	g++ -g  -o test test.cpp proxy.cpp log.cpp cache.cpp request.cpp response.cpp server.cpp -lpthread
+
 
 .PHONY:
 	clean

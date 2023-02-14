@@ -10,7 +10,7 @@
 #include <arpa/inet.h>
 #include <iostream>
 
-#include "Exception.h"
+#include "exception.h"
 
 #define PORT "8080"
 #define BACKLOG 100
