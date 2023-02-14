@@ -2,9 +2,9 @@
 
 int main(){
   try{
-    Proxy p("0.0.0.0","8000");
+    Proxy p("172.16.222.129","8000");
     p.startProxy();
-  }catch(std::exception e){
+  }catch(Exception e){
     std::cerr<<e.what()<<std::endl;
   }
   return 1;

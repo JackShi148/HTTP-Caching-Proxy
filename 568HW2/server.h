@@ -31,8 +31,8 @@ class Server{
     Server():hostname(NULL),port(PORT),yes(1),backlog(BACKLOG){}
     Server(const char * hostname, const char * port): hostname(hostname),port(port),yes(1),backlog(BACKLOG){}
     Server(const char * hostname, const char * port, int backlog): hostname(hostname),port(port),yes(1),backlog(backlog){}
-    int buildServer();
-    int acceptConnections(std::string *ip_addr);
+    int createServer();
+    int acceptConnections(std::string *ip_addr,unsigned short int *port);
     std::string getHostAddr();
     const char * getHostName();
     const char * getPortNum();

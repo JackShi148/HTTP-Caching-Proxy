@@ -1,6 +1,6 @@
 #include "server.h"
 
-int Server::buildServer(){
+int Server::createServer(){
   memset(&host_info,0,sizeof(host_info));
   host_info.ai_family = AF_UNSPEC;
   host_info.ai_socktype = SOCK_STREAM;
@@ -40,7 +40,7 @@ int Server::buildServer(){
   return listen_socket_fd;
 }
 
-int Server::acceptConnections(std::string *ip_addr){
+int Server::acceptConnections(std::string *ip_addr,unsigned short int *port){
   struct sockaddr_storage socket_addr;
   socklen_t socket_addr_len = sizeof(socket_addr);
   int connect_socket_fd = accept(listen_socket_fd,(struct sockaddr *)&socket_addr,&socket_addr_len);
@@ -51,7 +51,8 @@ int Server::acceptConnections(std::string *ip_addr){
   struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
   //may need change
   *ip_addr = inet_ntoa(addr->sin_addr);
-  std::cout<<"Server: get connection from "<<*ip_addr<<std::endl;
+  *port = addr->sin_port;
+  std::cout<<"Server: get connection from "<<*ip_addr<<", port "<<addr->sin_port<<std::endl;
   return connect_socket_fd;
 }
 

@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "server.h"
+#include "client.h"
 #include "Exception.h"
 #include "hook.h"
 
@@ -27,6 +28,7 @@ class Proxy{
     Proxy(const char * myHost,const char * myPort):hostname(myHost),port(myPort){}
     void startProxy();
     static void * routeRequest(void * ahook);
+    void connectClient(int connect_fd, int client_fd, int thread_id);
     const char * getPortNum();
 };
 
