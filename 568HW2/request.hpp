@@ -45,6 +45,7 @@ public:
         parseHostPort();
         parseUri();
     }
+    int getReqCntLength();
     bool validate() {
         if(this->method != "GET" && this->method != "POST" && this->method != "CONNECT") {
             return false;

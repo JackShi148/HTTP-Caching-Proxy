@@ -45,3 +45,16 @@ void Request::parseHostPort() {
         }
     }
 }
+
+int Request::getReqCntLength() {
+    size_t start_pos = this->request.find("Content-Length: ");
+    if(start_pos == string::npos) {
+        return -1;
+    }
+    size_t head_end_pos = this->request.find("\r\n\r\n");
+    int content_len = this->request.size() - head_end_pos - 8;
+    size_t end_pos = this->request.find("\r\n", start_pos);
+    string req_len_str = this->request.substr(start_pos + 16, end_pos - start_pos - 16);
+    int req_len = stoi(req_len_str);
+    return req_len - content_len - 8;
+}

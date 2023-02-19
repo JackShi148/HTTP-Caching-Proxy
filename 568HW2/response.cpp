@@ -9,7 +9,7 @@ std::string Response::formatFinder(std::string field) {
     if(start_pos == std::string::npos) {
         return "";
     }
-    size_t end_pos = this->response_msg.find("\r\n");
+    size_t end_pos = this->response_msg.find("\r\n", start_pos);
     // skip the field name, colon and whitespace
     size_t field_len = field.size();
     start_pos += field_len + 2;
