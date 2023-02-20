@@ -1,1 +1,5 @@
-sdfsd
+0: "CONNECT www.youtube.com:443 HTTP/1.1" from 67.159.88.176 @ Mon Feb 20 22:00:20 2023
+
+0: Requesting "CONNECT www.youtube.com:443 HTTP/1.1" from www.youtube.com
+0: Responding "HTTP/1.1 200 OK"
+0: Tunnel closed

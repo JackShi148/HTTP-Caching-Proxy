@@ -67,8 +67,10 @@ int main(int argc, char *argv[]){
   std::cout<<"Client: Connecting to "<<getHostAddr(p)<<", port "<<argv[2]<<", waitting for server acception..."<<std::endl;
   freeaddrinfo(host_info_list);
   //send messages
-  const char *messages = "Hello From Client\n";
-  send(socket_fd, messages, 19, 0);
+  const char *messages = "CONNECT www.youtube.com:443 HTTP/1.1\r\n\r\n";
+  std::string msg(messages);
+  std::cout << msg << std::endl;
+  send(socket_fd, msg.c_str(), msg.size()+1, 0);
   //std::cout<<socket_fd<<std::endl;
   return socket_fd;
 }

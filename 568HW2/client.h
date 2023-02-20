@@ -16,8 +16,8 @@
 
 class Client{
   private:
-    const char * server_hostname;
-    const char * server_port;
+    std::string server_hostname;
+    std::string server_port;
     struct addrinfo server_info;
     struct addrinfo * server_info_list;
     struct addrinfo * p;
@@ -25,7 +25,7 @@ class Client{
     int status;
   
   public:
-    Client(const char * server_hostname, const char * server_port): server_hostname(server_hostname),server_port(server_port){}
+    Client(std::string server_hostname, std::string server_port): server_hostname(server_hostname),server_port(server_port){}
     int connectServer();
     std::string getServerAddr();
 };

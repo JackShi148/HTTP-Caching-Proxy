@@ -42,19 +42,32 @@ void Request::parseHostPort() {
     }
     else {
         if(this->method == "CONNECT") {
-            size_t start_pos = this->request_line.find(' ');
-            size_t inter_pos = this->request_line.find(':', start_pos + 1);
-            size_t end_pos = this->request_line.find(' ', start_pos + 1);
-            this->hostname = this->request_line.substr(start_pos + 1, inter_pos - start_pos - 1);
-            this->port = this->request_line.substr(inter_pos + 1, end_pos - inter_pos - 1);
+            size_t slash_pos = this->request_line.find("//");
+            if(slash_pos == std::string::npos) {
+                size_t start_pos = this->request_line.find(' ');
+                size_t inter_pos = this->request_line.find(':', start_pos + 1);
+                size_t end_pos = this->request_line.find(' ', start_pos + 1);
+                this->hostname = this->request_line.substr(start_pos + 1, inter_pos - start_pos - 1);
+                this->port = this->request_line.substr(inter_pos + 1, end_pos - inter_pos - 1);
+            }
+            else {
+                size_t start_pos = slash_pos + 2;
+                size_t inter_pos = this->request_line.find(':', start_pos + 1);
+                size_t end_pos = this->request_line.find(' ', start_pos + 1);
+                this->hostname = this->request_line.substr(start_pos, inter_pos - start_pos);
+                this->port = this->request_line.substr(inter_pos + 1, end_pos - inter_pos - 1);
+            }
         }
-        else {
+        else if(this->method == "POST" || this->method == "GET") {
             size_t start_pos = this->request_line.find("//");
             start_pos += 2;
             size_t end_pos = this->request_line.find('/', start_pos);
             this->hostname = this->request_line.substr(start_pos, end_pos - start_pos);
             // HTTP default port: 80
             this->port = "80";
+        }
+        else {
+            throw Exception("Error: the method is not GET, POST or CONNECT.");
         }
     }
 }

@@ -4,8 +4,8 @@ int Client::connectServer(){
   memset(&server_info, 0, sizeof server_info);
   server_info.ai_family = AF_UNSPEC;
   server_info.ai_socktype = SOCK_STREAM;
-  
-  if ((status = getaddrinfo(server_hostname, server_port, &server_info, &server_info_list)) != 0) {
+  std::cout << "In connect, server_hostname: " << server_hostname << "and server_port" << server_port << std::endl;
+  if ((status = getaddrinfo(server_hostname.c_str(), server_port.c_str(), &server_info, &server_info_list)) != 0) {
     throw Exception("ERROR: getaddrinfo failed.");
   }
   for(p = server_info_list; p != NULL; p = p->ai_next) {

@@ -2,7 +2,7 @@
 #define __REQUEST_HPP__
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <vector>
 
 #include "client.h"

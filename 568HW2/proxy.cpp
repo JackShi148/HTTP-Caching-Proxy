@@ -5,7 +5,7 @@ void Proxy::startProxy(){
   int socket_fd = server.createServer();
   int thread_id = 0;
   Log log;
-  log.openLogFile("/proxy.log");
+  log.openLogFile("./proxy.log");
   while(1){
     std::string client_ip_addr;
     unsigned short int client_port;
@@ -32,36 +32,41 @@ void * Proxy::routeRequest(void * ahook){
     return NULL;
   }
   std::string req_msg = std::string(request,len);
-  std::cout<<req_msg<<std::endl;
+
   
   Request r(req_msg);
   std::string method = r.getMethod();
-  const char * request_hostname = r.getHostName().c_str();
-  const char * request_port = r.getPort().c_str();
+  std::string request_hostname = r.getHostName();
+  std::cout << request_hostname << std::endl;
+  std::string request_port = r.getPort();
+  std::cout << request_port << std::endl;
   
   hook_info->setReqHostName(r.getHostName());
   
-  if(r.validate()){
+  if(r.validate()) {
     log->writeLogFile(hook_info, r.getRequestLine(), NEW_REQUEST);
-  }else{
+  }
+  else {
     send(client_connect_socket_fd, "HTTP/1.1 400 Bad Request\r\n\r\n", 28, 0);
     std::string errMsg = "HTTP/1.1 400 Bad Request";
     log->writeLogFile(hook_info, errMsg, RESPOND);
   }
-  
+  std::cout << r.getRequestLine() << std::endl;
   Client client(request_hostname, request_port);
   int request_server_fd = client.connectServer();
   
   std::cout << "Client("<< hook_info->getClientIPAddr() << ") requests a " << method 
   <<" to Server("<< request_hostname << ", " << request_server_fd << ")" << std::endl;
   
-  if(method == "CONNECT"){
+  if(method == "CONNECT") {
     log->writeLogFile(hook_info, r.getRequestLine(), REQUEST);
     p->connectRequest(client_connect_socket_fd, request_server_fd, ahook);
     log->writeLogFile(hook_info, "Tunnel closed", LOGMSG);
-  }else if(method == "GET"){
+  }
+  else if(method == "GET") {
     //write cache
-  }else{
+  }
+  else {
     log->writeLogFile(hook_info, r.getRequestLine(), REQUEST);
     p->postRequest(client_connect_socket_fd, request_server_fd, r, ahook);
   }
@@ -78,22 +83,23 @@ void Proxy::connectRequest(int client_connect_socket_fd, int request_server_fd, 
   send(client_connect_socket_fd, "HTTP/1.1 200 OK\r\n\r\n", 19, 0);
   log->writeLogFile(h, "HTTP/1.1 200 OK", RESPOND);
   fd_set readset;
-  int maxfdp1 = client_connect_socket_fd > request_server_fd? client_connect_socket_fd+1 : request_server_fd+1;
+  int maxfd = client_connect_socket_fd > request_server_fd? client_connect_socket_fd : request_server_fd;
   while(1)
   {
     FD_ZERO(&readset);
     FD_SET(request_server_fd,&readset);
     FD_SET(client_connect_socket_fd,&readset);
-    select(maxfdp1,&readset,NULL,NULL,NULL);
+    select(maxfd + 1, &readset, NULL, NULL, NULL);
     int fds[2] = {request_server_fd, client_connect_socket_fd};
     int len;
-    for(int i = 0 ;i < 2; i++){
+    for(int i = 0 ;i < 2; i++) {
       char message[MAX_MSGLEN] = {0};
-      if(FD_ISSET(fds[i],&readset)){
+      if(FD_ISSET(fds[i],&readset)) {
         len = recv(fds[i],message,sizeof(message),0);
-        if(len <= 0){
+        if(len <= 0) {
        	  return;
-        }else{
+        }
+        else {
           if (send(fds[1 - i], message, len, 0) <= 0) {
             return;
           }
