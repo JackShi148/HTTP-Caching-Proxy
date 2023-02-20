@@ -1,7 +1,7 @@
 #include "log.h"
 
 void Log::openLogFile(std::string filepath){
-  logfile.open(filepath, std::ios::out);
+  logfile.open(filepath, std::ostream::out);
   if(!logfile.is_open()){
     throw Exception("Error: cannot open the log file: ", filepath);
   }

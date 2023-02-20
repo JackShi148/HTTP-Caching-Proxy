@@ -15,7 +15,7 @@
 #include "client.h"
 #include "exception.h"
 #include "hook.h"
-#include "request.h"
+#include "request.hpp"
 #include "log.h"
 
 #define PORT "8080"

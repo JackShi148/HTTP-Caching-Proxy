@@ -7,7 +7,7 @@
 #include <pthread.h>
 #include <thread>
 
-#include "Exception.h"
+#include "exception.h"
 #include "hook.h"
 
 class Log{
