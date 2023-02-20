@@ -1,5 +1,18 @@
 #include "request.hpp"
 
+std::string Request::formatFinder(std::string field) {
+    size_t start_pos = this->request.find(field);
+    if(start_pos == std::string::npos) {
+        return "";
+    }
+    size_t end_pos = this->request.find("\r\n", start_pos);
+    // skip the field name, colon and whitespace
+    size_t field_len = field.size();
+    start_pos += field_len + 2;
+    std::string ans = this->request.substr(start_pos, end_pos - start_pos);
+    return ans;
+}
+
 void Request::parseMethod() {
     size_t end_pos = this->request_line.find(' ');
     this->method = this->request_line.substr(0, end_pos);
