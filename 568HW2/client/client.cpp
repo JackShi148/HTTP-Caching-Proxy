@@ -66,6 +66,10 @@ int main(int argc, char *argv[]){
   }
   std::cout<<"Client: Connecting to "<<getHostAddr(p)<<", port "<<argv[2]<<", waitting for server acception..."<<std::endl;
   freeaddrinfo(host_info_list);
+  //send messages
+  const char *messages = "Hello From Client\n";
+  send(socket_fd, messages, 19, 0);
+  //std::cout<<socket_fd<<std::endl;
   return socket_fd;
 }
 

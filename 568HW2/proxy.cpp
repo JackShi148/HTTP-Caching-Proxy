@@ -4,46 +4,136 @@ void Proxy::startProxy(){
   Server server(hostname, port);
   int socket_fd = server.createServer();
   int thread_id = 0;
+  Log log;
+  log.openLogFile("/proxy.log");
   while(1){
     std::string client_ip_addr;
     unsigned short int client_port;
-    int connect_fd = server.acceptConnections(&client_ip_addr,&client_port);
-    Hook * ahook = new Hook(thread_id,connect_fd,client_ip_addr,client_port);
+    //proxy accepts connections from clients
+    int client_connect_socket_fd = server.acceptConnections(&client_ip_addr,&client_port);
+    Hook * ahook = new Hook(thread_id, client_connect_socket_fd, client_ip_addr, client_port, this, &log);
     pthread_t thread;
     pthread_create(&thread, NULL, routeRequest, ahook);
-    std::cout<<"New Thread Created: thread_id: "<<thread_id<<", connect_socket_fd: "
-    <<connect_fd<<", client_IP_address: "<<client_ip_addr<<", client_port: "<<client_port<<std::endl;
+    std::cout<<"New Thread Created: thread_id: "<<thread_id<<", client_connect_socket_fd: "
+    <<client_connect_socket_fd<<", client_IP_address: "<<client_ip_addr<<", client_port: "<<client_port<<std::endl;
     ++thread_id;
   }
 }
 
 void * Proxy::routeRequest(void * ahook){
   Hook * hook_info = (Hook *) ahook;
-  int connect_socket_fd = hook_info->getConnectSocketFD();
-  char request[65536] = {0};
-  int len = recv(connect_socket_fd, request, sizeof(request),0);
+  int client_connect_socket_fd = hook_info->getClientConnectSocketFD();
+  Proxy * p = (Proxy *) hook_info->getThisObject();
+  Log * log = (Log *) hook_info->getLog();
+  char request[MAX_MSGLEN] = {0};
+  int len = recv(client_connect_socket_fd, request, sizeof(request),0);
   if(len <= 0){
-    //write to log file
+    log->writeLogFile(hook_info, "Invalid Request", WARNING);
     return NULL;
   }
   std::string req_msg = std::string(request,len);
-  //std::cout<<req_msg<<std::endl;
-  /*
+  std::cout<<req_msg<<std::endl;
+  
   Request r(req_msg);
   std::string method = r.getMethod();
-  if(method == "CONNECT"){
-    
-  }else if(method == "GET"){
-    
+  const char * request_hostname = r.getHostName().c_str();
+  const char * request_port = r.getPort().c_str();
+  
+  hook_info->setReqHostName(r.getHostName());
+  
+  if(r.validate()){
+    log->writeLogFile(hook_info, r.getRequestLine(), NEW_REQUEST);
   }else{
-    
+    send(client_connect_socket_fd, "HTTP/1.1 400 Bad Request\r\n\r\n", 28, 0);
+    std::string errMsg = "HTTP/1.1 400 Bad Request";
+    log->writeLogFile(hook_info, errMsg, RESPOND);
   }
-  */
+  
+  Client client(request_hostname, request_port);
+  int request_server_fd = client.connectServer();
+  
+  std::cout << "Client("<< hook_info->getClientIPAddr() << ") requests a " << method 
+  <<" to Server("<< request_hostname << ", " << request_server_fd << ")" << std::endl;
+  
+  if(method == "CONNECT"){
+    log->writeLogFile(hook_info, r.getRequestLine(), REQUEST);
+    p->connectRequest(client_connect_socket_fd, request_server_fd, ahook);
+    log->writeLogFile(hook_info, "Tunnel closed", LOGMSG);
+  }else if(method == "GET"){
+    //write cache
+  }else{
+    log->writeLogFile(hook_info, r.getRequestLine(), REQUEST);
+    p->postRequest(client_connect_socket_fd, request_server_fd, r, ahook);
+  }
+  
+  close(request_server_fd);
+  close(client_connect_socket_fd);
+  
   return NULL;
 }
 
-void Proxy::connectClient(int connect_fd, int client_fd, int thread_id){
-  
+void Proxy::connectRequest(int client_connect_socket_fd, int request_server_fd, void * hook){
+  Hook * h = (Hook *) hook;
+  Log * log = (Log *) h->getLog();
+  send(client_connect_socket_fd, "HTTP/1.1 200 OK\r\n\r\n", 19, 0);
+  log->writeLogFile(h, "HTTP/1.1 200 OK", RESPOND);
+  fd_set readset;
+  int maxfdp1 = client_connect_socket_fd > request_server_fd? client_connect_socket_fd+1 : request_server_fd+1;
+  while(1)
+  {
+    FD_ZERO(&readset);
+    FD_SET(request_server_fd,&readset);
+    FD_SET(client_connect_socket_fd,&readset);
+    select(maxfdp1,&readset,NULL,NULL,NULL);
+    int fds[2] = {request_server_fd, client_connect_socket_fd};
+    int len;
+    for(int i = 0 ;i < 2; i++){
+      char message[MAX_MSGLEN] = {0};
+      if(FD_ISSET(fds[i],&readset)){
+        len = recv(fds[i],message,sizeof(message),0);
+        if(len <= 0){
+       	  return;
+        }else{
+          if (send(fds[1 - i], message, len, 0) <= 0) {
+            return;
+          }
+        }
+      }
+    }
+  }
+}
+
+void Proxy::postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook){
+  Hook * h = (Hook *) hook;
+  Log * log = (Log *) h->getLog();
+  if(req.getReqCntLength() == -1){
+    return;
+  }
+  std::string request = req.getRequest();
+  send(request_server_fd, request.data(), request.size()+1, 0);
+  char response[MAX_MSGLEN] = {0};
+  int response_length = recv(request_server_fd,response,sizeof(response),MSG_WAITALL);
+  /*
+  if(response_length > 0){
+    Response res(response);
+    log->writeLogFile(h, req.getRequestLine(), RECEIVE);
+    send(client_connect_socket_fd,response,response_length,0);
+    log->writeLogFile(h, req.getRequestLine(), RESPOND);
+    return;
+  }
+  */
+  return;
+}
+
+void Proxy::check502(int client_connect_socket_fd, std::string response, void * hook){
+  if(response.find("\r\n\r\n") == std::string::npos){
+    const char * bad_gateway_msg = "HTTP/1.1 502 Bad Gateway\r\n\r\n";
+    send(client_connect_socket_fd, bad_gateway_msg, sizeof(bad_gateway_msg), 0);
+    Hook * h = (Hook *) hook;
+    Log * log = (Log *) h->getLog();
+    log->writeLogFile(h, "HTTP/1.1 502 Bad Gateway", RESPOND);
+  }
+  return;
 }
 
 const char * Proxy::getPortNum(){
