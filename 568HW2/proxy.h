@@ -28,6 +28,9 @@
 #define RESPOND 3
 #define RECEIVE 4
 
+#define CACHE 10
+#define CACHE_EXPIREDTIME 11
+
 class Proxy{
   private:
     const char * hostname;
@@ -40,7 +43,7 @@ class Proxy{
     static void * routeRequest(void * ahook);
     void connectRequest(int client_connect_socket_fd, int server_fd, void * hook);
     void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
-    std::string check502();
+    void check502(int client_connect_socket_fd, std::string response, void * hook);
     const char * getPortNum();
 };
 

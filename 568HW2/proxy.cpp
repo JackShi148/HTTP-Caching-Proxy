@@ -125,8 +125,15 @@ void Proxy::postRequest(int client_connect_socket_fd, int request_server_fd, Req
   return;
 }
 
-std::string Proxy::check502(){
-  return "";
+void Proxy::check502(int client_connect_socket_fd, std::string response, void * hook){
+  if(response.find("\r\n\r\n") == std::string::npos){
+    const char * bad_gateway_msg = "HTTP/1.1 502 Bad Gateway\r\n\r\n";
+    send(client_connect_socket_fd, bad_gateway_msg, sizeof(bad_gateway_msg), 0);
+    Hook * h = (Hook *) hook;
+    Log * log = (Log *) h->getLog();
+    log->writeLogFile(h, "HTTP/1.1 502 Bad Gateway", RESPOND);
+  }
+  return;
 }
 
 const char * Proxy::getPortNum(){

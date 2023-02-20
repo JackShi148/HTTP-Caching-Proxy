@@ -18,7 +18,7 @@ class Log{
   public:
     void openLogFile(std::string filepath);
     void writeLogFile(Hook * h, std::string msg, int option);
-    void writeCacheResult(Hook * h, int option);
+    void writeCacheResult(Hook * h, std::string msg, int option);
     std::string getCurrTime();
     void closeLogFile();
 };

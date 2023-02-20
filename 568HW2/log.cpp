@@ -29,8 +29,14 @@ void Log::writeLogFile(Hook * h, std::string msg, int option){
   pthread_mutex_unlock(&mutex);
 }
 
-void Log::writeCacheResult(Hook * h, int option){
-
+void Log::writeCacheResult(Hook * h, std::string msg, int option){
+  pthread_mutex_lock(&mutex);
+  if(option == 10){
+    logfile << h->getThreadID() << ": " << msg << std::endl;
+  }else if(option == 11){
+    logfile << h->getThreadID() << ": in cache, but expired at " << msg << std::endl;
+  }
+  pthread_mutex_unlock(&mutex);
 }
 
 std::string Log::getCurrTime(){
