@@ -69,5 +69,5 @@ int Request::getReqCntLength() {
     size_t end_pos = this->request.find("\r\n", start_pos);
     string req_len_str = this->request.substr(start_pos + 16, end_pos - start_pos - 16);
     int req_len = stoi(req_len_str);
-    return req_len - content_len - 8;
+    return req_len - content_len - 4;
 }
