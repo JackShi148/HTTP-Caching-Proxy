@@ -1,5 +1,32 @@
 #include "client.h"
 
+int Client::connectServer(){
+  memset(&server_info, 0, sizeof server_info);
+  server_info.ai_family = AF_UNSPEC;
+  server_info.ai_socktype = SOCK_STREAM;
+  
+  if ((status = getaddrinfo(server_hostname, server_port, &server_info, &server_info_list)) != 0) {
+    throw Exception("ERROR: getaddrinfo failed.");
+  }
+  for(p = server_info_list; p != NULL; p = p->ai_next) {
+    if ((server_socket_fd = socket(p->ai_family, p->ai_socktype,p->ai_protocol)) == -1) {
+      continue;
+    }
+    if (connect(server_socket_fd, p->ai_addr, p->ai_addrlen) == -1) {
+      close(server_socket_fd);
+      continue;
+    }
+    break;
+  }
+
+  if (p == NULL) {
+    throw Exception("ERROR: client failed to connect any server.");
+  }
+  std::cout<<"Client: Connecting to "<<getServerAddr()<<", port "<<server_port<<", waitting for server acception..."<<std::endl;
+  freeaddrinfo(server_info_list);
+  return server_socket_fd;
+}
+
 std::string Client::getServerAddr(){
   char ipstr[INET6_ADDRSTRLEN];
   void *addr;
@@ -21,29 +48,3 @@ std::string Client::getServerAddr(){
   return res;
 }
 
-int Client::createClient(){
-  memset(&server_info, 0, sizeof server_info);
-  server_info.ai_family = AF_UNSPEC;
-  server_info.ai_socktype = SOCK_STREAM;
-  
-  if ((status = getaddrinfo(server_hostname, server_port, &server_info, &server_info_list)) != 0) {
-    throw Exception("ERROR: getaddrinfo failed.");
-  }
-  for(p = server_info_list; p != NULL; p = p->ai_next) {
-    if ((client_socket_fd = socket(p->ai_family, p->ai_socktype,p->ai_protocol)) == -1) {
-      continue;
-    }
-    if (connect(client_socket_fd, p->ai_addr, p->ai_addrlen) == -1) {
-      close(client_socket_fd);
-      continue;
-    }
-    break;
-  }
-
-  if (p == NULL) {
-    throw Exception("ERROR: client failed to connect any server.");
-  }
-  std::cout<<"Client: Connecting to "<<getServerAddr()<<", port "<<server_port<<", waitting for server acception..."<<std::endl;
-  freeaddrinfo(server_info_list);
-  return client_socket_fd;
-}

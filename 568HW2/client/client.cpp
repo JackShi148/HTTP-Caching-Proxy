@@ -64,8 +64,12 @@ int main(int argc, char *argv[]){
     std::cerr<<"ERROR: client failed to connect any server."<<std::endl;
     exit(1);
   }
-  std::cout<<"Client: Connecting to "<<getHostAddr(p)<<", port "<<port<<", waitting for server acception..."<<std::endl;
+  std::cout<<"Client: Connecting to "<<getHostAddr(p)<<", port "<<argv[2]<<", waitting for server acception..."<<std::endl;
   freeaddrinfo(host_info_list);
+  //send messages
+  const char *messages = "Hello From Client\n";
+  send(socket_fd, messages, 19, 0);
+  //std::cout<<socket_fd<<std::endl;
   return socket_fd;
 }
 

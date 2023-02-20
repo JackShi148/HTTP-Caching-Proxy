@@ -21,13 +21,13 @@ class Client{
     struct addrinfo server_info;
     struct addrinfo * server_info_list;
     struct addrinfo * p;
-    int client_socket_fd;
+    int server_socket_fd;
     int status;
   
   public:
     Client(const char * server_hostname, const char * server_port): server_hostname(server_hostname),server_port(server_port){}
+    int connectServer();
     std::string getServerAddr();
-    int createClient();
 };
 
 #endif

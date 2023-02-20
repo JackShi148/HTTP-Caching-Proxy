@@ -15,8 +15,18 @@
 #include "client.h"
 #include "Exception.h"
 #include "hook.h"
+#include "request.h"
+#include "log.h"
 
 #define PORT "8080"
+#define MAX_MSGLEN 65536
+
+#define WARNING -1
+#define LOGMSG 0
+#define NEW_REQUEST 1
+#define REQUEST 2
+#define RESPOND 3
+#define RECEIVE 4
 
 class Proxy{
   private:
@@ -28,7 +38,9 @@ class Proxy{
     Proxy(const char * myHost,const char * myPort):hostname(myHost),port(myPort){}
     void startProxy();
     static void * routeRequest(void * ahook);
-    void connectClient(int connect_fd, int client_fd, int thread_id);
+    void connectRequest(int client_connect_socket_fd, int server_fd, void * hook);
+    void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
+    std::string check502();
     const char * getPortNum();
 };
 
