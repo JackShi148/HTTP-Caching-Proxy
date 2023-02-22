@@ -19,12 +19,12 @@ private:
         Node() : next(NULL), prev(NULL) {}
         Node(std::string key, std::string response) : uri(key), response(response), next(NULL), prev(NULL) {}
     };
+    Node * head;
+    Node * tail;
 public:
     int capacity;
     int size;
     std::unordered_map<std::string, Node*> cache_map;
-    Node * head;
-    Node * tail;
 
     Cache(int capacity) : capacity(capacity), size(0), head(new Node()), tail(new Node()) {
         head->next = tail;
