@@ -4,7 +4,6 @@
 #include <string>
 #include <unordered_map>
 #include <mutex>
-#include <vector>
 
 #include "response.hpp"
 
