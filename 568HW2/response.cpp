@@ -1,17 +1,22 @@
 #include "response.hpp"
 
 void Response::parseResponse() {
-    size_t header_end = this->response_msg.find("\r\n");
+    this->max_age = parseMaxAge();
+    this->s_maxage = parseSMaxAge();
+    size_t header_end = this->response_msg.find_first_of("\r\n");
     this->status_line = this->response_msg.substr(0, header_end);
     this->Etag = formatFinder("Etag");
     this->last_modified = formatFinder("Last-Modified");
     this->cache_info = formatFinder("Cache-Control");
     
     std::string respTime = formatFinder("Date");
-    this->response_time.parse(respTime);
-
+    if(respTime != "") {
+         this->response_time.parse(respTime);
+    }
     std::string expTime = formatFinder("Expires");
-    this->expire_time.parse(expTime);
+    if(expTime != "") {
+        this->expire_time.parse(expTime);
+    }
 }
 
 std::string Response::formatFinder(std::string field) {
@@ -19,7 +24,7 @@ std::string Response::formatFinder(std::string field) {
     if(start_pos == std::string::npos) {
         return "";
     }
-    size_t end_pos = this->response_msg.find("\r\n", start_pos);
+    size_t end_pos = this->response_msg.find_first_of("\r\n", start_pos + 1);
     // skip the field name, colon and whitespace
     size_t field_len = field.size();
     start_pos += field_len + 2;
@@ -45,24 +50,54 @@ int Response::getContentLength() {
 }
 
 std::string Response::getStatusCode() {
-    size_t pos1 = this->status_line.find(' ');
-    size_t pos2 = this->status_line.find(' ', pos1 + 1);
+    size_t pos1 = this->status_line.find_first_of(' ');
+    size_t pos2 = this->status_line.find_first_of(' ', pos1 + 1);
     std::string code = this->status_line.substr(pos1 + 1, pos2 - pos1 - 1);
     return code;
 }
 
 std::string Response::getHttpVer() {
-    size_t pos1 = this->status_line.find(' ');
+    size_t pos1 = this->status_line.find_first_of(' ');
     std::string httpVer = this->status_line.substr(0, pos1);
     return httpVer;
 }
 
-int Response::getMaxAge() {
-    if(size_t start_pos = this->cache_info.find("max-age=") != std::string::npos) {
-        int ans = std::stoi(this->cache_info.substr(start_pos + 8));
-        return ans;
+int Response::parseMaxAge() {
+    int ans = -1;
+    size_t start_pos = this->cache_info.find("max-age=");
+    if(start_pos != std::string::npos) {
+        size_t end_pos = this->cache_info.find_first_of(',', start_pos + 1);
+        if(end_pos == std::string::npos) {
+            ans = std::stoi(this->cache_info.substr(start_pos + 8));
+        }
+        else {
+            ans = std::stoi(this->cache_info.substr(start_pos + 8, end_pos - start_pos - 8));
+        }
     }
-    return -1;
+    return ans;
+}
+
+int Response::getMaxAge() {
+    return this->max_age;
+}
+
+int Response::parseSMaxAge() {
+    int ans = -1;
+    size_t start_pos = this->cache_info.find("s-maxage=");
+    if(start_pos != std::string::npos) {
+        size_t end_pos = this->cache_info.find_first_of(',', start_pos + 1);
+        if(end_pos == std::string::npos) {
+            ans = std::stoi(this->cache_info.substr(start_pos + 9));
+        }
+        else {
+            ans = std::stoi(this->cache_info.substr(start_pos + 9, end_pos - start_pos - 9));
+        }
+    }
+    return ans;
+}
+
+int Response::getSMaxAge() {
+    return this->s_maxage;
 }
 
 bool Response::isPrivate() {
@@ -81,6 +116,34 @@ bool Response::isNoCache() {
 
 bool Response::isNoStore() {
     if(size_t pos = this->cache_info.find("no-store") != std::string::npos) {
+        return true;
+    }
+    return false;
+}
+
+bool Response::isFresh() {
+    time_t now = time(0);
+    tm * tm_gmt = gmtime(&now);
+    time_t nowTime = mktime(tm_gmt);
+    time_t respTime = mktime(response_time.getTimeInfo());
+    int lifeSpan = nowTime - respTime;
+    if(getMaxAge() != -1) {
+        return getMaxAge() > lifeSpan;
+    }
+    else if(getSMaxAge() != -1) {
+        return getSMaxAge() > lifeSpan;
+    }
+    else if(formatFinder("Expires") != "") {
+        time_t expTime = mktime(expire_time.getTimeInfo());
+        return difftime(expTime, nowTime) > 0;
+    }
+    else {
+        return 300 > lifeSpan;
+    }
+}
+
+bool Response::isCachable() {
+    if(!isPrivate() && !isNoStore()) {
         return true;
     }
     return false;

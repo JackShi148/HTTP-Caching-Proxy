@@ -3,10 +3,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <time.h>
 
 #include "timeprocessing.hpp"
 
 class Response {
+    int max_age;
+    int s_maxage;
     std::string response_msg;
     std::string status_line; // 头部第一行
     std::string Etag;    // 用于检查有没有修改
@@ -16,6 +19,8 @@ class Response {
     std::string cache_info;  // max-age   no-cache  no-store  private
     std::string formatFinder(std::string field);
     void parseResponse();
+    int parseMaxAge();
+    int parseSMaxAge();
 public:
     Response(std::vector<char> msg) {
         std::string temp(msg.begin(), msg.end());
@@ -30,9 +35,12 @@ public:
     std::string getHttpVer();
     std::string getStatusCode();
     int getMaxAge();
+    int getSMaxAge();
     bool isPrivate();
     bool isNoCache();
     bool isNoStore();
+    bool isFresh();
+    bool isCachable();
 };
 
 #endif
