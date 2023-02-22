@@ -31,6 +31,14 @@ public:
         head->next = tail;
         tail->prev = head;
     }
+    ~Cache() {
+        Node * curNode = head;
+        while(curNode) {
+            head = head->next;
+            delete curNode;
+            curNode = head;
+        }
+    }
     std::string getResponse(std::string uri);
     void put(std::string uri, std::string response);
     void addToHead(Node * new_node);
