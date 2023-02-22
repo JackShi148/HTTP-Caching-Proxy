@@ -131,11 +131,11 @@ bool Response::isFresh() {
     time_t nowTime = mktime(tm_gmt);
     time_t respTime = mktime(response_time.getTimeInfo());
     int lifeSpan = nowTime - respTime;
-    if(getMaxAge() != -1) {
-        return getMaxAge() > lifeSpan;
-    }
-    else if(getSMaxAge() != -1) {
+    if(getSMaxAge() != -1) {
         return getSMaxAge() > lifeSpan;
+    }
+    else if(getMaxAge() != -1) {
+        return getMaxAge() > lifeSpan;
     }
     else if(formatFinder("Expires") != "") {
         time_t expTime = mktime(expire_time.getTimeInfo());
@@ -151,4 +151,15 @@ bool Response::isCachable() {
         return true;
     }
     return false;
+}
+
+bool Response::needRevalidate() {
+    if(isNoCache()) {
+        return true;
+    }
+    return !isFresh();
+}
+
+std::string Response::getResponse() {
+    return this->response_msg;
 }

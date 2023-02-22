@@ -145,3 +145,69 @@ void Proxy::check502(int client_connect_socket_fd, std::string response, void * 
 const char * Proxy::getPortNum(){
   return this->port;
 }
+
+void Proxy::putResponseToCache(std::string uri, Response response, Cache * cache) {
+  std::string status_code = response.getStatusCode();
+  std::string cache_control = response.getCacheControl();
+  if(status_code == "200" && response.isCachable()) {
+    cache->put(uri, response.getResponse());
+    // need log expire or revalidate
+  }
+  else {
+    std::string reason;
+    if(response.isPrivate()) {
+      reason = "Cache-Control: private";
+      // need log
+    }
+    else if(response.isNoStore()) {
+      reason = "Cache-Control: no-store";
+      // need log
+    }
+  }
+}
+
+void Proxy::sendString(int socket_fd, std::string msg) {
+  send(socket_fd, msg.data(), msg.size() + 1, 0);
+}
+
+std::string Proxy::sendNewRequest(int socket_fd, Request request) {
+  std::string old_req = request.getRequest();
+  sendString(socket_fd, old_req);
+  std::vector<char> v;
+  recvHelper(socket_fd, v);
+  Response new_response(v);
+  return new_response.getResponse();
+}
+
+std::string Proxy::revalidate(int socket_fd, Request request, Response response, Cache * cache) {
+  std::string Etag = response.getEtag();
+  std::string last_modified = response.getLastModified();
+  if(Etag != "") {
+    return validateCache(socket_fd, request, response, "Etag", Etag, cache);
+  }
+  else if(last_modified != "") {
+    return validateCache(socket_fd, request, response, "Last-Modified", last_modified, cache);
+  }
+  else {
+    std::string new_response = sendNewRequest(socket_fd, request);
+    putResponseToCache(request.getUri(), new_response, cache);
+    return new_response;
+  }
+}
+
+std::string Proxy::validateCache(int connect_server_fd, Request request, Response response, 
+                          std::string check_type, std::string check_content, Cache * cache) {
+  std::string old_req_head = request.getRequestHead();
+  old_req_head += "\r\n" + check_type + ": " + check_content + "\r\n\r\n";
+  sendString(connect_server_fd, old_req_head);
+  std::vector<char> new_response_v;
+  recvHelper(connect_server_fd, new_response_v);
+  Response new_response(new_response_v);
+  if(new_response.getStatusCode() == "304") {
+    return response.getResponse();
+  }
+  else {
+    putResponseToCache(request.getUri(), new_response, cache);
+    return new_response.getResponse();
+  }
+}

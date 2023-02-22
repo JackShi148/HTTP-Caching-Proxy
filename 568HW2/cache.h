@@ -45,7 +45,6 @@ public:
     void moveToHead(Node * node);
     void deleteTail();
     void moveToHead(Node * new_node);
-    int putResponseToCache(std::string uri, Response response);   // 写到proxy里面？
 };
 
 #endif

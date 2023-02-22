@@ -32,6 +32,12 @@ public:
     }
     bool isChunked();
     std::string getResponseLine();
+    std::string getResponse();
+    std::string getEtag();
+    std::string getLastModified();
+    TimeInfo getResponseTime();
+    TimeInfo getExpireTime();
+    std::string getCacheControl();
     int getContentLength();
     std::string getHttpVer();
     std::string getStatusCode();
@@ -42,6 +48,7 @@ public:
     bool isNoStore();
     bool isFresh();
     bool isCachable();
+    bool needRevalidate();
 };
 
 #endif

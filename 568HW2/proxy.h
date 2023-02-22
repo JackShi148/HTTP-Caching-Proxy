@@ -11,11 +11,13 @@
 #include <unordered_map>
 #include <vector>
 
+#include "cache.h"
 #include "server.h"
 #include "client.h"
 #include "exception.h"
 #include "hook.h"
 #include "request.hpp"
+#include "response.hpp"
 #include "log.h"
 
 #define PORT "8080"
@@ -45,6 +47,13 @@ class Proxy{
     void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
     void check502(int client_connect_socket_fd, std::string response, void * hook);
     const char * getPortNum();
+    void putResponseToCache(std::string uri, Response response, Cache * cache);
+    // send corresponding message to server and check if 304, and return response
+    std::string validateCache(int socket_fd, Request request, Response response, std::string check_type, std::string check_content, Cache * cache);
+    // do the revalidation and get response
+    std::string revalidate(int socket_fd, Request request, Response response, Cache * cache);
+    std::string sendNewRequest(int socket_fd, Request request);
+    void sendString(int socket_fd, std::string msg);
 };
 
 #endif

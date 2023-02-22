@@ -54,6 +54,7 @@ public:
         }
         return true;
     }
+    std::string getRequestHead();
     std::string getRequest() {
         return request;
     }
