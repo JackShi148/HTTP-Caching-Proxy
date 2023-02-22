@@ -1,6 +1,9 @@
 #include "cache.h"
 
+std::mutex cache_lock;
+
 std::string Cache::getResponse(std::string uri) {
+    std::lock_guard<std::mutex> lck(cache_lock);
     if(this->cache_map.count(uri) == 0) {
         return "";
     }
@@ -9,6 +12,7 @@ std::string Cache::getResponse(std::string uri) {
 }
 
 void Cache::addToHead(Node * new_node) {
+    std::lock_guard<std::mutex> lck(cache_lock);
     new_node->next = this->head->next;
     this->head->next->prev = new_node;
     new_node->prev = this->head;
@@ -16,6 +20,7 @@ void Cache::addToHead(Node * new_node) {
 }
 // remove from list but not to delete
 void Cache::removeNodeFromList(Node * node) {
+    std::lock_guard<std::mutex> lck(cache_lock);
     if(node != this->head && node != this->tail) {
         node->next->prev = node->prev;
         node->prev->next = node->next;
@@ -25,32 +30,36 @@ void Cache::removeNodeFromList(Node * node) {
 }
 
 void Cache::deleteTail() {
+    std::lock_guard<std::mutex> lck(cache_lock);
     if(this->size > 0) {
         Node * delete_node = this->tail->prev;
         removeNodeFromList(delete_node);
-        this->cache_map.erase(delete_node->key);
+        this->cache_map.erase(delete_node->uri);
         delete delete_node;
     }
 }
 
 void Cache::moveToHead(Node * node) {
+    std::lock_guard<std::mutex> lck(cache_lock);
     removeNodeFromList(node);
     addToHead(node);
 }
 
 void Cache::put(std::string uri, std::string response) {
-    if(this->size == this->capacity) {
-        deleteTail();
-        this->size--;
-    }
+    // already exist
     if(this->cache_map.count(uri) != 0) {
         this->cache_map[uri]->response = response;
         moveToHead(this->cache_map[uri]);
     }
+    // do not exist
     else {
+        if(this->size == this->capacity) {
+            deleteTail();
+            this->size--;
+        }
         Node * new_node = new Node(uri, response);
         this->cache_map[uri] = new_node;
         addToHead(new_node);
+        this->size++;
     }
-    this->size++;
 }

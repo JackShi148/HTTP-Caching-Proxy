@@ -12,13 +12,13 @@ class Cache {
 private:
     class Node {
     public:
-        std::string key;
+        std::string uri;
         std::string response;  // 完整的response报文
         Node * next;
         Node * prev;
 
         Node() : next(NULL), prev(NULL) {}
-        Node(std::string key, std::string response) : key(key), response(response), next(NULL), prev(NULL) {}
+        Node(std::string key, std::string response) : uri(key), response(response), next(NULL), prev(NULL) {}
     };
 public:
     int capacity;
@@ -31,7 +31,7 @@ public:
         head->next = tail;
         tail->prev = head;
     }
-    std::string getResponse(std::string key);
+    std::string getResponse(std::string uri);
     void put(std::string uri, std::string response);
     void addToHead(Node * new_node);
     void removeNodeFromList(Node * node);
