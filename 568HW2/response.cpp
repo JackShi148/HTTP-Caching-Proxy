@@ -40,6 +40,10 @@ bool Response::isChunked() {
     return false;
 }
 
+std::string Response::getResponseLine() {
+    return this->status_line;
+}
+
 int Response::getContentLength() {
     std::string content_len = formatFinder("Content-Length");
     if(content_len == "") {

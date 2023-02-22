@@ -31,6 +31,7 @@ public:
         parseResponse();
     }
     bool isChunked();
+    std::string getResponseLine();
     int getContentLength();
     std::string getHttpVer();
     std::string getStatusCode();
