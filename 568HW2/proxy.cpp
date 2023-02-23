@@ -5,17 +5,18 @@ void Proxy::startProxy(){
   int socket_fd = server.createServer();
   int thread_id = 0;
   Log log;
+  Cache cache(CACHE_CAPACITY);
   log.openLogFile("./proxy.log");
   while(1){
     std::string client_ip_addr;
     unsigned short int client_port;
     //proxy accepts connections from clients
     int client_connect_socket_fd = server.acceptConnections(&client_ip_addr,&client_port);
-    Hook * ahook = new Hook(thread_id, client_connect_socket_fd, client_ip_addr, client_port, this, &log);
+    Hook * ahook = new Hook(thread_id, client_connect_socket_fd, client_ip_addr, client_port, this, &log, &cache);
     pthread_t thread;
     pthread_create(&thread, NULL, routeRequest, ahook);
-    std::cout<<"New Thread Created: thread_id: "<<thread_id<<", client_connect_socket_fd: "
-    <<client_connect_socket_fd<<", client_IP_address: "<<client_ip_addr<<", client_port: "<<client_port<<std::endl;
+    std::cout<<"New Thread Created: thread_id: " << thread_id << ", client_connect_socket_fd: "
+    << client_connect_socket_fd << ", client_IP_address: " << client_ip_addr << ", client_port: " << client_port << std::endl;
     ++thread_id;
   }
 }
@@ -77,6 +78,51 @@ void * Proxy::routeRequest(void * ahook){
   return NULL;
 }
 
+void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook){
+  Hook * h = (Hook *) hook;
+  Proxy * p = (Proxy *) h->getThisObject();
+  Log * log = (Log *) h->getLog();
+  Cache * cache = (Cache *) h->getCache();
+  std::string uri = req.getUri();
+  std::string cached_response = cache->getResponse(uri);
+  if(cached_response == ""){
+    //not in cache
+    log->writeCacheLog(h, "not in cache", CACHE);
+    std::string request = req.getRequest();
+    send(request_server_fd, request.data(), request.size() + 1, 0);
+    log->writeLogFile(h, req.getRequestLine(), REQUEST);
+
+    //receive responses
+    std::string response = p->getEntireResponse(request_server_fd);
+    
+    //receive request server response
+    Response res(response);
+    log->writeLogFile(h, res.getResponseLine(), RECEIVE);
+    send(client_connect_socket_fd, response.data(), response.size() + 1, 0); // ?
+    
+    p->trySaveResponse(req.getUri(), res, hook);
+    log->writeLogFile(h, res.getResponseLine(), RESPOND);
+  }
+  else{
+    //in cache
+    Response res(cached_response);
+    if(res.needRevalidate()){
+      if(res.pastDue()) {
+          std::string expTime = res.getWhenExpire();
+          log->writeCacheLog(h, expTime, CACHE_EXPIREDTIME);
+      }
+      else {
+        log->writeCacheLog(h, "in cache, requires validation", CACHE);
+      }
+      std::string new_response = p->revalidate(request_server_fd, req, res, hook);
+    }
+    else{
+      log->writeCacheLog(h, "in cache, valid", CACHE);
+    }
+  }
+}
+
+
 void Proxy::connectRequest(int client_connect_socket_fd, int request_server_fd, void * hook){
   Hook * h = (Hook *) hook;
   Log * log = (Log *) h->getLog();
@@ -119,15 +165,15 @@ void Proxy::postRequest(int client_connect_socket_fd, int request_server_fd, Req
   send(request_server_fd, request.data(), request.size()+1, 0);
   char response[MAX_MSGLEN] = {0};
   int response_length = recv(request_server_fd,response,sizeof(response),MSG_WAITALL);
-  /*
   if(response_length > 0){
     Response res(response);
-    log->writeLogFile(h, req.getRequestLine(), RECEIVE);
+    log->writeLogFile(h, res.getResponseLine(), RECEIVE);
     send(client_connect_socket_fd,response,response_length,0);
-    log->writeLogFile(h, req.getRequestLine(), RESPOND);
+    log->writeLogFile(h, res.getResponseLine(), RESPOND);
+    std::cout << h->getThreadID() << ": succeed in posting client request -> " << req.getRequestLine() << std::endl;
     return;
   }
-  */
+  std::cout << h->getThreadID() << ": failed to post client request -> " << req.getRequestLine() << std::endl;
   return;
 }
 
@@ -146,68 +192,161 @@ const char * Proxy::getPortNum(){
   return this->port;
 }
 
-void Proxy::putResponseToCache(std::string uri, Response response, Cache * cache) {
+void Proxy::proxyResponse(int client_connect_socket_fd, std::string exp, void * hook){
+  Hook * h = (Hook *) hook;
+  Log * log = (Log *) h->getLog();
+  std::string errMsg = h->getHttpVer() + " ";
+  if(exp == "SUCCESS"){
+    errMsg += "200 OK";
+  }else if(exp == "URL ERROR"){
+    errMsg += "404 Not Found";
+  }else if(exp == "REQUEST ERROR"){
+    errMsg += "400 Bad Request";
+  }else{
+    errMsg += "503 Server Unavailable";
+  }
+  char sendMsg[errMsg.length()+4] = {0};
+  for(int i = 0; i < errMsg.length(); i++){
+    sendMsg[i] = errMsg[i];
+  }
+  sendMsg[errMsg.length()] = '\r';
+  sendMsg[errMsg.length()+1] = '\n';
+  sendMsg[errMsg.length()+2] = '\r';
+  sendMsg[errMsg.length()+3] = '\n';
+  send(client_connect_socket_fd, sendMsg, sizeof(sendMsg), 0);
+  log->writeLogFile(h, errMsg, RESPOND);
+}
+
+void Proxy::trySaveResponse(std::string uri, Response response, void * hook) {
+  Hook * h = (Hook*)hook;
+  Log * log = (Log *) h->getLog();
+  Cache * cache = (Cache*)h->getCache();
   std::string status_code = response.getStatusCode();
   std::string cache_control = response.getCacheControl();
   if(status_code == "200" && response.isCachable()) {
     cache->put(uri, response.getResponse());
     // need log expire or revalidate
+    if(response.isNoCache()) {
+      log->writeCacheLog(h, "cached, but requires re-validation", CACHE);
+    }
+    else if(response.getExpireTime_str() != "") {
+      std::string expTime = response.getWhenExpire();
+      log->writeCacheLog(h, expTime, CACHE_EXPIREDTIME); 
+    }
   }
   else {
-    std::string reason;
     if(response.isPrivate()) {
-      reason = "Cache-Control: private";
-      // need log
+      log->writeCacheLog(h, "not cacheable because the Cache-Control contains private", CACHE);
     }
     else if(response.isNoStore()) {
-      reason = "Cache-Control: no-store";
-      // need log
+      log->writeCacheLog(h, "not cacheable because the Cache-Control contains no-store", CACHE);
+    }
+    else if(response.isChunked()) {
+      log->writeCacheLog(h, "not cacheable because the response is chunked", CACHE);
     }
   }
 }
 
-void Proxy::sendString(int socket_fd, std::string msg) {
-  send(socket_fd, msg.data(), msg.size() + 1, 0);
-}
-
-std::string Proxy::sendNewRequest(int socket_fd, Request request) {
+std::string Proxy::sendNewRequest(int socket_fd, Request request, void * hook) {
+  Hook * h = (Hook*)hook;
+  Proxy * p = (Proxy*)h->getThisObject();
   std::string old_req = request.getRequest();
-  sendString(socket_fd, old_req);
-  std::vector<char> v;
-  recvHelper(socket_fd, v);
-  Response new_response(v);
-  return new_response.getResponse();
+  send(socket_fd, old_req.c_str(), old_req.size() + 1, 0);
+  std::string response = p->getEntireResponse(socket_fd);
+  return response;
 }
 
-std::string Proxy::revalidate(int socket_fd, Request request, Response response, Cache * cache) {
+std::string Proxy::revalidate(int socket_fd, Request request, Response response, void * hook) {
+  Hook * h = (Hook*)hook;
+  Cache * cache = (Cache*)h->getCache();
+  Proxy * p = (Proxy*)h->getThisObject();
   std::string Etag = response.getEtag();
   std::string last_modified = response.getLastModified();
   if(Etag != "") {
-    return validateCache(socket_fd, request, response, "Etag", Etag, cache);
+    return p->validateCache(socket_fd, request, response, "If-None-Match", Etag, cache);
   }
   else if(last_modified != "") {
-    return validateCache(socket_fd, request, response, "Last-Modified", last_modified, cache);
+    return p->validateCache(socket_fd, request, response, "If-Modified-Since", last_modified, cache);
   }
   else {
-    std::string new_response = sendNewRequest(socket_fd, request);
-    putResponseToCache(request.getUri(), new_response, cache);
+    std::string new_response = sendNewRequest(socket_fd, request, h);
+    p->trySaveResponse(request.getUri(), new_response, cache);
     return new_response;
   }
 }
 
 std::string Proxy::validateCache(int connect_server_fd, Request request, Response response, 
-                          std::string check_type, std::string check_content, Cache * cache) {
+                          std::string check_type, std::string check_content, void * hook) {
+  Hook * h = (Hook*)hook;
+  Cache * cache = (Cache*)h->getCache();
+  Proxy * p = (Proxy*)h->getThisObject();
   std::string old_req_head = request.getRequestHead();
   old_req_head += "\r\n" + check_type + ": " + check_content + "\r\n\r\n";
-  sendString(connect_server_fd, old_req_head);
-  std::vector<char> new_response_v;
-  recvHelper(connect_server_fd, new_response_v);
-  Response new_response(new_response_v);
+  send(connect_server_fd, old_req_head.c_str(), old_req_head.size() + 1, 0);
+  std::string res = p->getEntireResponse(connect_server_fd);
+  Response new_response(res);
   if(new_response.getStatusCode() == "304") {
     return response.getResponse();
   }
   else {
-    putResponseToCache(request.getUri(), new_response, cache);
+    p->trySaveResponse(request.getUri(), new_response, cache);
     return new_response.getResponse();
   }
+}
+
+std::string Proxy::getEntireResponse(int request_server_fd){
+  std::vector<std::string> msg;
+  //process response head
+  //ssize_t response_length = 0;
+  std::string response_head_string = "";
+  while(response_head_string.find("\r\n\r\n")==std::string::npos){
+    char response_head[MAX_MSGLEN] = {0};
+    int len;
+    if((len = recv(request_server_fd,response_head,sizeof(response_head),0)) <= 0){
+      break;
+    }
+    //response_length += len;
+    response_head_string = std::string(response_head);
+    msg.push_back(response_head_string);
+    response_head_string = "";
+  }
+
+  response_head_string = std::accumulate(msg.begin(),msg.end(),response_head_string);
+  Response res(response_head_string);
+  if(res.getStatusCode() == "304"){
+    return response_head_string;
+  }
+  
+  //process main body
+  std::string response_body_string = "";
+  if(res.isChunked()){
+    //memset(&response,0,sizeof(response));
+    while(response_body_string.substr(0,response_body_string.find("\r\n")) != "0"
+    || response_body_string.find("\r\n\r\n")==std::string::npos){
+      char response_body[MAX_MSGLEN] = {0};
+      if(recv(request_server_fd,response_body,sizeof(response_body),0) <= 0){
+        break;
+      }
+      response_body_string = std::string(response_body);
+      msg.push_back(response_body_string);
+    }
+  }else{
+    int msg_len = res.getContentLength();
+    if(msg_len == -1){
+      return response_head_string;
+    }
+    int body_len = 0;
+    while(body_len < msg_len){
+      char response_body[MAX_MSGLEN] = {0};
+      int len;
+      if((len = recv(request_server_fd,response_body,sizeof(response_body),0)) <= 0){
+        break;
+      }
+      response_body_string = std::string(response_body);
+      msg.push_back(response_body_string);
+      body_len += len;
+    }
+  }
+  std::string response_string = "";
+  return std::accumulate(msg.begin(),msg.end(),response_string);
 }

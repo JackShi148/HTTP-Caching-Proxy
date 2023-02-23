@@ -89,24 +89,3 @@ int Request::getReqCntLength() {
     int req_len = std::stoi(req_len_str);
     return req_len - content_len - 4;
 }
-
-
-std::string Response::getEtag() {
-    return this->Etag;
-}
-
-std::string Response::getLastModified() {
-    return this->last_modified;
-}
-
-TimeInfo Response::getResponseTime() {
-    return this->response_time;
-}
-
-TimeInfo Response::getExpireTime() {
-    return this->expire_time;
-}
-
-std::string Response::getCacheControl() {
-    return this->cache_info;
-}

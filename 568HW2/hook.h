@@ -13,14 +13,16 @@ class Hook {
     std::string client_ip_addr;
     unsigned short int client_port;
     std::string request_hostname;
+    std::string httpVer;
     void * proxy;
     void * log;
+    void * cache;
   
   public:
-    Hook(int thread_id,int client_connect_socket_fd,std::string client_ip_addr,unsigned short int client_port,void * proxy,void * log)
+    Hook(int thread_id, int client_connect_socket_fd, std::string client_ip_addr, unsigned short int client_port, void * proxy, void * log, void * cache)
     :thread_id(thread_id),client_connect_socket_fd(client_connect_socket_fd)
     ,client_ip_addr(client_ip_addr),client_port(client_port),request_hostname("")
-    ,proxy(proxy),log(log){}
+    ,proxy(proxy),log(log),cache(cache){}
     int getThreadID(){
       return this->thread_id;
     }
@@ -39,11 +41,20 @@ class Hook {
     std::string getReqHostName(){
       return this->request_hostname;
     }
+    void setHttpVer(std::string httpVer){
+      this->httpVer = httpVer;
+    }
+    std::string getHttpVer(){
+      return this->httpVer;
+    }
     void * getThisObject(){
-      return proxy;
+      return this->proxy;
     }
     void * getLog(){
-      return log;
+      return this->log;
+    }
+    void * getCache(){
+      return this->cache;
     }
 };
 

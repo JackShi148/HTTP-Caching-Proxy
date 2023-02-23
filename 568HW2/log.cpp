@@ -1,7 +1,7 @@
 #include "log.h"
 
 void Log::openLogFile(std::string filepath){
-  logfile.open(filepath, std::ostream::out);
+  logfile.open(filepath, std::ios::out);
   if(!logfile.is_open()){
     throw Exception("Error: cannot open the log file: ", filepath);
   }
@@ -16,7 +16,7 @@ void Log::writeLogFile(Hook * h, std::string msg, int option){
     logfile << h->getThreadID() << ": " << msg << std::endl;
   }else if(option == 1){
     logfile << h->getThreadID() << ": \"" << msg <<"\" from " << h->getClientIPAddr()
-    << " @ " << getCurrTime() << std::endl;
+    << " @ " << getCurrTime();
   }else if(option == 2){
     logfile << h->getThreadID() << ": " << "Requesting \"" << msg << "\" from " 
     << h->getReqHostName() << std::endl;
@@ -29,7 +29,7 @@ void Log::writeLogFile(Hook * h, std::string msg, int option){
   pthread_mutex_unlock(&mutex);
 }
 
-void Log::writeCacheResult(Hook * h, std::string msg, int option){
+void Log::writeCacheLog(Hook * h, std::string msg, int option){
   pthread_mutex_lock(&mutex);
   if(option == 10){
     logfile << h->getThreadID() << ": " << msg << std::endl;
@@ -49,4 +49,3 @@ std::string Log::getCurrTime(){
 void Log::closeLogFile(){
   logfile.close();
 }
-

@@ -43,17 +43,17 @@ int Server::createServer(){
 int Server::acceptConnections(std::string *ip_addr,unsigned short int *port){
   struct sockaddr_storage socket_addr;
   socklen_t socket_addr_len = sizeof(socket_addr);
-  int client_connect_socket_fd = accept(listen_socket_fd,(struct sockaddr *)&socket_addr,&socket_addr_len);
-  if(client_connect_socket_fd == -1){
+  int connect_socket_fd = accept(listen_socket_fd,(struct sockaddr *)&socket_addr,&socket_addr_len);
+  if(connect_socket_fd == -1){
     throw Exception("ERROR: accept failed, cannot connect to the client.");
   }
   //return IP address of client
   struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
-  //only for IPv4, may need change
+  //may need change
   *ip_addr = inet_ntoa(addr->sin_addr);
   *port = addr->sin_port;
-  std::cout<<"Server: get connection from "<<*ip_addr<<", port "<<*port<<std::endl;
-  return client_connect_socket_fd;
+  std::cout<<"Server: get connection from "<<*ip_addr<<", port "<<addr->sin_port<<std::endl;
+  return connect_socket_fd;
 }
 
 std::string Server::getHostAddr(){

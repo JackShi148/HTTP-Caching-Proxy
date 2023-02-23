@@ -10,6 +10,7 @@
 #include <map>
 #include <unordered_map>
 #include <vector>
+#include <numeric>
 
 #include "cache.h"
 #include "server.h"
@@ -33,6 +34,8 @@
 #define CACHE 10
 #define CACHE_EXPIREDTIME 11
 
+#define CACHE_CAPACITY 100
+
 class Proxy{
   private:
     const char * hostname;
@@ -45,15 +48,17 @@ class Proxy{
     static void * routeRequest(void * ahook);
     void connectRequest(int client_connect_socket_fd, int server_fd, void * hook);
     void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
+    void getRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
     void check502(int client_connect_socket_fd, std::string response, void * hook);
     const char * getPortNum();
-    void putResponseToCache(std::string uri, Response response, Cache * cache);
+    void proxyResponse(int client_connect_socket_fd, std::string exp, void * hook);
+    void trySaveResponse(std::string uri, Response response, void * hook);
+    std::string getEntireResponse(int request_server_fd);
     // send corresponding message to server and check if 304, and return response
-    std::string validateCache(int socket_fd, Request request, Response response, std::string check_type, std::string check_content, Cache * cache);
+    std::string validateCache(int socket_fd, Request request, Response response, std::string check_type, std::string check_content, void * hook);
     // do the revalidation and get response
-    std::string revalidate(int socket_fd, Request request, Response response, Cache * cache);
-    std::string sendNewRequest(int socket_fd, Request request);
-    void sendString(int socket_fd, std::string msg);
+    std::string revalidate(int socket_fd, Request request, Response response, void * hook);
+    std::string sendNewRequest(int socket_fd, Request request, void * hook);
 };
 
 #endif

@@ -32,6 +32,11 @@ std::string Response::formatFinder(std::string field) {
     return ans;
 }
 
+std::string Response::getResponseHead() {
+    size_t start_pos = this->response_msg.find("\r\n\r\n");
+    return this->response_msg.substr(0, start_pos);
+}
+
 bool Response::isChunked() {
     std::string encode_info = formatFinder("Transfer-Encoding");
     if(encode_info.find("chunked") != std::string::npos) {
@@ -125,29 +130,57 @@ bool Response::isNoStore() {
     return false;
 }
 
-bool Response::isFresh() {
+std::string Response::getWhenExpire() {
+    time_t respTime = mktime(response_time.getTimeInfo());
+    if(getSMaxAge() != -1) {
+        time_t expire_moment = respTime + (time_t)getSMaxAge();
+        const char * expTime_c = asctime(gmtime(&expire_moment));
+        std::string expTime = std::string(expTime_c);
+        return expTime;
+    }
+    else if(getMaxAge() != -1) {
+        time_t expire_moment = respTime + (time_t)getMaxAge();
+        const char * expTime_c = asctime(gmtime(&expire_moment));
+        std::string expTime = std::string(expTime_c);
+        return expTime;
+    }
+    else if(formatFinder("Expires") != "") {
+        time_t expire_moment = mktime(expire_time.getTimeInfo());
+        const char * expTime_c = asctime(gmtime(&expire_moment));
+        std::string expTime = std::string(expTime_c);
+        return expTime;
+    }
+    else {
+        time_t expire_moment = respTime + 300;
+        const char * expTime_c = asctime(gmtime(&expire_moment));
+        std::string expTime = std::string(expTime_c);
+        return expTime;
+    }
+}
+
+bool Response::pastDue() {
     time_t now = time(0);
     tm * tm_gmt = gmtime(&now);
     time_t nowTime = mktime(tm_gmt);
     time_t respTime = mktime(response_time.getTimeInfo());
     int lifeSpan = nowTime - respTime;
     if(getSMaxAge() != -1) {
-        return getSMaxAge() > lifeSpan;
+        return getSMaxAge() <= lifeSpan;
     }
     else if(getMaxAge() != -1) {
-        return getMaxAge() > lifeSpan;
+        return getMaxAge() <= lifeSpan;
     }
     else if(formatFinder("Expires") != "") {
         time_t expTime = mktime(expire_time.getTimeInfo());
-        return difftime(expTime, nowTime) > 0;
+        return difftime(expTime, nowTime) <= 0;
     }
     else {
-        return 300 > lifeSpan;
+        return 300 <= lifeSpan;
     }
 }
 
 bool Response::isCachable() {
-    if(!isPrivate() && !isNoStore()) {
+    if(!isPrivate() && !isNoStore() && !isChunked()) {
         return true;
     }
     return false;
@@ -157,9 +190,39 @@ bool Response::needRevalidate() {
     if(isNoCache()) {
         return true;
     }
-    return !isFresh();
+    return pastDue();
 }
 
 std::string Response::getResponse() {
     return this->response_msg;
+}
+
+std::string Response::getResponseTime_str() {
+    std::string respTime = formatFinder("Date");
+    return respTime;
+}
+
+std::string Response::getExpireTime_str() {
+    std::string expTime = formatFinder("Expires");
+    return expTime;
+}
+
+std::string Response::getEtag() {
+    return this->Etag;
+}
+
+std::string Response::getLastModified() {
+    return this->last_modified;
+}
+
+TimeInfo Response::getResponseTime() {
+    return this->response_time;
+}
+
+TimeInfo Response::getExpireTime() {
+    return this->expire_time;
+}
+
+std::string Response::getCacheControl() {
+    return this->cache_info;
 }

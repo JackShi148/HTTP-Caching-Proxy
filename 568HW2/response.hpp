@@ -30,23 +30,27 @@ public:
     Response(std::string response_msg) : response_msg(response_msg) {
         parseResponse();
     }
-    bool isChunked();
+    std::string getResponseHead();
     std::string getResponseLine();
     std::string getResponse();
     std::string getEtag();
     std::string getLastModified();
     TimeInfo getResponseTime();
     TimeInfo getExpireTime();
+    std::string getResponseTime_str();
+    std::string getExpireTime_str();
     std::string getCacheControl();
-    int getContentLength();
+    std::string getWhenExpire();
     std::string getHttpVer();
     std::string getStatusCode();
+    int getContentLength();
     int getMaxAge();
-    int getSMaxAge();
+    int getSMaxAge();    
+    bool isChunked();
     bool isPrivate();
     bool isNoCache();
     bool isNoStore();
-    bool isFresh();
+    bool pastDue();
     bool isCachable();
     bool needRevalidate();
 };
