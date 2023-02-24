@@ -144,9 +144,6 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
     //in cache
     Response res(cached_response);
     int max_stale = req.getMaxStale();
-    if(max_stale == -1) {
-      max_stale = 0;
-    }
     if(res.needRevalidate(max_stale)){
       if(res.pastDue(max_stale)) {
           std::string expTime = res.getWhenExpire();

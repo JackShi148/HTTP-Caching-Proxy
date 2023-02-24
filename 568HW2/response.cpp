@@ -196,7 +196,7 @@ bool Response::pastDue(int max_stale) {
             return true;
         }
         else {
-            return (dif + max_stale) > 0;
+            return (dif + max_stale) <= 0;
         }
     }
     else {

@@ -1,98 +1,136 @@
-0: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:08 2023
-0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+0: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+1: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+0: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
 0: not in cache
-0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-0: Received "HTTP/1.1 200 OK" from httpbin.org
-0: Responding "HTTP/1.1 200 OK"
-1: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
-1: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+0: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+1: Requesting "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from contile.services.mozilla.com
 1: Responding "HTTP/1.1 200 OK"
-2: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
-3: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
-2: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-4: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
-3: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-3: Responding "HTTP/1.1 200 OK"
-4: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
-4: Responding "HTTP/1.1 200 OK"
-5: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
-5: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-6: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:15 2023
-6: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-6: in cache, valid
-7: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:15 2023
-7: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+0: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+0: Responding "HTTP/1.1 200 OK"
+2: "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+3: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+3: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+3: in cache, but expired at Sat Feb 25 00:39:28 2023
+
+4: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+5: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+4: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+2: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
+2: Responding "HTTP/1.1 200 OK"
+6: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+5: Requesting "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from firefox.settings.services.mozilla.com
+5: Responding "HTTP/1.1 200 OK"
+6: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+6: in cache, but expired at Fri Feb 24 13:38:25 2023
+
+7: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+9: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+10: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+8: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+11: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+12: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+13: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+14: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+15: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+7: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 7: Responding "HTTP/1.1 200 OK"
-8: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:22 2023
-8: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-8: not in cache
-8: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-8: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-8: not cacheable because the Cache-Control contains no-store
-8: Responding "HTTP/1.1 200 OK"
-10: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:33 2023
-10: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+10: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 10: Responding "HTTP/1.1 200 OK"
-11: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:33 2023
-11: Requesting "POST http://ocsp.sectigo.com/ HTTP/1.1" from ocsp.sectigo.com
-10: Tunnel closed
-12: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:36 2023
-12: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+9: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+9: Responding "HTTP/1.1 200 OK"
+11: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+11: Responding "HTTP/1.1 200 OK"
+12: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 12: Responding "HTTP/1.1 200 OK"
-20: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:36 2023
-20: Requesting "CONNECT www.googletagmanager.com:443 HTTP/1.1" from www.googletagmanager.com
-20: Responding "HTTP/1.1 200 OK"
-16: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
-16: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
-16: Responding "HTTP/1.1 200 OK"
-16: Tunnel closed
-26: "CONNECT www.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
-26: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-26: Responding "HTTP/1.1 200 OK"
-26: Tunnel closed
-28: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
-28: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
+8: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+8: Responding "HTTP/1.1 200 OK"
+13: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
+13: Responding "HTTP/1.1 200 OK"
+15: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+14: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+14: in cache, but expired at Fri Feb 24 11:24:06 2023
+
+17: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+18: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+16: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+16: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+19: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+18: Requesting "CONNECT aus5.mozilla.org:443 HTTP/1.1" from aus5.mozilla.org
+18: Responding "HTTP/1.1 200 OK"
+19: Requesting "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from firefox.settings.services.mozilla.com
+19: Responding "HTTP/1.1 200 OK"
+20: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+21: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+22: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+20: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+20: in cache, but expired at Fri Feb 24 23:48:28 2023
+
+22: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+21: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+17: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+17: Responding "HTTP/1.1 200 OK"
+24: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+24: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+24: in cache, but expired at Fri Feb 24 16:13:12 2023
+
+23: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:47 2023
+23: Requesting "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from firefox.settings.services.mozilla.com
+23: Responding "HTTP/1.1 200 OK"
+25: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+25: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+26: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+27: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+26: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+28: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+29: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+30: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+31: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+29: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+27: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+27: Responding "HTTP/1.1 200 OK"
+28: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
 28: Responding "HTTP/1.1 200 OK"
-29: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
-29: Requesting "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from stats.g.doubleclick.net
-29: Responding "HTTP/1.1 200 OK"
-9: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:38 2023
-
-30: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-30: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-30: in cache, valid
-19: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-18: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-23: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-27: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-14: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-21: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-13: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-17: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-25: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-24: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-15: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-22: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
-
-31: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:53 2023
-31: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-31: in cache, valid
-20: Tunnel closed
+30: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+30: Responding "HTTP/1.1 200 OK"
+31: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+31: Responding "HTTP/1.1 200 OK"
+32: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+33: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+34: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+19: Tunnel closed
+32: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+33: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+13: Tunnel closed
+34: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+34: Responding "HTTP/1.1 200 OK"
+11: Tunnel closed
 12: Tunnel closed
-29: Tunnel closed
-28: Tunnel closed
+35: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:49 2023
+35: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+35: Responding "HTTP/1.1 200 OK"
+36: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:51 2023
+36: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+23: Tunnel closed
+37: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:51 2023
 7: Tunnel closed
-1: Tunnel closed
-4: Tunnel closed
-3: Tunnel closed
+37: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+37: Responding "HTTP/1.1 200 OK"
+38: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:51 2023
+39: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:51 2023
+38: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+10: Tunnel closed
+39: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+40: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:51 2023
+9: Tunnel closed
+40: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+35: Tunnel closed
+37: Tunnel closed
+41: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:16:52 2023
+41: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+41: not in cache
+41: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+41: Received "HTTP/1.1 200 OK" from httpbin.org
+41: Responding "HTTP/1.1 200 OK"
+28: Tunnel closed
+31: Tunnel closed
+30: Tunnel closed

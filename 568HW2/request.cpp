@@ -140,7 +140,7 @@ int Request::getMaxStale() {
     std::string cache_control = formatFinder("Cache-Control");
     size_t start_pos = cache_control.find("max-stale=");
     if(start_pos == std::string::npos) {
-        return -1;
+        return 0;
     }
     start_pos += 10;
     size_t end_pos = cache_control.find_first_of(',', start_pos);
