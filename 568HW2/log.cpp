@@ -35,6 +35,10 @@ void Log::writeCacheLog(Hook * h, std::string msg, int option){
     logfile << h->getThreadID() << ": " << msg << std::endl;
   }else if(option == 11){
     logfile << h->getThreadID() << ": in cache, but expired at " << msg << std::endl;
+  }else if(option == 12){
+    logfile << h->getThreadID() << ": not cacheable because " << msg << std::endl;
+  }else if(option == 13){
+    logfile << h->getThreadID() << ": cached, expires at " << msg << std::endl;
   }
   pthread_mutex_unlock(&mutex);
 }

@@ -16,6 +16,7 @@ class Request {
     std::string hostname;
     std::string port;
     std::string httpVer;
+    void formatChecker();
     void parseMethod();
     void parseUri();
     void parseHostPort();
@@ -25,11 +26,12 @@ public:
         request = req;
         size_t http_pos = request.find("HTTP/");
         if(http_pos == std::string::npos) {
-            throw Exception("The format of request is incorrect\n");
+            throw Exception("REQUEST ERROR");
         }
         httpVer = request.substr(http_pos, 8);
         size_t line_end = request.find("\r\n");
         request_line = request.substr(0, line_end);
+        formatChecker();
         parseMethod();
         parseHostPort();
         parseUri();
@@ -37,23 +39,18 @@ public:
     Request(std::string request_msg) : request(request_msg) {
         size_t http_pos = request.find("HTTP/");
         if(http_pos == std::string::npos) {
-            throw Exception("The format of request is incorrect\n");
+            throw Exception("REQUEST ERROR");
         }
         httpVer = request.substr(http_pos, 8);
         size_t line_end = request.find("\r\n");
         request_line = request.substr(0, line_end);
+        formatChecker();
         parseMethod();
         parseHostPort();
         parseUri();
     }
     std::string formatFinder(std::string field);
     int getReqCntLength();
-    bool validate() {
-        if(this->method != "GET" && this->method != "POST" && this->method != "CONNECT") {
-            return false;
-        }
-        return true;
-    }
     std::string getRequestHead();
     std::string getRequest() {
         return request;

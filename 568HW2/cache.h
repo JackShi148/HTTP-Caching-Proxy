@@ -44,7 +44,6 @@ public:
     void removeNodeFromList(Node * node);
     void moveToHead(Node * node);
     void deleteTail();
-    void moveToHead(Node * new_node);
 };
 
 #endif

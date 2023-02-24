@@ -12,14 +12,14 @@
 #include <vector>
 #include <numeric>
 
-#include "cache.h"
 #include "server.h"
 #include "client.h"
 #include "exception.h"
 #include "hook.h"
 #include "request.hpp"
-#include "response.hpp"
 #include "log.h"
+#include "response.hpp"
+#include "cache.h"
 
 #define PORT "8080"
 #define MAX_MSGLEN 65536
@@ -33,6 +33,8 @@
 
 #define CACHE 10
 #define CACHE_EXPIREDTIME 11
+#define NOT_CACHEABLE 12
+#define CACHE_EXPIRES 13
 
 #define CACHE_CAPACITY 100
 
@@ -47,18 +49,16 @@ class Proxy{
     void startProxy();
     static void * routeRequest(void * ahook);
     void connectRequest(int client_connect_socket_fd, int server_fd, void * hook);
-    void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
     void getRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
-    void check502(int client_connect_socket_fd, std::string response, void * hook);
-    const char * getPortNum();
+    void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void * hook);
     void proxyResponse(int client_connect_socket_fd, std::string exp, void * hook);
-    void trySaveResponse(std::string uri, Response response, void * hook);
     std::string getEntireResponse(int request_server_fd);
-    // send corresponding message to server and check if 304, and return response
-    std::string validateCache(int socket_fd, Request request, Response response, std::string check_type, std::string check_content, void * hook);
-    // do the revalidation and get response
-    std::string revalidate(int socket_fd, Request request, Response response, void * hook);
-    std::string sendNewRequest(int socket_fd, Request request, void * hook);
+    void trySaveResponse(std::string uri, Response response, void * hook);
+    std::string revalidate(int request_server_fd, Request request, Response response, void * hook);
+    std::string validateCache(int request_server_fd, Request request, Response response, 
+                          std::string check_type, std::string check_content, void * hook);
+    const char * getHostName();
+    const char * getPortNum();
 };
 
 #endif

@@ -22,7 +22,7 @@ class Response {
     int parseMaxAge();
     int parseSMaxAge();
 public:
-    Response(std::vector<char> msg) {
+    Response(std::vector<char>& msg) {
         std::string temp(msg.begin(), msg.end());
         response_msg = temp;
         parseResponse();

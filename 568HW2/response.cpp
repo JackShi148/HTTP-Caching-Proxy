@@ -8,13 +8,12 @@ void Response::parseResponse() {
     this->Etag = formatFinder("Etag");
     this->last_modified = formatFinder("Last-Modified");
     this->cache_info = formatFinder("Cache-Control");
-    
     std::string respTime = formatFinder("Date");
     if(respTime != "") {
          this->response_time.parse(respTime);
     }
     std::string expTime = formatFinder("Expires");
-    if(expTime != "") {
+    if(expTime != "" && expTime != "-1" && expTime != "0") {
         this->expire_time.parse(expTime);
     }
 }
