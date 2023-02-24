@@ -1,40 +1,98 @@
-0: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:14 2023
-0: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+0: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:08 2023
+0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+0: not in cache
+0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+0: Received "HTTP/1.1 200 OK" from httpbin.org
 0: Responding "HTTP/1.1 200 OK"
-1: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:15 2023
-2: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:15 2023
-3: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:15 2023
-1: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-2: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-2: Responding "HTTP/1.1 200 OK"
-3: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
-3: Responding "HTTP/1.1 200 OK"
-4: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:15 2023
-4: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-5: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:16 2023
-5: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-5: not in cache
-5: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-5: Received "HTTP/1.1 200 OK" from httpbin.org
-5: Responding "HTTP/1.1 200 OK"
-6: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:16 2023
-6: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-6: Responding "HTTP/1.1 200 OK"
-7: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:16 2023
-7: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-8: "POST http://httpbin.org/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:12:37 2023
-8: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
-8: Received "HTTP/1.1 200 OK" from httpbin.org
-8: Responding "HTTP/1.1 200 OK"
-9: "CONNECT spocs.getpocket.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:14:33 2023
-9: Requesting "CONNECT spocs.getpocket.com:443 HTTP/1.1" from spocs.getpocket.com
-9: Responding "HTTP/1.1 200 OK"
-10: "POST http://ocsp.sca1b.amazontrust.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 22:14:33 2023
-10: Requesting "POST http://ocsp.sca1b.amazontrust.com/ HTTP/1.1" from ocsp.sca1b.amazontrust.com
-2: Tunnel closed
-0: Tunnel closed
-6: Tunnel closed
-1: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+1: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
+1: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
 1: Responding "HTTP/1.1 200 OK"
-7: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+2: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
+3: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
+2: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+4: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
+3: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+3: Responding "HTTP/1.1 200 OK"
+4: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+4: Responding "HTTP/1.1 200 OK"
+5: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:14 2023
+5: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+6: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:15 2023
+6: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+6: in cache, valid
+7: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:15 2023
+7: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
 7: Responding "HTTP/1.1 200 OK"
+8: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:22 2023
+8: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+8: not in cache
+8: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+8: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+8: not cacheable because the Cache-Control contains no-store
+8: Responding "HTTP/1.1 200 OK"
+10: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:33 2023
+10: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+10: Responding "HTTP/1.1 200 OK"
+11: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:33 2023
+11: Requesting "POST http://ocsp.sectigo.com/ HTTP/1.1" from ocsp.sectigo.com
+10: Tunnel closed
+12: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:36 2023
+12: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+12: Responding "HTTP/1.1 200 OK"
+20: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:36 2023
+20: Requesting "CONNECT www.googletagmanager.com:443 HTTP/1.1" from www.googletagmanager.com
+20: Responding "HTTP/1.1 200 OK"
+16: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
+16: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+16: Responding "HTTP/1.1 200 OK"
+16: Tunnel closed
+26: "CONNECT www.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
+26: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
+26: Responding "HTTP/1.1 200 OK"
+26: Tunnel closed
+28: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
+28: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
+28: Responding "HTTP/1.1 200 OK"
+29: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:37 2023
+29: Requesting "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from stats.g.doubleclick.net
+29: Responding "HTTP/1.1 200 OK"
+9: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:38 2023
+
+30: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+30: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+30: in cache, valid
+19: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+18: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+23: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+27: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+14: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+21: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+13: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+17: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+25: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+24: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+15: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+22: WARNING Invalid Request from 173.95.91.86 @ Fri Feb 24 23:07:42 2023
+
+31: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Fri Feb 24 23:07:53 2023
+31: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+31: in cache, valid
+20: Tunnel closed
+12: Tunnel closed
+29: Tunnel closed
+28: Tunnel closed
+7: Tunnel closed
+1: Tunnel closed
+4: Tunnel closed
+3: Tunnel closed

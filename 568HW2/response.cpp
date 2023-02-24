@@ -129,6 +129,20 @@ bool Response::isNoStore() {
     return false;
 }
 
+bool Response::isCachable() {
+    if(!isPrivate() && !isNoStore() && !isChunked()) {
+        return true;
+    }
+    return false;
+}
+
+bool Response::isMustRevalidate() {
+    if(this->cache_info.find("must-revalidate") != std::string::npos){
+        return true;
+    }
+    return false;
+}
+
 std::string Response::getWhenExpire() {
     time_t respTime = mktime(response_time.getTimeInfo());
     if(getSMaxAge() != -1) {
@@ -157,46 +171,44 @@ std::string Response::getWhenExpire() {
     }
 }
 
-bool Response::pastDue() {
+bool Response::pastDue(int max_stale) {
     time_t now = time(0);
     tm * tm_gmt = gmtime(&now);
     time_t nowTime = mktime(tm_gmt);
     time_t respTime = mktime(response_time.getTimeInfo());
     int lifeSpan = nowTime - respTime;
+    int dif = 0;
     if(getSMaxAge() != -1) {
-        return getSMaxAge() <= lifeSpan;
+        dif = getSMaxAge() - lifeSpan;
     }
     else if(getMaxAge() != -1) {
-        return getMaxAge() <= lifeSpan;
+        dif = getMaxAge() - lifeSpan;
     }
     else if(formatFinder("Expires") != "") {
         time_t expTime = mktime(expire_time.getTimeInfo());
-        return difftime(expTime, nowTime) <= 0;
+        dif = difftime(expTime, nowTime);
     }
     else {
-        return 5000 <= lifeSpan;
+        dif = 5000 - lifeSpan;
+    }
+    if(dif <= 0) {
+        if(isMustRevalidate()) {
+            return true;
+        }
+        else {
+            return (dif + max_stale) > 0;
+        }
+    }
+    else {
+        return false;
     }
 }
 
-bool Response::isCachable() {
-    if(!isPrivate() && !isNoStore() && !isChunked()) {
-        return true;
-    }
-    return false;
-}
-
-bool Response::isMustRevalidate() {
-    if(this->cache_info.find("must-revalidate") != std::string::npos){
-        return true;
-    }
-    return false;
-}
-
-bool Response::needRevalidate() {
+bool Response::needRevalidate(int max_stale) {
     if(isNoCache()) {
         return true;
     }
-    return pastDue();
+    return pastDue(max_stale);
 }
 
 std::string Response::getResponse() {

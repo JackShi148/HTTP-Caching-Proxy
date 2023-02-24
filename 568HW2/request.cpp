@@ -12,7 +12,7 @@ std::string Request::formatFinder(std::string field) {
     if(start_pos == std::string::npos) {
         return "";
     }
-    size_t end_pos = this->request.find("\r\n", start_pos);
+    size_t end_pos = this->request.find_first_of("\r\n", start_pos + 1);
     // skip the field name, colon and whitespace
     size_t field_len = field.size();
     start_pos += field_len + 2;
@@ -133,4 +133,22 @@ int Request::getReqCntLength() {
 std::string Request::getRequestHead(){
     size_t start_pos = this->request.find("\r\n\r\n");
     return this->request.substr(0, start_pos);
+}
+
+int Request::getMaxStale() {
+    int ans = 0;
+    std::string cache_control = formatFinder("Cache-Control");
+    size_t start_pos = cache_control.find("max-stale=");
+    if(start_pos == std::string::npos) {
+        return -1;
+    }
+    start_pos += 10;
+    size_t end_pos = cache_control.find_first_of(',', start_pos);
+    if(end_pos == std::string::npos) {
+        ans = std::stoi(cache_control.substr(start_pos));
+    }
+    else {
+        ans = std::stoi(cache_control.substr(start_pos, end_pos - start_pos));
+    }
+    return ans;
 }

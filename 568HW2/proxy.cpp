@@ -34,9 +34,9 @@ void * Proxy::routeRequest(void * ahook){
     log->writeLogFile(hook_info, "Invalid Request", WARNING);
     return NULL;
   }
-  std::cout << "request char size: " << len << std::endl;
+  // std::cout << "request char size: " << len << std::endl;
   std::string req_msg = std::string(request, len);
-  std::cout << "request: \n" << req_msg << " size: " << req_msg.size() << std::endl;
+  // std::cout << "request: \n" << req_msg << " size: " << req_msg.size() << std::endl;
   
   int request_server_fd;
   try{
@@ -143,8 +143,12 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
   else{
     //in cache
     Response res(cached_response);
-    if(res.needRevalidate()){
-      if(res.pastDue()) {
+    int max_stale = req.getMaxStale();
+    if(max_stale == -1) {
+      max_stale = 0;
+    }
+    if(res.needRevalidate(max_stale)){
+      if(res.pastDue(max_stale)) {
           std::string expTime = res.getWhenExpire();
           log->writeCacheLog(h, expTime, CACHE_EXPIREDTIME);
       }
@@ -230,7 +234,7 @@ std::string Proxy::getEntireResponse(int request_server_fd){
 
   ssize_t head = response_head_string.find("\r\n\r\n");
   ssize_t body_len = cur_total_len - head - 4;
-  std::cout << "body_len: " << body_len << std::endl;
+  // std::cout << "body_len: " << body_len << std::endl;
 
   //std::cout<<response_head_string<<std::endl;
   Response res(response_head_string);

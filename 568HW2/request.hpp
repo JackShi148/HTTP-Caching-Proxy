@@ -51,6 +51,7 @@ public:
     }
     std::string formatFinder(std::string field);
     int getReqCntLength();
+    int getMaxStale();
     std::string getRequestHead();
     std::string getRequest() {
         return request;

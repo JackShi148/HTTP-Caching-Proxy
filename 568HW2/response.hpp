@@ -51,9 +51,9 @@ public:
     bool isNoCache();
     bool isNoStore();
     bool isMustRevalidate();
-    bool pastDue();
+    bool pastDue(int max_stale);
     bool isCachable();
-    bool needRevalidate();
+    bool needRevalidate(int max_stale);
 };
 
 #endif
