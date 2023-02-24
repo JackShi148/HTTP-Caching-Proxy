@@ -27,12 +27,16 @@ void * Proxy::routeRequest(void * ahook){
   Proxy * p = (Proxy *) hook_info->getThisObject();
   Log * log = (Log *) hook_info->getLog();
   char request[MAX_MSGLEN] = {0};
-  int len = recv(client_connect_socket_fd, request, sizeof(request),0);
+  // std::vector<char> request;
+  // request.resize(MAX_MSGLEN);
+  int len = recv(client_connect_socket_fd, request, sizeof(request), 0);
   if(len <= 0){
     log->writeLogFile(hook_info, "Invalid Request", WARNING);
     return NULL;
   }
-  std::string req_msg = std::string(request,len);
+  std::cout << "request char size: " << len << std::endl;
+  std::string req_msg = std::string(request, len);
+  std::cout << "request: \n" << req_msg << " size: " << req_msg.size() << std::endl;
   
   int request_server_fd;
   try{
@@ -58,15 +62,18 @@ void * Proxy::routeRequest(void * ahook){
       p->proxyResponse(client_connect_socket_fd, "SUCCESS", ahook);
       p->connectRequest(client_connect_socket_fd, request_server_fd, ahook);
       log->writeLogFile(hook_info, "Tunnel closed", LOGMSG);
-    }else if(method == "GET"){
+    }
+    else if(method == "GET"){
       log->writeLogFile(hook_info, r.getRequestLine(), REQUEST);
       p->getRequest(client_connect_socket_fd, request_server_fd, r, ahook);
-    }else if(method == "POST"){
+    }
+    else if(method == "POST"){
       log->writeLogFile(hook_info, r.getRequestLine(), REQUEST);
       p->postRequest(client_connect_socket_fd, request_server_fd, r, ahook);
     }
     
-  } catch(Exception e) {
+  } 
+  catch(Exception e) {
     std::string errMsg;
     std::string exp = std::string(e.what());
     p->proxyResponse(client_connect_socket_fd, exp, ahook);
@@ -124,7 +131,7 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
 
     //receive responses
     std::string server_response = p->getEntireResponse(request_server_fd);
-    //std::cout << server_response <<std::endl;
+    // std::cout << server_response <<std::endl;
     
     //receive request server response
     Response res(server_response);
@@ -132,7 +139,8 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
     send(client_connect_socket_fd, server_response.data(), server_response.size(), 0);
     p->trySaveResponse(uri, server_response, hook); 
     log->writeLogFile(h, res.getResponseLine(), RESPOND);
-  }else{
+  }
+  else{
     //in cache
     Response res(cached_response);
     if(res.needRevalidate()){
@@ -204,28 +212,29 @@ void Proxy::proxyResponse(int client_connect_socket_fd, std::string exp, void * 
 std::string Proxy::getEntireResponse(int request_server_fd){
   std::vector<std::string> msg;
   //process response head
-  ssize_t rec_length = 0;
-  int len;
+  ssize_t cur_total_len = 0;
+  int len = 0;
   std::string response_head_string = "";
   while(response_head_string.find("\r\n\r\n")==std::string::npos){
     char response_head[MAX_MSGLEN] = {0};
     response_head_string = "";
-    if((len = recv(request_server_fd,response_head,sizeof(response_head),0)) <= 0){
+    if((len = recv(request_server_fd, response_head, sizeof(response_head), 0)) <= 0){
       break;
     }
-    rec_length += len;
-    response_head_string = std::string(response_head,len);
+    cur_total_len += len;
+    response_head_string = std::string(response_head, len);
     msg.push_back(response_head_string);
   }
-
+  response_head_string = "";
   response_head_string = std::accumulate(msg.begin(),msg.end(),response_head_string);
+
+  ssize_t head = response_head_string.find("\r\n\r\n");
+  ssize_t body_len = cur_total_len - head - 4;
+  std::cout << "body_len: " << body_len << std::endl;
+
   //std::cout<<response_head_string<<std::endl;
   Response res(response_head_string);
   response_head_string = res.getResponseHead().append("\r\n\r\n");
-  
-  ssize_t head = response_head_string.find("\r\n\r\n");
-  
-  ssize_t dif = rec_length - head - 4;
   
   if(res.getStatusCode() == "304"){
     return response_head_string;
@@ -243,16 +252,13 @@ std::string Proxy::getEntireResponse(int request_server_fd){
       response_body_string = std::string(response_body,len);
       msg.push_back(response_body_string);
     }
-  }else{
+  }
+  else{
     int msg_len = res.getContentLength();
-    if(msg_len == -1){
+    if(msg_len == -1 || body_len == msg_len){
       return response_head_string;
     }
-    if(dif == msg_len){
-      return response_head_string;
-    }
-    //std::cout<<dif<<";"<<msg_len<<std::endl;
-    int body_len = 0;
+    std::cout<<body_len<<";"<<msg_len<<std::endl;
     while(body_len < msg_len){
       char response_body[MAX_MSGLEN] = {0};
       if((len = recv(request_server_fd,response_body,sizeof(response_body),0)) <= 0){

@@ -150,7 +150,7 @@ std::string Response::getWhenExpire() {
         return expTime;
     }
     else {
-        time_t expire_moment = respTime + 300;
+        time_t expire_moment = respTime + 5000;
         const char * expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
         return expTime;
@@ -174,12 +174,19 @@ bool Response::pastDue() {
         return difftime(expTime, nowTime) <= 0;
     }
     else {
-        return 300 <= lifeSpan;
+        return 5000 <= lifeSpan;
     }
 }
 
 bool Response::isCachable() {
     if(!isPrivate() && !isNoStore() && !isChunked()) {
+        return true;
+    }
+    return false;
+}
+
+bool Response::isMustRevalidate() {
+    if(this->cache_info.find("must-revalidate") != std::string::npos){
         return true;
     }
     return false;

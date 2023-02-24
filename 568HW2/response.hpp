@@ -50,6 +50,7 @@ public:
     bool isPrivate();
     bool isNoCache();
     bool isNoStore();
+    bool isMustRevalidate();
     bool pastDue();
     bool isCachable();
     bool needRevalidate();
