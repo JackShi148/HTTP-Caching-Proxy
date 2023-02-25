@@ -39,17 +39,17 @@ public:
     TimeInfo() {}
     void parse(std::string time_str) {
         DatetimeMap dt_map;
-        timeinfo.tm_sec = std::stoi(time_str.substr(23), nullptr);
-        timeinfo.tm_min = std::stoi(time_str.substr(20), nullptr);
-        timeinfo.tm_hour = std::stoi(time_str.substr(17), nullptr);
-        timeinfo.tm_wday = dt_map.datetime_map[time_str.substr(0, 3)];
-        timeinfo.tm_mday = std::stoi(time_str.substr(5), nullptr);
-        timeinfo.tm_mon = dt_map.datetime_map[time_str.substr(8, 3)];
-        timeinfo.tm_year = std::stoi(time_str.substr(12)) - 1900;
-        timeinfo.tm_isdst = 0;
+        this->timeinfo.tm_sec = std::stoi(time_str.substr(23), nullptr);
+        this->timeinfo.tm_min = std::stoi(time_str.substr(20), nullptr);
+        this->timeinfo.tm_hour = std::stoi(time_str.substr(17), nullptr);
+        this->timeinfo.tm_wday = dt_map.datetime_map[time_str.substr(0, 3)];
+        this->timeinfo.tm_mday = std::stoi(time_str.substr(5), nullptr);
+        this->timeinfo.tm_mon = dt_map.datetime_map[time_str.substr(8, 3)];
+        this->timeinfo.tm_year = std::stoi(time_str.substr(12)) - 1900;
+        this->timeinfo.tm_isdst = 0;
     }
     struct tm * getTimeInfo() {
-        return &timeinfo;
+        return &(this->timeinfo);
     }
 };
 

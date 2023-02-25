@@ -146,7 +146,10 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
     int max_stale = req.getMaxStale();
     if(res.needRevalidate(max_stale)){
       if(res.pastDue(max_stale)) {
+          char* respTime = asctime(res.getResponseTime().getTimeInfo());
+          std::cout << "respTime: " << respTime << std::endl;
           std::string expTime = res.getWhenExpire();
+          std::cout << "expTime: " << expTime << std::endl;
           log->writeCacheLog(h, expTime, CACHE_EXPIREDTIME);
       }
       else {
@@ -286,8 +289,9 @@ void Proxy::trySaveResponse(std::string uri, Response response, void * hook) {
     if(response.isNoCache()) {
       log->writeCacheLog(h, "cached, but requires re-validation", CACHE);
     }
-    else if(response.getExpireTime_str() != "") {
+    else {
       std::string expTime = response.getWhenExpire();
+      std::cout << "expTime in cached: " << expTime << std::endl;
       log->writeCacheLog(h, expTime, CACHE_EXPIRES); 
     }
   }
