@@ -14,20 +14,21 @@
 
 #include "exception.h"
 
-class Client{
-  private:
-    std::string server_hostname;
-    std::string server_port;
-    struct addrinfo server_info;
-    struct addrinfo * server_info_list;
-    struct addrinfo * p;
-    int server_socket_fd;
-    int status;
-  
-  public:
-    Client(std::string server_hostname, std::string server_port): server_hostname(server_hostname),server_port(server_port){}
-    int connectServer();
-    std::string getServerAddr();
+class Client
+{
+private:
+  std::string server_hostname;
+  std::string server_port;
+  struct addrinfo server_info;
+  struct addrinfo *server_info_list;
+  struct addrinfo *p;
+  int server_socket_fd;
+  int status;
+
+public:
+  Client(std::string server_hostname, std::string server_port) : server_hostname(server_hostname), server_port(server_port) {}
+  int connectServer();
+  std::string getServerAddr();
 };
 
 #endif

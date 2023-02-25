@@ -1,6 +1,7 @@
 #include "response.hpp"
 
-void Response::parseResponse() {
+void Response::parseResponse()
+{
     this->max_age = parseMaxAge();
     this->s_maxage = parseSMaxAge();
     size_t header_end = this->response_msg.find_first_of("\r\n");
@@ -9,18 +10,22 @@ void Response::parseResponse() {
     this->last_modified = formatFinder("Last-Modified");
     this->cache_info = formatFinder("Cache-Control");
     std::string respTime = formatFinder("Date");
-    if(respTime != "") {
-         this->response_time.parse(respTime);
+    if (respTime != "")
+    {
+        this->response_time.parse(respTime);
     }
     std::string expTime = formatFinder("Expires");
-    if(expTime != "" && expTime != "-1" && expTime != "0") {
+    if (expTime != "" && expTime != "-1" && expTime != "0")
+    {
         this->expire_time.parse(expTime);
     }
 }
 
-std::string Response::formatFinder(std::string field) {
+std::string Response::formatFinder(std::string field)
+{
     size_t start_pos = this->response_msg.find(field);
-    if(start_pos == std::string::npos) {
+    if (start_pos == std::string::npos)
+    {
         return "";
     }
     size_t end_pos = this->response_msg.find_first_of("\r\n", start_pos + 1);
@@ -31,216 +36,268 @@ std::string Response::formatFinder(std::string field) {
     return ans;
 }
 
-std::string Response::getResponseHead() {
+std::string Response::getResponseHead()
+{
     size_t start_pos = this->response_msg.find("\r\n\r\n");
     return this->response_msg.substr(0, start_pos);
 }
 
-bool Response::isChunked() {
+bool Response::isChunked()
+{
     std::string encode_info = formatFinder("Transfer-Encoding");
-    if(encode_info.find("chunked") != std::string::npos) {
+    if (encode_info.find("chunked") != std::string::npos)
+    {
         return true;
     }
     return false;
 }
 
-std::string Response::getResponseLine() {
+std::string Response::getResponseLine()
+{
     return this->status_line;
 }
 
-int Response::getContentLength() {
+int Response::getContentLength()
+{
     std::string content_len = formatFinder("Content-Length");
-    if(content_len == "") {
+    if (content_len == "")
+    {
         return -1;
     }
     int ans = stoi(content_len);
     return ans;
 }
 
-std::string Response::getStatusCode() {
+std::string Response::getStatusCode()
+{
     size_t pos1 = this->status_line.find_first_of(' ');
     size_t pos2 = this->status_line.find_first_of(' ', pos1 + 1);
     std::string code = this->status_line.substr(pos1 + 1, pos2 - pos1 - 1);
     return code;
 }
 
-std::string Response::getHttpVer() {
+std::string Response::getHttpVer()
+{
     size_t pos1 = this->status_line.find_first_of(' ');
     std::string httpVer = this->status_line.substr(0, pos1);
     return httpVer;
 }
 
-int Response::parseMaxAge() {
+int Response::parseMaxAge()
+{
     int ans = -1;
     size_t start_pos = this->cache_info.find("max-age=");
-    if(start_pos != std::string::npos) {
+    if (start_pos != std::string::npos)
+    {
         size_t end_pos = this->cache_info.find_first_of(',', start_pos + 1);
-        if(end_pos == std::string::npos) {
+        if (end_pos == std::string::npos)
+        {
             ans = std::stoi(this->cache_info.substr(start_pos + 8));
         }
-        else {
+        else
+        {
             ans = std::stoi(this->cache_info.substr(start_pos + 8, end_pos - start_pos - 8));
         }
     }
     return ans;
 }
 
-int Response::getMaxAge() {
+int Response::getMaxAge()
+{
     return this->max_age;
 }
 
-int Response::parseSMaxAge() {
+int Response::parseSMaxAge()
+{
     int ans = -1;
     size_t start_pos = this->cache_info.find("s-maxage=");
-    if(start_pos != std::string::npos) {
+    if (start_pos != std::string::npos)
+    {
         size_t end_pos = this->cache_info.find_first_of(',', start_pos + 1);
-        if(end_pos == std::string::npos) {
+        if (end_pos == std::string::npos)
+        {
             ans = std::stoi(this->cache_info.substr(start_pos + 9));
         }
-        else {
+        else
+        {
             ans = std::stoi(this->cache_info.substr(start_pos + 9, end_pos - start_pos - 9));
         }
     }
     return ans;
 }
 
-int Response::getSMaxAge() {
+int Response::getSMaxAge()
+{
     return this->s_maxage;
 }
 
-bool Response::isPrivate() {
-    if(size_t pos = this->cache_info.find("private") != std::string::npos) {
+bool Response::isPrivate()
+{
+    if (size_t pos = this->cache_info.find("private") != std::string::npos)
+    {
         return true;
     }
     return false;
 }
 
-bool Response::isNoCache() {
-    if(size_t pos = this->cache_info.find("no-cache") != std::string::npos) {
+bool Response::isNoCache()
+{
+    if (size_t pos = this->cache_info.find("no-cache") != std::string::npos)
+    {
         return true;
     }
     return false;
 }
 
-bool Response::isNoStore() {
-    if(size_t pos = this->cache_info.find("no-store") != std::string::npos) {
+bool Response::isNoStore()
+{
+    if (size_t pos = this->cache_info.find("no-store") != std::string::npos)
+    {
         return true;
     }
     return false;
 }
 
-bool Response::isCachable() {
-    if(!isPrivate() && !isNoStore() && !isChunked()) {
+bool Response::isCachable()
+{
+    if (!isPrivate() && !isNoStore() && !isChunked())
+    {
         return true;
     }
     return false;
 }
 
-bool Response::isMustRevalidate() {
-    if(this->cache_info.find("must-revalidate") != std::string::npos){
+bool Response::isMustRevalidate()
+{
+    if (this->cache_info.find("must-revalidate") != std::string::npos)
+    {
         return true;
     }
     return false;
 }
 
-std::string Response::getWhenExpire() {
+std::string Response::getWhenExpire()
+{
     time_t respTime = mktime(response_time.getTimeInfo());
-    if(getSMaxAge() != -1) {
+    if (getSMaxAge() != -1)
+    {
         time_t expire_moment = respTime + (time_t)getSMaxAge();
-        const char * expTime_c = asctime(gmtime(&expire_moment));
+        const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
         return expTime;
     }
-    else if(getMaxAge() != -1) {
+    else if (getMaxAge() != -1)
+    {
         time_t expire_moment = respTime + (time_t)getMaxAge();
-        const char * expTime_c = asctime(gmtime(&expire_moment));
+        const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
         return expTime;
     }
-    else if(formatFinder("Expires") != "") {
+    else if (formatFinder("Expires") != "")
+    {
         time_t expire_moment = mktime(expire_time.getTimeInfo());
-        const char * expTime_c = asctime(gmtime(&expire_moment));
+        const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
         return expTime;
     }
-    else {
+    else
+    {
         time_t expire_moment = respTime + 5000;
-        const char * expTime_c = asctime(gmtime(&expire_moment));
+        const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
         return expTime;
     }
 }
 
-bool Response::pastDue(int max_stale) {
+bool Response::pastDue(int max_stale)
+{
     time_t now = time(0);
-    tm * tm_gmt = gmtime(&now);
+    tm *tm_gmt = gmtime(&now);
     time_t nowTime = mktime(tm_gmt);
     time_t respTime = mktime(response_time.getTimeInfo());
     int lifeSpan = nowTime - respTime;
     int dif = 0;
-    if(getSMaxAge() != -1) {
+    if (getSMaxAge() != -1)
+    {
         dif = getSMaxAge() - lifeSpan;
     }
-    else if(getMaxAge() != -1) {
+    else if (getMaxAge() != -1)
+    {
         dif = getMaxAge() - lifeSpan;
     }
-    else if(formatFinder("Expires") != "") {
+    else if (formatFinder("Expires") != "")
+    {
         time_t expTime = mktime(expire_time.getTimeInfo());
         dif = difftime(expTime, nowTime);
     }
-    else {
+    else
+    {
         dif = 5000 - lifeSpan;
     }
-    if(dif <= 0) {
-        if(isMustRevalidate()) {
+    if (dif <= 0)
+    {
+        if (isMustRevalidate())
+        {
             return true;
         }
-        else {
+        else
+        {
             return (dif + max_stale) <= 0;
         }
     }
-    else {
+    else
+    {
         return false;
     }
 }
 
-bool Response::needRevalidate(int max_stale) {
-    if(isNoCache()) {
+bool Response::needRevalidate(int max_stale)
+{
+    if (isNoCache())
+    {
         return true;
     }
     return pastDue(max_stale);
 }
 
-std::string Response::getResponse() {
+std::string Response::getResponse()
+{
     return this->response_msg;
 }
 
-std::string Response::getResponseTime_str() {
+std::string Response::getResponseTime_str()
+{
     std::string respTime = formatFinder("Date");
     return respTime;
 }
 
-std::string Response::getExpireTime_str() {
+std::string Response::getExpireTime_str()
+{
     std::string expTime = formatFinder("Expires");
     return expTime;
 }
 
-std::string Response::getEtag() {
+std::string Response::getEtag()
+{
     return this->Etag;
 }
 
-std::string Response::getLastModified() {
+std::string Response::getLastModified()
+{
     return this->last_modified;
 }
 
-TimeInfo Response::getResponseTime() {
+TimeInfo Response::getResponseTime()
+{
     return this->response_time;
 }
 
-TimeInfo Response::getExpireTime() {
+TimeInfo Response::getExpireTime()
+{
     return this->expire_time;
 }
 
-std::string Response::getCacheControl() {
+std::string Response::getCacheControl()
+{
     return this->cache_info;
 }

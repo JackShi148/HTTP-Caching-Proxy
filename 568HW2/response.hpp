@@ -7,27 +7,31 @@
 
 #include "timeprocessing.hpp"
 
-class Response {
+class Response
+{
     int max_age;
     int s_maxage;
     std::string response_msg;
-    std::string status_line; // 头部第一行
-    std::string Etag;    // 用于检查有没有修改
+    std::string status_line;
+    std::string Etag;
     std::string last_modified;
-    TimeInfo response_time;  // 做个时间class
-    TimeInfo expire_time;   // 做个时间class
-    std::string cache_info;  // max-age   no-cache  no-store  private
+    TimeInfo response_time;
+    TimeInfo expire_time;
+    std::string cache_info; // max-age   no-cache  no-store  private
     std::string formatFinder(std::string field);
     void parseResponse();
     int parseMaxAge();
     int parseSMaxAge();
+
 public:
-    Response(std::vector<char>& msg) {
+    Response(std::vector<char> &msg)
+    {
         std::string temp(msg.begin(), msg.end());
         response_msg = temp;
         parseResponse();
     }
-    Response(std::string response_msg) : response_msg(response_msg) {
+    Response(std::string response_msg) : response_msg(response_msg)
+    {
         parseResponse();
     }
     std::string getResponseHead();
@@ -45,7 +49,7 @@ public:
     std::string getStatusCode();
     int getContentLength();
     int getMaxAge();
-    int getSMaxAge();    
+    int getSMaxAge();
     bool isChunked();
     bool isPrivate();
     bool isNoCache();

@@ -7,10 +7,12 @@
 #include <map>
 #include <string.h>
 
-class DatetimeMap {
+class DatetimeMap
+{
 public:
     std::map<std::string, int> datetime_map;
-    DatetimeMap() {
+    DatetimeMap()
+    {
         datetime_map["Sun"] = 0;
         datetime_map["Mon"] = 1;
         datetime_map["Tue"] = 2;
@@ -33,11 +35,14 @@ public:
     }
 };
 
-class TimeInfo {
+class TimeInfo
+{
     struct tm timeinfo;
+
 public:
     TimeInfo() {}
-    void parse(std::string time_str) {
+    void parse(std::string time_str)
+    {
         DatetimeMap dt_map;
         this->timeinfo.tm_sec = std::stoi(time_str.substr(23), nullptr);
         this->timeinfo.tm_min = std::stoi(time_str.substr(20), nullptr);
@@ -48,7 +53,8 @@ public:
         this->timeinfo.tm_year = std::stoi(time_str.substr(12)) - 1900;
         this->timeinfo.tm_isdst = 0;
     }
-    struct tm * getTimeInfo() {
+    struct tm *getTimeInfo()
+    {
         return &(this->timeinfo);
     }
 };
