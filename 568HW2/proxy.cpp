@@ -83,12 +83,13 @@ void *Proxy::routeRequest(void *ahook)
     p->proxyResponse(client_connect_socket_fd, exp, ahook);
     close(request_server_fd);
     close(client_connect_socket_fd);
+    delete hook_info;
     return NULL;
   }
 
   close(request_server_fd);
   close(client_connect_socket_fd);
-
+  delete hook_info;
   return NULL;
 }
 
