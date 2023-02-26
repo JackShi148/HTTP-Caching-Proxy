@@ -147,7 +147,6 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
 
     // receive responses
     std::string server_response = p->getEntireResponse(request_server_fd);
-    // std::cout << server_response <<std::endl;
 
     // receive request server response
     Response res(server_response);
@@ -194,9 +193,7 @@ void Proxy::postRequest(int client_connect_socket_fd, int request_server_fd, Req
   }
   std::string request = req.getRequest();
   send(request_server_fd, request.data(), request.size(), 0);
-  // char response[MAX_MSGLEN] = {0};
   std::string response = p->getEntireResponse(request_server_fd);
-  // int response_length = recv(request_server_fd, response, sizeof(response), MSG_WAITALL);
   int response_length = response.size();
   if (response_length > 0)
   {
