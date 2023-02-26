@@ -1,0 +1,8 @@
+0: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 172.18.0.1 @ Sun Feb 26 18:27:32 2023
+0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+0: not in cache
+0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+0: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+0: NOTE Cache-Control: no-cache, no-store
+0: not cacheable because the Cache-Control contains no-store
+0: Responding "HTTP/1.1 200 OK"
