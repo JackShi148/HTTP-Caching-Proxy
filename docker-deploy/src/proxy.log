@@ -1,30 +1,11 @@
-0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:04 2023
-0: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+0: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:44:31 2023
+0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+0: not in cache
+0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+0: Received "HTTP/1.1 200 OK" from httpbin.org
+0: NOTE Expires: Mon Feb 27 00:07:51 2023 GMT
+0: cached, expires at Mon Feb 27 00:07:51 2023 GMT
 0: Responding "HTTP/1.1 200 OK"
-1: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:04 2023
-1: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-1: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-1: Responding "HTTP/1.1 200 OK"
-2: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
-2: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
-2: not in cache
-2: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
-2: Received "HTTP/1.1 200 OK" from js.player.cntv.cn
-2: NOTE Cache-Control: max-age=600
-2: NOTE Expires: Sun Feb 26 22:30:06 2023 GMT
-2: cached, expires at Sun Feb 26 22:30:06 2023 GMT
-2: Responding "HTTP/1.1 200 OK"
-3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
-4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
-3: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-3: Responding "HTTP/1.1 200 OK"
-4: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-4: Responding "HTTP/1.1 200 OK"
-5: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
-6: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
-5: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-6: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-5: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-5: Responding "HTTP/1.1 200 OK"
-6: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-6: Responding "HTTP/1.1 200 OK"
+1: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:44:35 2023
+1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+1: in cache, valid
