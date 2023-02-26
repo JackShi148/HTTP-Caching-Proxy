@@ -1,227 +1,30 @@
-0: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:35:51 2023
-0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-0: not in cache
-0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-0: Received "HTTP/1.1 200 OK" from httpbin.org
-0: NOTE Expires: Sun Feb 26 22:59:11 2023 GMT
-0: cached, expires at Sun Feb 26 22:59:11 2023 GMT
+0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:04 2023
+0: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 0: Responding "HTTP/1.1 200 OK"
-1: "POST http://httpbin.org/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:35:55 2023
-1: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
-1: Received "HTTP/1.1 200 OK" from httpbin.org
+1: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:04 2023
+1: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+1: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
 1: Responding "HTTP/1.1 200 OK"
-2: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
-2: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+2: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
+2: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+2: not in cache
+2: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+2: Received "HTTP/1.1 200 OK" from js.player.cntv.cn
+2: NOTE Cache-Control: max-age=600
+2: NOTE Expires: Sun Feb 26 22:30:06 2023 GMT
+2: cached, expires at Sun Feb 26 22:30:06 2023 GMT
 2: Responding "HTTP/1.1 200 OK"
-3: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
-4: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
-3: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
+4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
+3: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
 3: Responding "HTTP/1.1 200 OK"
-4: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+4: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
 4: Responding "HTTP/1.1 200 OK"
-5: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
+5: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
+6: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:20:06 2023
 5: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-6: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
+6: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
 5: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
 5: Responding "HTTP/1.1 200 OK"
-6: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-6: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+6: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
 6: Responding "HTTP/1.1 200 OK"
-7: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
-7: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-7: Responding "HTTP/1.1 200 OK"
-7: Tunnel closed
-8: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:07 2023
-8: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-8: Responding "HTTP/1.1 200 OK"
-9: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:08 2023
-9: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-9: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-9: Responding "HTTP/1.1 200 OK"
-10: "GET http://aafda.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:10 2023
-10: Requesting "GET http://aafda.com/ HTTP/1.1" from aafda.com
-10: not in cache
-10: Requesting "GET http://aafda.com/ HTTP/1.1" from aafda.com
-10: Received "HTTP/1.1 302 Found" from aafda.com
-10: Responding "HTTP/1.1 302 Found"
-11: "CONNECT www.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-11: Requesting "CONNECT www.hugedomains.com:443 HTTP/1.1" from www.hugedomains.com
-11: Responding "HTTP/1.1 200 OK"
-12: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-12: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-12: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-12: Responding "HTTP/1.1 200 OK"
-13: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-13: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-13: Responding "HTTP/1.1 200 OK"
-14: "CONNECT cdn.jsdelivr.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-19: "CONNECT static.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-16: "CONNECT static.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-17: "CONNECT static.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-18: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-15: "CONNECT static.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-20: "CONNECT use.typekit.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-21: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-22: "CONNECT static.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-23: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-24: "CONNECT static.hugedomains.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-21: Requesting "CONNECT www.googletagmanager.com:443 HTTP/1.1" from www.googletagmanager.com
-21: Responding "HTTP/1.1 200 OK"
-23: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-23: Responding "HTTP/1.1 200 OK"
-18: Requesting "CONNECT fonts.googleapis.com:443 HTTP/1.1" from fonts.googleapis.com
-18: Responding "HTTP/1.1 200 OK"
-14: Requesting "CONNECT cdn.jsdelivr.net:443 HTTP/1.1" from cdn.jsdelivr.net
-14: Responding "HTTP/1.1 200 OK"
-16: Requesting "CONNECT static.hugedomains.com:443 HTTP/1.1" from static.hugedomains.com
-16: Responding "HTTP/1.1 200 OK"
-17: Requesting "CONNECT static.hugedomains.com:443 HTTP/1.1" from static.hugedomains.com
-17: Responding "HTTP/1.1 200 OK"
-19: Requesting "CONNECT static.hugedomains.com:443 HTTP/1.1" from static.hugedomains.com
-19: Responding "HTTP/1.1 200 OK"
-24: Requesting "CONNECT static.hugedomains.com:443 HTTP/1.1" from static.hugedomains.com
-24: Responding "HTTP/1.1 200 OK"
-22: Requesting "CONNECT static.hugedomains.com:443 HTTP/1.1" from static.hugedomains.com
-22: Responding "HTTP/1.1 200 OK"
-15: Requesting "CONNECT static.hugedomains.com:443 HTTP/1.1" from static.hugedomains.com
-15: Responding "HTTP/1.1 200 OK"
-20: Requesting "CONNECT use.typekit.net:443 HTTP/1.1" from use.typekit.net
-20: Responding "HTTP/1.1 200 OK"
-25: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-26: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-27: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-25: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-28: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-26: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-27: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-25: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-25: Responding "HTTP/1.1 200 OK"
-28: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-26: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-26: Responding "HTTP/1.1 200 OK"
-27: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-27: Responding "HTTP/1.1 200 OK"
-28: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-28: Responding "HTTP/1.1 200 OK"
-24: Tunnel closed
-29: "CONNECT p.typekit.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:11 2023
-19: Tunnel closed
-15: Tunnel closed
-16: Tunnel closed
-22: Tunnel closed
-29: Requesting "CONNECT p.typekit.net:443 HTTP/1.1" from p.typekit.net
-29: Responding "HTTP/1.1 200 OK"
-30: "CONNECT www.youtube.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-31: "CONNECT www.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-32: "CONNECT use.typekit.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-35: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-36: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-34: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-33: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-31: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-31: Responding "HTTP/1.1 200 OK"
-30: Requesting "CONNECT www.youtube.com:443 HTTP/1.1" from www.youtube.com
-30: Responding "HTTP/1.1 200 OK"
-32: Requesting "CONNECT use.typekit.net:443 HTTP/1.1" from use.typekit.net
-32: Responding "HTTP/1.1 200 OK"
-34: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-34: Responding "HTTP/1.1 200 OK"
-33: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-33: Responding "HTTP/1.1 200 OK"
-36: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
-36: Responding "HTTP/1.1 200 OK"
-35: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-35: Responding "HTTP/1.1 200 OK"
-37: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-37: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-38: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-39: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-37: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-37: Responding "HTTP/1.1 200 OK"
-38: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-40: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-41: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-39: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-38: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-38: Responding "HTTP/1.1 200 OK"
-40: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-41: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-39: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-39: Responding "HTTP/1.1 200 OK"
-42: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-40: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-40: Responding "HTTP/1.1 200 OK"
-41: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-41: Responding "HTTP/1.1 200 OK"
-42: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-42: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-42: Responding "HTTP/1.1 200 OK"
-36: Tunnel closed
-33: Tunnel closed
-34: Tunnel closed
-43: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-43: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
-43: Responding "HTTP/1.1 200 OK"
-44: "CONNECT www.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-44: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-44: Responding "HTTP/1.1 200 OK"
-45: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-46: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-45: Requesting "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from googleads.g.doubleclick.net
-45: Responding "HTTP/1.1 200 OK"
-46: Requesting "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from jnn-pa.googleapis.com
-46: Responding "HTTP/1.1 200 OK"
-48: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-49: "CONNECT i.ytimg.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-48: Requesting "CONNECT yt3.ggpht.com:443 HTTP/1.1" from yt3.ggpht.com
-48: Responding "HTTP/1.1 200 OK"
-49: Requesting "CONNECT i.ytimg.com:443 HTTP/1.1" from i.ytimg.com
-49: Responding "HTTP/1.1 200 OK"
-50: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-50: Requesting "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from stats.g.doubleclick.net
-50: Responding "HTTP/1.1 200 OK"
-51: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-52: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-51: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-52: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-51: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-51: Responding "HTTP/1.1 200 OK"
-52: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-52: Responding "HTTP/1.1 200 OK"
-53: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-53: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-53: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-53: Responding "HTTP/1.1 200 OK"
-54: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-54: Requesting "CONNECT static.doubleclick.net:443 HTTP/1.1" from static.doubleclick.net
-54: Responding "HTTP/1.1 200 OK"
-55: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:12 2023
-55: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-55: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-55: Responding "HTTP/1.1 200 OK"
-56: "GET http://123.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:18 2023
-47: WARNING Invalid Request from 173.95.91.86 @ Sun Feb 26 21:36:18 2023
-56: Responding "HTTP/1.1 404 Not Found"
-57: "GET http://123.com/favicon.ico HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:19 2023
-57: Responding "HTTP/1.1 404 Not Found"
-29: Tunnel closed
-58: "GET http://msg.qy.net:443/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:36:39 2023
-58: Requesting "GET http://msg.qy.net:443/ HTTP/1.1" from msg.qy.net
-58: not in cache
-58: Requesting "GET http://msg.qy.net:443/ HTTP/1.1" from msg.qy.net
-58: Received "HTTP/1.1 400 Bad Request" from msg.qy.net
-58: Responding "HTTP/1.1 400 Bad Request"
-59: "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:37:17 2023
-59: Requesting "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from www.mocky.io
-59: not in cache
-59: Requesting "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from www.mocky.io
-59: Received "HTTP/1.1 400 Bad Request" from www.mocky.io
-59: Responding "HTTP/1.1 400 Bad Request"
-20: Tunnel closed
-32: Tunnel closed
-60: "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:38:15 2023
-60: Requesting "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from www.mocky.io
-60: not in cache
-60: Requesting "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from www.mocky.io
-60: Received "HTTP/1.1 400 Bad Request" from www.mocky.io
-60: Responding "HTTP/1.1 400 Bad Request"

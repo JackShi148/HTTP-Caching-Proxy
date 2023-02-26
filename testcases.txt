@@ -1,0 +1,78 @@
+==============
+GET 
+http://js.player.cntv.cn/creator/vodplayer.js
+test: GET, max-age, in cache and valid, expire and revalidate
+==============
+4: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:50:26 2023
+4: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+4: not in cache
+4: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+4: Received "HTTP/1.1 200 OK" from js.player.cntv.cn
+4: NOTE Cache-Control: max-age=600
+4: NOTE Expires: Sun Feb 26 22:00:26 2023 GMT
+4: cached, expires at Sun Feb 26 22:00:26 2023 GMT
+4: Responding "HTTP/1.1 200 OK"
+9: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 21:51:07 2023
+9: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+9: in cache, valid
+15: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:01:07 2023
+15: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+15: in cache, but expired at Sun Feb 26 22:00:26 2023 GMT
+
+==============
+GET 
+http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx
+test: GET, chunked, no-cache, no-store
+==============
+0: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:04:48 2023
+0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+0: not in cache
+0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+0: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+0: NOTE Cache-Control: no-cache, no-store
+0: not cacheable because the Cache-Control contains no-store
+0: Responding "HTTP/1.1 200 OK"
+
+==============
+POST 
+http://httpbin.org/forms/post
+test: POST, in cache and valid
+==============
+10: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:07:25 2023
+10: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+10: not in cache
+10: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+10: Received "HTTP/1.1 200 OK" from httpbin.org
+10: NOTE Expires: Sun Feb 26 23:30:46 2023 GMT
+10: cached, expires at Sun Feb 26 23:30:46 2023 GMT
+10: Responding "HTTP/1.1 200 OK"
+12: "POST http://httpbin.org/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:09:18 2023
+12: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+12: Received "HTTP/1.1 200 OK" from httpbin.org
+12: Responding "HTTP/1.1 200 OK"
+14: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:10:02 2023
+14: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+14: in cache, valid
+
+==============
+CONNECT
+http://www.artsci.utoronto.ca/futurestudents
+test: CONNECT
+==============
+0: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:12:57 2023
+0: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+0: Responding "HTTP/1.1 200 OK"
+
+==============
+CONNECT
+www.baidu.com
+test: CONNECT
+==============
+4: "GET http://www.baidu.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:15:53 2023
+4: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
+4: not in cache
+4: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
+4: Received "HTTP/1.1 200 OK" from www.baidu.com
+4: NOTE Expires: Sun Feb 26 23:39:14 2023 GMT
+4: cached, expires at Sun Feb 26 23:39:14 2023 GMT
+4: Responding "HTTP/1.1 200 OK"
