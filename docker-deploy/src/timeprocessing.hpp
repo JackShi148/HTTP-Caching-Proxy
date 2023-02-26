@@ -53,9 +53,10 @@ public:
         this->timeinfo.tm_year = std::stoi(time_str.substr(12)) - 1900;
         this->timeinfo.tm_isdst = 0;
     }
-    struct tm *getTimeInfo()
-    {
-        return &(this->timeinfo);
+    struct tm * convertGMT() {
+        time_t t = mktime(&this->timeinfo);
+        struct tm * gmt = gmtime(&t);
+        return gmt;
     }
 };
 

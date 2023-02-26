@@ -187,19 +187,22 @@ void Proxy::postRequest(int client_connect_socket_fd, int request_server_fd, Req
 {
   Hook *h = (Hook *)hook;
   Log *log = (Log *)h->getLog();
+  Proxy *p = (Proxy *)h->getThisObject();
   if (req.getReqCntLength() == -1)
   {
     return;
   }
   std::string request = req.getRequest();
   send(request_server_fd, request.data(), request.size(), 0);
-  char response[MAX_MSGLEN] = {0};
-  int response_length = recv(request_server_fd, response, sizeof(response), MSG_WAITALL);
+  // char response[MAX_MSGLEN] = {0};
+  std::string response = p->getEntireResponse(request_server_fd);
+  // int response_length = recv(request_server_fd, response, sizeof(response), MSG_WAITALL);
+  int response_length = response.size();
   if (response_length > 0)
   {
     Response res(response);
     log->writeLogFile(h, res.getResponseLine(), RECEIVE);
-    send(client_connect_socket_fd, response, response_length, 0);
+    send(client_connect_socket_fd, response.data(), response_length, 0);
     log->writeLogFile(h, res.getResponseLine(), RESPOND);
     std::cout << h->getThreadID() << ": succeed in posting client request -> " << req.getRequestLine() << std::endl;
     return;
@@ -408,23 +411,27 @@ std::string Proxy::validateCache(int request_server_fd, Request request, Respons
 
 void Proxy::printNoteLog(Response res, int max_stale, void *hook)
 {
-  Hook *h = (Hook *)hook;
-  Log *log = (Log *)h->getLog();
-  if (res.getCacheControl() != "")
+  std::string status_code = res.getStatusCode();
+  if (status_code == "200")
   {
-    std::string msg = "Cache-Control: " + res.getCacheControl();
-    log->writeLogFile(h, msg, NOTE);
-  }
-  if (res.getEtag() != "")
-  {
-    std::string msg = "ETag: " + res.getEtag();
-    log->writeLogFile(h, msg, NOTE);
-  }
-  if (!res.isNoCache())
-  {
-    std::string expTime = res.getWhenExpire(max_stale);
-    std::string msg = "Expires: " + expTime;
-    log->writeLogFile(h, msg, NOTE);
+    Hook *h = (Hook *)hook;
+    Log *log = (Log *)h->getLog();
+    if (res.getCacheControl() != "")
+    {
+      std::string msg = "Cache-Control: " + res.getCacheControl();
+      log->writeLogFile(h, msg, NOTE);
+    }
+    if (res.getEtag() != "")
+    {
+      std::string msg = "ETag: " + res.getEtag();
+      log->writeLogFile(h, msg, NOTE);
+    }
+    if (!res.isNoCache())
+    {
+      std::string expTime = res.getWhenExpire(max_stale);
+      std::string msg = "Expires: " + expTime;
+      log->writeLogFile(h, msg, NOTE);
+    }
   }
 }
 

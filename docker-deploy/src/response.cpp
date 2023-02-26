@@ -182,7 +182,7 @@ std::string Response::getWhenExpire(int max_stale)
     {
         max_stale = 0;
     }
-    time_t respTime = mktime(response_time.getTimeInfo());
+    time_t respTime = mktime(response_time.convertGMT());
     if (getSMaxAge() != -1)
     {
         time_t expire_moment = respTime + (time_t)getSMaxAge() + (time_t)max_stale;
@@ -199,7 +199,7 @@ std::string Response::getWhenExpire(int max_stale)
     }
     else if (formatFinder("Expires") != "")
     {
-        time_t expire_moment = mktime(expire_time.getTimeInfo()) + (time_t)max_stale;
+        time_t expire_moment = mktime(expire_time.convertGMT()) + (time_t)max_stale;
         const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
         return expTime.substr(0, expTime.size() - 1) + " GMT";
@@ -218,7 +218,7 @@ bool Response::pastDue(int max_stale)
     time_t now = time(0);
     tm *tm_gmt = gmtime(&now);
     time_t nowTime = mktime(tm_gmt);
-    time_t respTime = mktime(response_time.getTimeInfo());
+    time_t respTime = mktime(response_time.convertGMT());
     int lifeSpan = nowTime - respTime;
     int dif = 0;
     if (getSMaxAge() != -1)
@@ -231,7 +231,7 @@ bool Response::pastDue(int max_stale)
     }
     else if (formatFinder("Expires") != "")
     {
-        time_t expTime = mktime(expire_time.getTimeInfo());
+        time_t expTime = mktime(expire_time.convertGMT());
         dif = difftime(expTime, nowTime);
     }
     else
