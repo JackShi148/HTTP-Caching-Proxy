@@ -19,7 +19,7 @@ void Log::writeLogFile(Hook *h, std::string msg, int option)
   }
   else if (option == -2)
   {
-    logfile << h->getThreadID() << ": NOTE " << msg;
+    logfile << h->getThreadID() << ": NOTE " << msg << std::endl;
   }
   else if (option == -3)
   {
@@ -70,7 +70,7 @@ void Log::writeCacheLog(Hook *h, std::string msg, int option)
   }
   else if (option == 13)
   {
-    logfile << h->getThreadID() << ": cached, expires at " << msg << " GMT";
+    logfile << h->getThreadID() << ": cached, expires at " << msg << std::endl;
   }
   pthread_mutex_unlock(&mutex);
 }

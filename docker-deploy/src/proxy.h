@@ -57,11 +57,11 @@ public:
   void postRequest(int client_connect_socket_fd, int request_server_fd, Request req, void *hook);
   void proxyResponse(int client_connect_socket_fd, std::string exp, void *hook);
   std::string getEntireResponse(int request_server_fd);
-  void trySaveResponse(std::string uri, Response response, void *hook);
+  void trySaveResponse(std::string uri, Response response, int max_stale, void *hook);
   std::string revalidate(int request_server_fd, Request request, Response response, void *hook);
   std::string validateCache(int request_server_fd, Request request, Response response,
                             std::string check_type, std::string check_content, void *hook);
-  void printNoteLog(Response res, void *hook);
+  void printNoteLog(Response res, int max_stale, void *hook);
   const char *getHostName();
   const char *getPortNum();
 };

@@ -6,7 +6,7 @@ void Proxy::startProxy()
   int socket_fd = server.createServer();
   int thread_id = 0;
   Log log;
-  log.openLogFile("/var/log/erss/proxy.log");
+  log.openLogFile("./proxy.log");
   Cache cache(CACHE_CAPACITY);
   while (1)
   {
@@ -135,6 +135,7 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
   Cache *cache = (Cache *)h->getCache();
   std::string uri = req.getUri();
   std::string cached_response = cache->getResponse(uri);
+  int max_stale = req.getMaxStale();
   if (cached_response == "")
   {
     // not in cache
@@ -151,21 +152,20 @@ void Proxy::getRequest(int client_connect_socket_fd, int request_server_fd, Requ
     // receive request server response
     Response res(server_response);
     log->writeLogFile(h, res.getResponseLine(), RECEIVE);
-    p->printNoteLog(res, hook);
+    p->printNoteLog(res, max_stale, hook);
     send(client_connect_socket_fd, server_response.data(), server_response.size(), 0);
-    p->trySaveResponse(uri, server_response, hook);
+    p->trySaveResponse(uri, server_response, max_stale, hook);
     log->writeLogFile(h, res.getResponseLine(), RESPOND);
   }
   else
   {
     // in cache
     Response res(cached_response);
-    int max_stale = req.getMaxStale();
     if (res.needRevalidate(max_stale))
     {
       if (res.pastDue(max_stale))
       {
-        std::string expTime = res.getWhenExpire();
+        std::string expTime = res.getWhenExpire(max_stale);
         log->writeCacheLog(h, expTime, CACHE_EXPIREDTIME);
       }
       else
@@ -312,7 +312,7 @@ std::string Proxy::getEntireResponse(int request_server_fd)
   return std::accumulate(msg.begin(), msg.end(), response_string);
 }
 
-void Proxy::trySaveResponse(std::string uri, Response response, void *hook)
+void Proxy::trySaveResponse(std::string uri, Response response, int max_stale, void *hook)
 {
   Hook *h = (Hook *)hook;
   Log *log = (Log *)h->getLog();
@@ -333,7 +333,7 @@ void Proxy::trySaveResponse(std::string uri, Response response, void *hook)
     }
     else
     {
-      std::string expTime = response.getWhenExpire();
+      std::string expTime = response.getWhenExpire(max_stale);
       log->writeCacheLog(h, expTime, CACHE_EXPIRES);
     }
   }
@@ -346,10 +346,6 @@ void Proxy::trySaveResponse(std::string uri, Response response, void *hook)
     else if (response.isNoStore())
     {
       log->writeCacheLog(h, "the Cache-Control contains no-store", NOT_CACHEABLE);
-    }
-    else if (response.isChunked())
-    {
-      log->writeCacheLog(h, "the response is chunked", NOT_CACHEABLE);
     }
   }
 }
@@ -375,7 +371,7 @@ std::string Proxy::revalidate(int request_server_fd, Request request, Response r
     std::string old_req = request.getRequest();
     send(request_server_fd, old_req.data(), old_req.size(), 0);
     std::string new_response = p->getEntireResponse(request_server_fd);
-    p->trySaveResponse(request.getUri(), new_response, hook);
+    p->trySaveResponse(request.getUri(), new_response, request.getMaxStale(), hook);
     return new_response;
   }
 }
@@ -387,7 +383,14 @@ std::string Proxy::validateCache(int request_server_fd, Request request, Respons
   Cache *cache = (Cache *)h->getCache();
   Proxy *p = (Proxy *)h->getThisObject();
   std::string old_req_head = request.getRequestHead();
-  old_req_head += "\r\n" + check_type + ": " + check_content + "\r\n\r\n";
+  if (old_req_head.find(check_type) == std::string::npos)
+  {
+    old_req_head += "\r\n" + check_type + ": " + check_content + "\r\n\r\n";
+  }
+  else
+  {
+    old_req_head += "\r\n\r\n";
+  }
   send(request_server_fd, old_req_head.data(), old_req_head.size(), 0);
   // receive new response
   std::string res = p->getEntireResponse(request_server_fd);
@@ -398,28 +401,29 @@ std::string Proxy::validateCache(int request_server_fd, Request request, Respons
   }
   else
   {
-    p->trySaveResponse(request.getUri(), new_response, hook);
+    p->trySaveResponse(request.getUri(), new_response, request.getMaxStale(), hook);
     return new_response.getResponse();
   }
 }
 
-void Proxy::printNoteLog(Response res, void *hook)
+void Proxy::printNoteLog(Response res, int max_stale, void *hook)
 {
   Hook *h = (Hook *)hook;
   Log *log = (Log *)h->getLog();
   if (res.getCacheControl() != "")
   {
-    std::string msg = "Cache-Control: " + res.getCacheControl() + "\n";
+    std::string msg = "Cache-Control: " + res.getCacheControl();
     log->writeLogFile(h, msg, NOTE);
   }
   if (res.getEtag() != "")
   {
-    std::string msg = "ETag: " + res.getEtag() + "\n";
+    std::string msg = "ETag: " + res.getEtag();
     log->writeLogFile(h, msg, NOTE);
   }
   if (!res.isNoCache())
   {
-    std::string msg = "Expires: " + res.getWhenExpire();
+    std::string expTime = res.getWhenExpire(max_stale);
+    std::string msg = "Expires: " + expTime;
     log->writeLogFile(h, msg, NOTE);
   }
 }

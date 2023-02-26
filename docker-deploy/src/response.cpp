@@ -160,7 +160,7 @@ bool Response::isNoStore()
 
 bool Response::isCachable()
 {
-    if (!isPrivate() && !isNoStore() && !isChunked())
+    if (!isPrivate() && !isNoStore())
     {
         return true;
     }
@@ -176,36 +176,40 @@ bool Response::isMustRevalidate()
     return false;
 }
 
-std::string Response::getWhenExpire()
+std::string Response::getWhenExpire(int max_stale)
 {
+    if (isMustRevalidate())
+    {
+        max_stale = 0;
+    }
     time_t respTime = mktime(response_time.getTimeInfo());
     if (getSMaxAge() != -1)
     {
-        time_t expire_moment = respTime + (time_t)getSMaxAge();
+        time_t expire_moment = respTime + (time_t)getSMaxAge() + (time_t)max_stale;
         const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
-        return expTime;
+        return expTime.substr(0, expTime.size() - 1) + " GMT";
     }
     else if (getMaxAge() != -1)
     {
-        time_t expire_moment = respTime + (time_t)getMaxAge();
+        time_t expire_moment = respTime + (time_t)getMaxAge() + (time_t)max_stale;
         const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
-        return expTime;
+        return expTime.substr(0, expTime.size() - 1) + " GMT";
     }
     else if (formatFinder("Expires") != "")
     {
-        time_t expire_moment = mktime(expire_time.getTimeInfo());
+        time_t expire_moment = mktime(expire_time.getTimeInfo()) + (time_t)max_stale;
         const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
-        return expTime;
+        return expTime.substr(0, expTime.size() - 1) + " GMT";
     }
     else
     {
-        time_t expire_moment = respTime + 5000;
+        time_t expire_moment = respTime + 5000 + (time_t)max_stale;
         const char *expTime_c = asctime(gmtime(&expire_moment));
         std::string expTime = std::string(expTime_c);
-        return expTime;
+        return expTime.substr(0, expTime.size() - 1) + " GMT";
     }
 }
 

@@ -44,7 +44,7 @@ public:
     std::string getResponseTime_str();
     std::string getExpireTime_str();
     std::string getCacheControl();
-    std::string getWhenExpire();
+    std::string getWhenExpire(int max_stale);
     std::string getHttpVer();
     std::string getStatusCode();
     int getContentLength();

@@ -1,8 +1,70 @@
-0: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 172.18.0.1 @ Sun Feb 26 18:27:32 2023
-0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-0: not in cache
-0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-0: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-0: NOTE Cache-Control: no-cache, no-store
-0: not cacheable because the Cache-Control contains no-store
+0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:39 2023
+0: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 0: Responding "HTTP/1.1 200 OK"
+1: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:40 2023
+1: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+2: "GET http://www.gov.cn/govweb/xhtml/2016gov/images/public/logo.jpg HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:44 2023
+2: Requesting "GET http://www.gov.cn/govweb/xhtml/2016gov/images/public/logo.jpg HTTP/1.1" from www.gov.cn
+2: not in cache
+2: Requesting "GET http://www.gov.cn/govweb/xhtml/2016gov/images/public/logo.jpg HTTP/1.1" from www.gov.cn
+2: Received "HTTP/1.1 200 OK" from www.gov.cn
+2: NOTE Expires: Sun Feb 26 22:06:05 2023 GMT
+2: cached, expires at Sun Feb 26 22:06:05 2023 GMT
+2: Responding "HTTP/1.1 200 OK"
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:45 2023
+4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:45 2023
+4: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+4: Responding "HTTP/1.1 200 OK"
+3: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+3: Responding "HTTP/1.1 200 OK"
+5: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:45 2023
+5: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+6: "GET http://www.gov.cn/favicon.ico HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:46 2023
+6: Requesting "GET http://www.gov.cn/favicon.ico HTTP/1.1" from www.gov.cn
+6: not in cache
+6: Requesting "GET http://www.gov.cn/favicon.ico HTTP/1.1" from www.gov.cn
+6: Received "HTTP/1.1 200 OK" from www.gov.cn
+6: NOTE Expires: Sun Feb 26 22:06:05 2023 GMT
+6: cached, expires at Sun Feb 26 22:06:05 2023 GMT
+6: Responding "HTTP/1.1 200 OK"
+7: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:42:52 2023
+7: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+7: Responding "HTTP/1.1 200 OK"
+8: WARNING Invalid Request from 173.95.91.86 @ Sun Feb 26 20:42:58 2023
+9: WARNING Invalid Request from 173.95.91.86 @ Sun Feb 26 20:43:42 2023
+10: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:44:07 2023
+10: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+10: not in cache
+10: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+10: Received "HTTP/1.1 200 OK" from js.player.cntv.cn
+10: NOTE Cache-Control: max-age=600
+10: NOTE Expires: Sun Feb 26 20:54:08 2023 GMT
+10: cached, expires at Sun Feb 26 20:54:08 2023 GMT
+10: Responding "HTTP/1.1 200 OK"
+11: "GET http://js.player.cntv.cn/favicon.ico HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:44:08 2023
+11: Requesting "GET http://js.player.cntv.cn/favicon.ico HTTP/1.1" from js.player.cntv.cn
+11: not in cache
+11: Requesting "GET http://js.player.cntv.cn/favicon.ico HTTP/1.1" from js.player.cntv.cn
+11: Received "HTTP/1.1 404 Not Found" from js.player.cntv.cn
+11: NOTE Cache-Control: max-age=5184000
+11: NOTE Expires: Thu Apr 27 20:44:08 2023 GMT
+11: Responding "HTTP/1.1 404 Not Found"
+12: WARNING Invalid Request from 173.95.91.86 @ Sun Feb 26 20:44:22 2023
+13: WARNING Invalid Request from 173.95.91.86 @ Sun Feb 26 20:44:30 2023
+14: "GET http://www.gov.cn/govweb/xhtml/2016gov/images/public/logo.jpg HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:45:05 2023
+14: Requesting "GET http://www.gov.cn/govweb/xhtml/2016gov/images/public/logo.jpg HTTP/1.1" from www.gov.cn
+14: in cache, valid
+15: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:45:12 2023
+15: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+15: in cache, valid
+16: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:45:39 2023
+16: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+16: in cache, valid
+5: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+5: Responding "HTTP/1.1 200 OK"
+17: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 20:47:12 2023
+17: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+17: in cache, valid
+7: Tunnel closed
+3: Tunnel closed
+0: Tunnel closed
