@@ -14,4 +14,4 @@ Finally, go:
 ```
 sudo docker-compose up
 ```
-Now the HTTP caching proxy is running properly, you can change the proxy of your web brower to test its functionality. 
+Now the HTTP caching proxy is running properly, you can change the proxy of your web brower to test its functionalities. 
