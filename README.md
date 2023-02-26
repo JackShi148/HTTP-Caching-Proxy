@@ -2,6 +2,11 @@ This project implements a HTTP caching proxy server which can handle and process
 
 This project is deployed with docker, running this app may need to accomplish the following steps: 
 
+Before everything starts:
+```
+sudo apt-get install docker-compose
+```
+
 Firstly, go: 
 ```
 cd docker-deploy/src
