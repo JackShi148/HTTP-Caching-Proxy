@@ -6,7 +6,7 @@ void Proxy::startProxy()
   int socket_fd = server.createServer();
   int thread_id = 0;
   Log log;
-  log.openLogFile("./proxy.log");
+  log.openLogFile("/var/log/erss/proxy.log");
   Cache cache(CACHE_CAPACITY);
   while (1)
   {
@@ -21,6 +21,7 @@ void Proxy::startProxy()
               << client_connect_socket_fd << ", client_IP_address: " << client_ip_addr << ", client_port: " << client_port << std::endl;
     ++thread_id;
   }
+  log.closeLogFile();
 }
 
 void *Proxy::routeRequest(void *ahook)
