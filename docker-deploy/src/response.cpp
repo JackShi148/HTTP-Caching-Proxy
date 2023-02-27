@@ -86,17 +86,17 @@ std::string Response::getHttpVer()
 int Response::parseMaxAge()
 {
     int ans = -1;
-    size_t start_pos = this->cache_info.find("max-age=");
+    size_t start_pos = this->response_msg.find("max-age=");
     if (start_pos != std::string::npos)
     {
-        size_t end_pos = this->cache_info.find_first_of(',', start_pos + 1);
+        size_t end_pos = this->response_msg.find_first_of(',', start_pos + 1);
         if (end_pos == std::string::npos)
         {
-            ans = std::stoi(this->cache_info.substr(start_pos + 8));
+            ans = std::stoi(this->response_msg.substr(start_pos + 8));
         }
         else
         {
-            ans = std::stoi(this->cache_info.substr(start_pos + 8, end_pos - start_pos - 8));
+            ans = std::stoi(this->response_msg.substr(start_pos + 8, end_pos - start_pos - 8));
         }
     }
     return ans;
@@ -110,17 +110,17 @@ int Response::getMaxAge()
 int Response::parseSMaxAge()
 {
     int ans = -1;
-    size_t start_pos = this->cache_info.find("s-maxage=");
+    size_t start_pos = this->response_msg.find("s-maxage=");
     if (start_pos != std::string::npos)
     {
-        size_t end_pos = this->cache_info.find_first_of(',', start_pos + 1);
+        size_t end_pos = this->response_msg.find_first_of(',', start_pos + 1);
         if (end_pos == std::string::npos)
         {
-            ans = std::stoi(this->cache_info.substr(start_pos + 9));
+            ans = std::stoi(this->response_msg.substr(start_pos + 9));
         }
         else
         {
-            ans = std::stoi(this->cache_info.substr(start_pos + 9, end_pos - start_pos - 9));
+            ans = std::stoi(this->response_msg.substr(start_pos + 9, end_pos - start_pos - 9));
         }
     }
     return ans;

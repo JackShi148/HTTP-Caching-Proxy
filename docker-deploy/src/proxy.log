@@ -1,21 +1,9 @@
-0: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 03:00:23 2023
-0: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+0: "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 04:02:25 2023
+0: Requesting "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from detectportal.firefox.com
+0: not in cache
+0: Requesting "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from detectportal.firefox.com
+0: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+0: NOTE Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+0: NOTE Expires: Sun Feb 26 05:19:22 2023 GMT
+0: cached, expires at Sun Feb 26 05:19:22 2023 GMT
 0: Responding "HTTP/1.1 200 OK"
-1: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 03:00:23 2023
-2: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 03:00:23 2023
-1: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-1: Responding "HTTP/1.1 200 OK"
-2: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
-2: Responding "HTTP/1.1 200 OK"
-3: "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 03:00:23 2023
-3: Requesting "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from detectportal.firefox.com
-3: not in cache
-3: Requesting "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from detectportal.firefox.com
-3: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-3: NOTE Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
-3: NOTE Expires: Sun Feb 26 20:57:22 2023 GMT
-3: cached, expires at Sun Feb 26 20:57:22 2023 GMT
-3: Responding "HTTP/1.1 200 OK"
-4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 03:00:23 2023
-4: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-4: Responding "HTTP/1.1 200 OK"
