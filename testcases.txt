@@ -24,35 +24,36 @@ GET
 http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx
 test: GET, chunked, no-cache, no-store
 ==============
-0: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:04:48 2023
-0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-0: not in cache
-0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-0: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-0: NOTE Cache-Control: no-cache, no-store
-0: not cacheable because the Cache-Control contains no-store
-0: Responding "HTTP/1.1 200 OK"
+33: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 19:14:29 2023
+33: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+33: not in cache
+33: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+33: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+33: NOTE Cache-Control: no-cache, no-store
+33: NOTE Date: Mon Feb 27 19:14:28 2023 GMT
+33: not cacheable because the Cache-Control contains no-store
+33: Responding "HTTP/1.1 200 OK"
 
 ==============
 POST 
 http://httpbin.org/forms/post
 test: POST, in cache and valid
 ==============
-10: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:07:25 2023
-10: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-10: not in cache
-10: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-10: Received "HTTP/1.1 200 OK" from httpbin.org
-10: NOTE Expires: Sun Feb 26 23:30:46 2023 GMT
-10: cached, expires at Sun Feb 26 23:30:46 2023 GMT
-10: Responding "HTTP/1.1 200 OK"
-12: "POST http://httpbin.org/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:09:18 2023
-12: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
-12: Received "HTTP/1.1 200 OK" from httpbin.org
-12: Responding "HTTP/1.1 200 OK"
-14: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:10:02 2023
-14: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-14: in cache, valid
+21: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 19:11:25 2023
+21: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+21: not in cache
+21: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+21: Received "HTTP/1.1 200 OK" from httpbin.org
+21: NOTE Date: Mon Feb 27 19:11:25 2023 GMT
+21: cached, expires at Mon Feb 27 20:34:45 2023 GMT
+21: Responding "HTTP/1.1 200 OK"
+31: "POST http://httpbin.org/post HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 19:12:04 2023
+31: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+31: Received "HTTP/1.1 200 OK" from httpbin.org
+31: Responding "HTTP/1.1 200 OK"
+32: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 19:14:09 2023
+32: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+32: in cache, valid
 
 ==============
 CONNECT
@@ -65,14 +66,10 @@ test: CONNECT
 
 ==============
 CONNECT
-www.baidu.com
+www.google.com
 test: CONNECT
 ==============
-4: "GET http://www.baidu.com/ HTTP/1.1" from 173.95.91.86 @ Sun Feb 26 22:15:53 2023
-4: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
-4: not in cache
-4: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
-4: Received "HTTP/1.1 200 OK" from www.baidu.com
-4: NOTE Expires: Sun Feb 26 23:39:14 2023 GMT
-4: cached, expires at Sun Feb 26 23:39:14 2023 GMT
-4: Responding "HTTP/1.1 200 OK"
+1: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 19:21:11 2023
+1: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+1: Responding "HTTP/1.1 200 OK"
+1: Tunnel closed
