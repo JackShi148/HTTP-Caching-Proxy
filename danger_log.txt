@@ -1,0 +1,42 @@
+Danger Log
+
+1. Cache policy
+We first tried to use a double linked list to implement the cache system. However, the initial structure is inefficient in finding and deleting. 
+Finally, we use a hashmap and a double linked list to implement the cache system. The key of the hashmap was the web url that the request specified, and the value of the hashmap is 
+a pointer to the node in the double linked list.
+The cache has a maximum capacity of 100.
+The replacement policy is applying the least recently used policy. When the number of saved responses exceeds 100, the least recently used node would be deleted from the hashmap and 
+double linked list. New node would be created and added to the head of the double linked list. In conclusion, the implemented cache was efficient in finding, deleting and inserting. 
+
+2. Failure handled
+We checked the url and format of request received from the clients. If url is incorrect for proxy to connect the remote server or the format of the request is invalid, 
+an exception was thrown and was catched by the routeRequest function. 
+The routeRequest function would send a response to the client with different status code to the client based on the content of the exception.
+
+3. Exception guarantee
+Almost all the variables are defined in the thread stack, which prevents memory leak from happening in case that some exceptions happen. 
+We used try and catch statements to catch the exceptions. We closed all the socket fds and free all the allocated chunks in heap that related to the problematic thread. 
+The proxy will keep working even if a thread throws an exception. 
+The cache had nodes that were allocated in heap (using new). We made a destructor for the cache that is called to free all these nodes. 
+
+4. Receive responses
+While it was suggested that we used vector<char> to receive the response if it was chunked. Actually, we used vector<string> to save different chunks, and merge them together
+after all the chunks were received. We first found that the response received was not whole. Finally, we found, when we wanted to convert a const char * to string, we simply
+used std::string() to convert, ignoring to specify the length of the string. If \0 contained in the received const char *, the received response would only have the data before
+the \0. We found the reason and solved it by specifying the length of the string I wanted to convert to. 
+
+5. Hook
+We found that, if a method in proxy.cpp wanted to call another method in proxy.cpp, it needed to use the this pointer. However, the static method did not have the this pointer. 
+To solve this problem, we created a class named Hook that saved the shared pointers among all the created threads. 
+The Hook class had a pointer that points to the proxy object, a pointer that points to the log object and a pointer that points to the cache object.
+By doing that, the thread can use these pointers to invoke the methods in Proxy, Log and Cache. 
+
+6. Locks
+We found that two threads might fight with each other to access the log file. They might also manipulate the cache nodes simultaneously. 
+To prevent these cases from happening, we used mutex locks to lock some methods in Log and Cache.
+
+7. HTTP/1.1 or HTTP/1.0
+Initially, we sent responses ("200", "404", "400") to clients regardless of the HTTP version. 
+We found it would be good to keep the same HTTP version. Therefore, if client sent a HTTP/1.0 request and the format of that request is wrong.
+The proxy would send back a "400 Bad Request HTTP/1.0" to the client. 
+
