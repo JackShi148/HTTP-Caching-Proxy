@@ -61,10 +61,26 @@ int Server::acceptConnections(std::string *ip_addr, unsigned short int *port)
     throw Exception("ERROR: accept failed, cannot connect to the client.");
   }
   // return IP address of client
-  struct sockaddr_in *addr = (struct sockaddr_in *)&socket_addr;
   // only for IPv4, may need change
-  *ip_addr = inet_ntoa(addr->sin_addr);
-  *port = addr->sin_port;
+  //struct sockaddr_in *addr = (struct sockaddr_in *)&socket_addr;
+  //*ip_addr = inet_ntoa(addr->sin_addr);
+  //*port = addr->sin_port;
+  void *addr;
+  if(socket_addr.ss_family == AF_INET)
+  {
+    struct sockaddr_in *ipv4 = (struct sockaddr_in *)&socket_addr;
+    addr = &(ipv4->sin_addr);
+    *port = ipv4->sin_port;
+  }
+  else
+  {
+    struct sockaddr_in6 *ipv6 = (struct sockaddr_in6 *)&socket_addr;
+    addr = &(ipv6->sin6_addr);
+    *port = ipv6->sin6_port;
+  }
+  char ipstr[INET6_ADDRSTRLEN];
+  inet_ntop(socket_addr.ss_family, addr, ipstr, sizeof(ipstr));
+  *ip_addr = std::string(ipstr);
   std::cout << "Server: get connection from " << *ip_addr << ", port " << *port << std::endl;
   return client_connect_socket_fd;
 }

@@ -17,6 +17,10 @@ private:
   pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
   // std::mutex thread_mutex;
 public:
+  ~Log()
+  {
+    closeLogFile();
+  }
   void openLogFile(std::string filepath);
   void writeLogFile(Hook *h, std::string msg, int option);
   void writeCacheLog(Hook *h, std::string msg, int option);
