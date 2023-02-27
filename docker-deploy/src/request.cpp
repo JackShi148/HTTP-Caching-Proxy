@@ -129,7 +129,7 @@ void Request::parseHostPort()
             this->hostname = this->request_line.substr(start_pos, end_pos - start_pos);
             // HTTP default port: 80
             size_t find_port = this->request_line.find(':', start_pos);
-            if (find_port != std::string::npos)
+            if (find_port == std::string::npos)
             {
                 this->port = "80";
             }
