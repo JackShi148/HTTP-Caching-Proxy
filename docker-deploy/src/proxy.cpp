@@ -432,7 +432,10 @@ void Proxy::printNoteLog(Response res, int max_stale, void *hook)
     std::string expTime = res.formatFinder("Expires");
     if (expTime != "" && expTime != "-1" && expTime != "0")
     {
-      std::string msg = "Expires: " + res.getWhenExpire(0);
+      time_t expire_moment = mktime(res.getExpireTime().convertGMT());
+      const char *expTime_c = asctime(gmtime(&expire_moment));
+      std::string expireTime = std::string(expTime_c);
+      std::string msg = "Expires: " + expireTime.substr(0, expireTime.size() - 1) + " GMT";
       log->writeLogFile(h, msg, NOTE);
     }
     if (res.formatFinder("Date") != "")
