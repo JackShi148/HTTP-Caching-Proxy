@@ -18,7 +18,6 @@ class Response
     TimeInfo response_time;
     TimeInfo expire_time;
     std::string cache_info; // max-age   no-cache  no-store  private
-    std::string formatFinder(std::string field);
     void parseResponse();
     int parseMaxAge();
     int parseSMaxAge();
@@ -34,6 +33,7 @@ public:
     {
         parseResponse();
     }
+    std::string formatFinder(std::string field);
     std::string getResponseHead();
     std::string getResponseLine();
     std::string getResponse();

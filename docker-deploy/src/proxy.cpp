@@ -6,7 +6,7 @@ void Proxy::startProxy()
   int socket_fd = server.createServer();
   int thread_id = 0;
   Log log;
-  log.openLogFile("./proxy.log");
+  log.openLogFile("/var/log/erss/proxy.log");
   Cache cache(CACHE_CAPACITY);
   while (1)
   {
@@ -21,6 +21,7 @@ void Proxy::startProxy()
               << client_connect_socket_fd << ", client_IP_address: " << client_ip_addr << ", client_port: " << client_port << std::endl;
     ++thread_id;
   }
+  log.closeLogFile();
 }
 
 void *Proxy::routeRequest(void *ahook)
@@ -423,10 +424,23 @@ void Proxy::printNoteLog(Response res, int max_stale, void *hook)
       std::string msg = "ETag: " + res.getEtag();
       log->writeLogFile(h, msg, NOTE);
     }
-    if (!res.isNoCache())
+    if (res.getLastModified() != "")
     {
-      std::string expTime = res.getWhenExpire(max_stale);
-      std::string msg = "Expires: " + expTime;
+      std::string msg = "Last-Modified: " + res.getLastModified();
+      log->writeLogFile(h, msg, NOTE);
+    }
+    std::string expTime = res.formatFinder("Expires");
+    if (expTime != "" && expTime != "-1" && expTime != "0")
+    {
+      std::string msg = "Expires: " + res.getWhenExpire(0);
+      log->writeLogFile(h, msg, NOTE);
+    }
+    if (res.formatFinder("Date") != "")
+    {
+      time_t res_moment = mktime(res.getResponseTime().convertGMT());
+      const char * resTime_c = asctime(gmtime(&res_moment));
+      std::string resTime = std::string(resTime_c);
+      std::string msg = "Date: " + resTime.substr(0, resTime.size() - 1) + " GMT";
       log->writeLogFile(h, msg, NOTE);
     }
   }

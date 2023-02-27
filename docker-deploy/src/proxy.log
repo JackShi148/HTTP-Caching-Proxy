@@ -1,9 +1,377 @@
-0: "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 04:02:25 2023
-0: Requesting "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from detectportal.firefox.com
-0: not in cache
-0: Requesting "GET http://detectportal.firefox.com/success.txt HTTP/1.1" from detectportal.firefox.com
-0: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-0: NOTE Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
-0: NOTE Expires: Sun Feb 26 05:19:22 2023 GMT
-0: cached, expires at Sun Feb 26 05:19:22 2023 GMT
+0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:23:55 2023
+0: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 0: Responding "HTTP/1.1 200 OK"
+1: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:23:57 2023
+1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+1: not in cache
+1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+1: Received "HTTP/1.1 200 OK" from httpbin.org
+1: NOTE Date: Mon Feb 27 17:23:57 2023 GMT
+1: cached, expires at Mon Feb 27 18:47:17 2023 GMT
+1: Responding "HTTP/1.1 200 OK"
+2: "POST http://httpbin.org/post HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:21 2023
+2: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+2: Received "HTTP/1.1 200 OK" from httpbin.org
+2: Responding "HTTP/1.1 200 OK"
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:34 2023
+3: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+3: Responding "HTTP/1.1 200 OK"
+4: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:34 2023
+5: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:34 2023
+4: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+4: Responding "HTTP/1.1 200 OK"
+5: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+5: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+5: Responding "HTTP/1.1 200 OK"
+6: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:35 2023
+6: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+6: not in cache
+6: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+6: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+6: NOTE Cache-Control: no-cache, no-store
+6: NOTE Date: Mon Feb 27 17:24:35 2023 GMT
+6: not cacheable because the Cache-Control contains no-store
+6: Responding "HTTP/1.1 200 OK"
+8: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:40 2023
+9: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:40 2023
+9: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+9: Responding "HTTP/1.1 200 OK"
+10: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:40 2023
+10: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+10: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+10: Responding "HTTP/1.1 200 OK"
+8: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+8: Responding "HTTP/1.1 200 OK"
+11: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:42 2023
+11: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+11: Responding "HTTP/1.1 200 OK"
+19: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:42 2023
+19: Requesting "CONNECT www.googletagmanager.com:443 HTTP/1.1" from www.googletagmanager.com
+19: Responding "HTTP/1.1 200 OK"
+21: "CONNECT www.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:42 2023
+21: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
+21: Responding "HTTP/1.1 200 OK"
+21: Tunnel closed
+24: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:42 2023
+24: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
+24: Responding "HTTP/1.1 200 OK"
+25: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:42 2023
+25: Requesting "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from stats.g.doubleclick.net
+25: Responding "HTTP/1.1 200 OK"
+26: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:43 2023
+26: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+26: Responding "HTTP/1.1 200 OK"
+26: Tunnel closed
+27: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:43 2023
+27: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+27: Responding "HTTP/1.1 200 OK"
+27: Tunnel closed
+7: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:45 2023
+8: Tunnel closed
+22: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+16: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+23: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+18: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+15: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+14: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+20: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+17: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+12: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+13: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:48 2023
+28: "CONNECT www.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:51 2023
+28: Requesting "CONNECT www.bilibili.com:443 HTTP/1.1" from www.bilibili.com
+28: Responding "HTTP/1.1 200 OK"
+29: "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:51 2023
+29: Requesting "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from ocsp.globalsign.com
+29: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+29: Responding "HTTP/1.1 200 OK"
+31: "CONNECT s1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:52 2023
+30: "CONNECT s1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:52 2023
+32: "CONNECT s1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:52 2023
+30: Requesting "CONNECT s1.hdslb.com:443 HTTP/1.1" from s1.hdslb.com
+30: Responding "HTTP/1.1 200 OK"
+31: Requesting "CONNECT s1.hdslb.com:443 HTTP/1.1" from s1.hdslb.com
+31: Responding "HTTP/1.1 200 OK"
+32: Requesting "CONNECT s1.hdslb.com:443 HTTP/1.1" from s1.hdslb.com
+32: Responding "HTTP/1.1 200 OK"
+42: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:52 2023
+41: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:52 2023
+43: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:52 2023
+41: Requesting "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from ocsp.globalsign.com
+42: Requesting "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from ocsp.globalsign.com
+43: Requesting "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from ocsp.globalsign.com
+41: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+41: Responding "HTTP/1.1 200 OK"
+43: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+43: Responding "HTTP/1.1 200 OK"
+42: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+42: Responding "HTTP/1.1 200 OK"
+32: Tunnel closed
+40: "CONNECT i1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+37: "CONNECT i1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+35: "CONNECT i1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+36: "CONNECT i1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+39: "CONNECT i0.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+38: "CONNECT i0.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+30: Tunnel closed
+44: "CONNECT i0.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+46: "CONNECT i1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+45: "CONNECT i1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+47: "CONNECT i0.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+34: "CONNECT s1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+48: "CONNECT data.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+49: "CONNECT data.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+50: "CONNECT data.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+54: "CONNECT s1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+53: "CONNECT api.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+52: "CONNECT s1.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+51: "CONNECT data.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+57: "CONNECT data.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+58: "CONNECT data.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+59: "CONNECT i0.hdslb.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+53: Requesting "CONNECT api.bilibili.com:443 HTTP/1.1" from api.bilibili.com
+53: Responding "HTTP/1.1 200 OK"
+39: Requesting "CONNECT i0.hdslb.com:443 HTTP/1.1" from i0.hdslb.com
+39: Responding "HTTP/1.1 200 OK"
+47: Requesting "CONNECT i0.hdslb.com:443 HTTP/1.1" from i0.hdslb.com
+47: Responding "HTTP/1.1 200 OK"
+38: Requesting "CONNECT i0.hdslb.com:443 HTTP/1.1" from i0.hdslb.com
+38: Responding "HTTP/1.1 200 OK"
+44: Requesting "CONNECT i0.hdslb.com:443 HTTP/1.1" from i0.hdslb.com
+44: Responding "HTTP/1.1 200 OK"
+59: Requesting "CONNECT i0.hdslb.com:443 HTTP/1.1" from i0.hdslb.com
+59: Responding "HTTP/1.1 200 OK"
+61: "CONNECT api.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+37: Requesting "CONNECT i1.hdslb.com:443 HTTP/1.1" from i1.hdslb.com
+37: Responding "HTTP/1.1 200 OK"
+45: Requesting "CONNECT i1.hdslb.com:443 HTTP/1.1" from i1.hdslb.com
+45: Responding "HTTP/1.1 200 OK"
+40: Requesting "CONNECT i1.hdslb.com:443 HTTP/1.1" from i1.hdslb.com
+40: Responding "HTTP/1.1 200 OK"
+36: Requesting "CONNECT i1.hdslb.com:443 HTTP/1.1" from i1.hdslb.com
+36: Responding "HTTP/1.1 200 OK"
+46: Requesting "CONNECT i1.hdslb.com:443 HTTP/1.1" from i1.hdslb.com
+46: Responding "HTTP/1.1 200 OK"
+35: Requesting "CONNECT i1.hdslb.com:443 HTTP/1.1" from i1.hdslb.com
+35: Responding "HTTP/1.1 200 OK"
+52: Requesting "CONNECT s1.hdslb.com:443 HTTP/1.1" from s1.hdslb.com
+52: Responding "HTTP/1.1 200 OK"
+54: Requesting "CONNECT s1.hdslb.com:443 HTTP/1.1" from s1.hdslb.com
+54: Responding "HTTP/1.1 200 OK"
+61: Requesting "CONNECT api.bilibili.com:443 HTTP/1.1" from api.bilibili.com
+61: Responding "HTTP/1.1 200 OK"
+34: Requesting "CONNECT s1.hdslb.com:443 HTTP/1.1" from s1.hdslb.com
+34: Responding "HTTP/1.1 200 OK"
+39: Tunnel closed
+44: Tunnel closed
+47: Tunnel closed
+35: Tunnel closed
+63: "CONNECT cm.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+46: Tunnel closed
+34: Tunnel closed
+40: Tunnel closed
+54: Tunnel closed
+45: Tunnel closed
+64: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+36: Tunnel closed
+64: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+64: Responding "HTTP/1.1 200 OK"
+64: Tunnel closed
+63: Requesting "CONNECT cm.bilibili.com:443 HTTP/1.1" from cm.bilibili.com
+63: Responding "HTTP/1.1 200 OK"
+50: Requesting "CONNECT data.bilibili.com:443 HTTP/1.1" from data.bilibili.com
+57: Requesting "CONNECT data.bilibili.com:443 HTTP/1.1" from data.bilibili.com
+48: Requesting "CONNECT data.bilibili.com:443 HTTP/1.1" from data.bilibili.com
+48: Responding "HTTP/1.1 200 OK"
+51: Requesting "CONNECT data.bilibili.com:443 HTTP/1.1" from data.bilibili.com
+51: Responding "HTTP/1.1 200 OK"
+49: Requesting "CONNECT data.bilibili.com:443 HTTP/1.1" from data.bilibili.com
+49: Responding "HTTP/1.1 200 OK"
+58: Requesting "CONNECT data.bilibili.com:443 HTTP/1.1" from data.bilibili.com
+58: Responding "HTTP/1.1 200 OK"
+57: Responding "HTTP/1.1 200 OK"
+50: Responding "HTTP/1.1 200 OK"
+65: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:53 2023
+65: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+65: Responding "HTTP/1.1 200 OK"
+65: Tunnel closed
+50: Tunnel closed
+58: Tunnel closed
+48: Tunnel closed
+51: Tunnel closed
+49: Tunnel closed
+62: "CONNECT cm.bilibili.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:54 2023
+62: Requesting "CONNECT cm.bilibili.com:443 HTTP/1.1" from cm.bilibili.com
+62: Responding "HTTP/1.1 200 OK"
+66: "GET http://www.baidu.com/ HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:55 2023
+66: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
+66: not in cache
+66: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
+66: Received "HTTP/1.1 200 OK" from www.baidu.com
+66: NOTE Date: Mon Feb 27 17:24:56 2023 GMT
+66: cached, expires at Mon Feb 27 18:48:16 2023 GMT
+66: Responding "HTTP/1.1 200 OK"
+73: "GET http://pss.bdstatic.com/r/www/cache/static/global/js/all_async_search_038f9ae.js HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:57 2023
+74: "GET http://hectorstatic.baidu.com/cd37ed75a9387c5b.js HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:57 2023
+73: Requesting "GET http://pss.bdstatic.com/r/www/cache/static/global/js/all_async_search_038f9ae.js HTTP/1.1" from pss.bdstatic.com
+73: not in cache
+73: Requesting "GET http://pss.bdstatic.com/r/www/cache/static/global/js/all_async_search_038f9ae.js HTTP/1.1" from pss.bdstatic.com
+74: Requesting "GET http://hectorstatic.baidu.com/cd37ed75a9387c5b.js HTTP/1.1" from hectorstatic.baidu.com
+74: not in cache
+74: Requesting "GET http://hectorstatic.baidu.com/cd37ed75a9387c5b.js HTTP/1.1" from hectorstatic.baidu.com
+33: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+74: Received "HTTP/1.1 200 OK" from hectorstatic.baidu.com
+74: NOTE Cache-Control: max-age=3600
+74: NOTE Last-Modified: Mon, 27 Feb 2023 10:30:49 GMT
+74: NOTE Expires: Mon Feb 27 18:24:58 2023 GMT
+74: NOTE Date: Mon Feb 27 17:24:58 2023 GMT
+74: cached, expires at Mon Feb 27 18:24:58 2023 GMT
+74: Responding "HTTP/1.1 200 OK"
+73: Received "HTTP/1.1 200 OK" from pss.bdstatic.com
+73: NOTE Cache-Control: max-age=31536000
+73: NOTE Last-Modified: Wed, 15 Feb 2023 06:16:49 GMT
+73: NOTE Expires: Tue Feb 27 17:24:58 2024 GMT
+73: NOTE Date: Mon Feb 27 17:24:58 2023 GMT
+73: cached, expires at Tue Feb 27 17:24:58 2024 GMT
+73: Responding "HTTP/1.1 200 OK"
+75: "GET http://pss.bdstatic.com/r/www/cache/static/amd_modules/@baidu/search-sug_653d65d.js HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+82: "CONNECT sp1.baidu.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+81: "CONNECT sp2.baidu.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+80: "CONNECT sp1.baidu.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+83: "GET http://ss.bdimg.com/static/superman/font/iconfont-fa013548a9.woff2 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+82: Requesting "CONNECT sp1.baidu.com:443 HTTP/1.1" from sp1.baidu.com
+82: Responding "HTTP/1.1 200 OK"
+80: Requesting "CONNECT sp1.baidu.com:443 HTTP/1.1" from sp1.baidu.com
+80: Responding "HTTP/1.1 200 OK"
+81: Requesting "CONNECT sp2.baidu.com:443 HTTP/1.1" from sp2.baidu.com
+81: Responding "HTTP/1.1 200 OK"
+75: Requesting "GET http://pss.bdstatic.com/r/www/cache/static/amd_modules/@baidu/search-sug_653d65d.js HTTP/1.1" from pss.bdstatic.com
+75: not in cache
+75: Requesting "GET http://pss.bdstatic.com/r/www/cache/static/amd_modules/@baidu/search-sug_653d65d.js HTTP/1.1" from pss.bdstatic.com
+84: "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+85: "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+84: Requesting "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from ocsp.globalsign.com
+85: Requesting "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from ocsp.globalsign.com
+75: Received "HTTP/1.1 200 OK" from pss.bdstatic.com
+75: NOTE Cache-Control: max-age=31536000
+75: NOTE Last-Modified: Wed, 15 Feb 2023 06:16:46 GMT
+75: NOTE Expires: Tue Feb 27 17:24:58 2024 GMT
+75: NOTE Date: Mon Feb 27 17:24:58 2023 GMT
+75: cached, expires at Tue Feb 27 17:24:58 2024 GMT
+75: Responding "HTTP/1.1 200 OK"
+84: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+84: Responding "HTTP/1.1 200 OK"
+85: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+85: Responding "HTTP/1.1 200 OK"
+76: "GET http://www.baidu.com/sugrec?prod=pc_his&from=pc_web&json=1&sid=36558_38270_38131_37907_38148_38264_38177_38173_38231_38034_38261_37925_38089_26350_38096_37881&hisdata=&_t=1677518698922&csor=0 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+86: "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:24:58 2023
+86: Requesting "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from ocsp.globalsign.com
+86: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+86: Responding "HTTP/1.1 200 OK"
+76: Requesting "GET http://www.baidu.com/sugrec?prod=pc_his&from=pc_web&json=1&sid=36558_38270_38131_37907_38148_38264_38177_38173_38231_38034_38261_37925_38089_26350_38096_37881&hisdata=&_t=1677518698922&csor=0 HTTP/1.1" from www.baidu.com
+76: not in cache
+76: Requesting "GET http://www.baidu.com/sugrec?prod=pc_his&from=pc_web&json=1&sid=36558_38270_38131_37907_38148_38264_38177_38173_38231_38034_38261_37925_38089_26350_38096_37881&hisdata=&_t=1677518698922&csor=0 HTTP/1.1" from www.baidu.com
+55: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:59 2023
+60: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:59 2023
+56: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:24:59 2023
+76: Received "HTTP/1.1 200 OK" from www.baidu.com
+76: NOTE Date: Mon Feb 27 17:24:59 2023 GMT
+76: cached, expires at Mon Feb 27 18:48:19 2023 GMT
+76: Responding "HTTP/1.1 200 OK"
+83: Requesting "GET http://ss.bdimg.com/static/superman/font/iconfont-fa013548a9.woff2 HTTP/1.1" from ss.bdimg.com
+83: not in cache
+83: Requesting "GET http://ss.bdimg.com/static/superman/font/iconfont-fa013548a9.woff2 HTTP/1.1" from ss.bdimg.com
+83: Received "HTTP/1.1 304 Not Modified" from ss.bdimg.com
+83: Responding "HTTP/1.1 304 Not Modified"
+77: "GET http://www.baidu.com/cache/fpid/chromelib_1_1.js?_=1677518697014 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:00 2023
+87: "CONNECT passport.baidu.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:00 2023
+77: Requesting "GET http://www.baidu.com/cache/fpid/chromelib_1_1.js?_=1677518697014 HTTP/1.1" from www.baidu.com
+77: not in cache
+77: Requesting "GET http://www.baidu.com/cache/fpid/chromelib_1_1.js?_=1677518697014 HTTP/1.1" from www.baidu.com
+77: Received "HTTP/1.1 200 OK" from www.baidu.com
+77: NOTE Cache-Control: max-age=315360000
+77: NOTE ETag: "4451-4fdbd6734c340"
+77: NOTE Last-Modified: Wed, 09 Jul 2014 07:10:29 GMT
+77: NOTE Expires: Thu Feb 24 17:25:00 2033 GMT
+77: NOTE Date: Mon Feb 27 17:25:00 2023 GMT
+77: cached, expires at Thu Feb 24 17:25:00 2033 GMT
+77: Responding "HTTP/1.1 200 OK"
+88: "CONNECT sp3.baidu.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:00 2023
+88: Requesting "CONNECT sp3.baidu.com:443 HTTP/1.1" from sp3.baidu.com
+88: Responding "HTTP/1.1 200 OK"
+87: Requesting "CONNECT passport.baidu.com:443 HTTP/1.1" from passport.baidu.com
+87: Responding "HTTP/1.1 200 OK"
+89: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:01 2023
+89: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+89: Responding "HTTP/1.1 200 OK"
+89: Tunnel closed
+90: "CONNECT www.google.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:01 2023
+90: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+90: Responding "HTTP/1.1 200 OK"
+90: Tunnel closed
+78: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+79: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+91: "GET http://post.com/ HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+72: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+70: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+67: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+69: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+68: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+71: WARNING Invalid Request from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+91: Requesting "GET http://post.com/ HTTP/1.1" from post.com
+91: not in cache
+91: Requesting "GET http://post.com/ HTTP/1.1" from post.com
+91: Received "HTTP/1.1 301 Moved Permanently" from post.com
+91: Responding "HTTP/1.1 301 Moved Permanently"
+92: "GET http://www.worldaccelerator.com/ HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:02 2023
+92: Requesting "GET http://www.worldaccelerator.com/ HTTP/1.1" from www.worldaccelerator.com
+92: not in cache
+92: Requesting "GET http://www.worldaccelerator.com/ HTTP/1.1" from www.worldaccelerator.com
+92: Received "HTTP/1.1 301 Moved Permanently" from www.worldaccelerator.com
+92: Responding "HTTP/1.1 301 Moved Permanently"
+93: "CONNECT www.world.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:03 2023
+93: Requesting "CONNECT www.world.com:443 HTTP/1.1" from www.world.com
+93: Responding "HTTP/1.1 200 OK"
+94: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:03 2023
+94: Requesting "POST http://ocsp.sectigo.com/ HTTP/1.1" from ocsp.sectigo.com
+94: Received "HTTP/1.1 200 OK" from ocsp.sectigo.com
+94: Responding "HTTP/1.1 200 OK"
+95: "CONNECT www.world.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+96: "CONNECT www.world.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+97: "CONNECT www.world.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+98: "CONNECT www.world.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+99: "CONNECT www.world.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+96: Requesting "CONNECT www.world.com:443 HTTP/1.1" from www.world.com
+96: Responding "HTTP/1.1 200 OK"
+95: Requesting "CONNECT www.world.com:443 HTTP/1.1" from www.world.com
+95: Responding "HTTP/1.1 200 OK"
+99: Requesting "CONNECT www.world.com:443 HTTP/1.1" from www.world.com
+99: Responding "HTTP/1.1 200 OK"
+98: Requesting "CONNECT www.world.com:443 HTTP/1.1" from www.world.com
+98: Responding "HTTP/1.1 200 OK"
+97: Requesting "CONNECT www.world.com:443 HTTP/1.1" from www.world.com
+97: Responding "HTTP/1.1 200 OK"
+100: "CONNECT ajax.googleapis.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+100: Requesting "CONNECT ajax.googleapis.com:443 HTTP/1.1" from ajax.googleapis.com
+100: Responding "HTTP/1.1 200 OK"
+101: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+101: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+101: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+101: Responding "HTTP/1.1 200 OK"
+102: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+102: Requesting "CONNECT fonts.googleapis.com:443 HTTP/1.1" from fonts.googleapis.com
+102: Responding "HTTP/1.1 200 OK"
+103: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:04 2023
+103: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+103: Responding "HTTP/1.1 200 OK"
+104: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.86 @ Mon Feb 27 17:25:05 2023
+104: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+104: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+104: Responding "HTTP/1.1 200 OK"
+95: Tunnel closed
+99: Tunnel closed
+93: Tunnel closed
+98: Tunnel closed
+96: Tunnel closed
+97: Tunnel closed
+87: Tunnel closed
