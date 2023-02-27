@@ -2,13 +2,13 @@
 
 void Response::parseResponse()
 {
-    this->max_age = parseMaxAge();
-    this->s_maxage = parseSMaxAge();
     size_t header_end = this->response_msg.find_first_of("\r\n");
     this->status_line = this->response_msg.substr(0, header_end);
     this->Etag = formatFinder("Etag");
     this->last_modified = formatFinder("Last-Modified");
     this->cache_info = formatFinder("Cache-Control");
+    this->max_age = parseMaxAge();
+    this->s_maxage = parseSMaxAge();
     std::string respTime = formatFinder("Date");
     if (respTime != "")
     {
