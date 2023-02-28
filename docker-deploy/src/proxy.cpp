@@ -226,6 +226,10 @@ void Proxy::proxyResponse(int client_connect_socket_fd, std::string exp, void *h
   {
     errMsg += "400 Bad Request";
   }
+  else if (exp == "RESPONSE ERROR")
+  {
+    errMsg += "502 Bad Gateway";
+  }
   else
   {
     errMsg += "503 Server Unavailable";
