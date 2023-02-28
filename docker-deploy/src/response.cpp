@@ -84,6 +84,10 @@ std::string Response::getStatusCode()
         throw Exception("RESPONSE ERROR");
     }
     size_t pos2 = this->status_line.find_first_of(' ', pos1 + 1);
+    if (pos2 == std::string::npos)
+    {
+        throw Exception("RESPONSE ERROR");
+    }
     std::string code = this->status_line.substr(pos1 + 1, pos2 - pos1 - 1);
     return code;
 }
