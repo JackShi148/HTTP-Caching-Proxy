@@ -4,4 +4,5 @@ RUN mkdir /var/log/erss
 add . /var/log/erss/
 WORKDIR /var/log/erss
 
+RUN chmod o+x run.sh
 ENTRYPOINT ["./run.sh"]

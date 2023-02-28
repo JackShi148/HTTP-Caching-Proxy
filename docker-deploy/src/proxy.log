@@ -1,683 +1,136 @@
-0: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:27:49 2023
-0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+0: "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:05 2023
+0: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
 0: not in cache
-0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-0: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-0: NOTE Cache-Control: no-cache, no-store
-0: NOTE Date: Tue Feb 28 15:27:49 2023 GMT
-0: not cacheable because the Cache-Control contains no-store
-0: Responding "HTTP/1.1 200 OK"
-1: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:00 2023
+0: Requesting "GET http://js.player.cntv.cn/creator/vodplayer.js HTTP/1.1" from js.player.cntv.cn
+0: Received "HTTP/1.1 304 Not Modified" from js.player.cntv.cn
+0: Responding "HTTP/1.1 304 Not Modified"
+1: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:12 2023
 1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
 1: not in cache
 1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
 1: Received "HTTP/1.1 200 OK" from httpbin.org
-1: NOTE Date: Tue Feb 28 15:28:01 2023 GMT
-1: cached, expires at Tue Feb 28 16:51:21 2023 GMT
+1: NOTE Date: Tue Feb 28 21:54:12 2023 GMT
+1: cached, expires at Tue Feb 28 23:17:32 2023 GMT
 1: Responding "HTTP/1.1 200 OK"
-2: "POST http://httpbin.org/post HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:08 2023
-2: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
-2: Received "HTTP/1.1 200 OK" from httpbin.org
-2: Responding "HTTP/1.1 200 OK"
-3: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-3: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-3: not in cache
-3: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-3: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-3: NOTE Cache-Control: no-cache, no-store
-3: NOTE Date: Tue Feb 28 15:28:12 2023 GMT
-3: not cacheable because the Cache-Control contains no-store
+2: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:18 2023
+2: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+2: in cache, valid
+3: "POST http://httpbin.org/post HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:23 2023
+3: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+3: Received "HTTP/1.1 200 OK" from httpbin.org
 3: Responding "HTTP/1.1 200 OK"
-5: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-6: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-8: "CONNECT www.httpwatch.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-4: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-9: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-10: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-8: Requesting "CONNECT www.httpwatch.com:443 HTTP/1.1" from www.httpwatch.com
-8: Responding "HTTP/1.1 200 OK"
-4: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
+4: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:27 2023
+4: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
 4: not in cache
-4: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
-10: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-10: not in cache
-10: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-6: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-6: not in cache
-6: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-5: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
+4: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+4: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+4: NOTE Cache-Control: no-cache, no-store
+4: NOTE Date: Tue Feb 28 21:54:27 2023 GMT
+4: not cacheable because the Cache-Control contains no-store
+4: Responding "HTTP/1.1 200 OK"
+5: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:34 2023
+5: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
 5: not in cache
-5: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-9: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-9: not in cache
-9: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-4: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-4: Responding "HTTP/1.1 304 Not Modified"
-5: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-5: Responding "HTTP/1.1 304 Not Modified"
-6: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-6: Responding "HTTP/1.1 304 Not Modified"
-9: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-9: Responding "HTTP/1.1 304 Not Modified"
-10: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-10: Responding "HTTP/1.1 304 Not Modified"
-7: "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-12: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:12 2023
-7: Requesting "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from www.httpwatch.com
-7: not in cache
-7: Requesting "GET http://www.httpwatch.com/favicon.ico?v1 HTTP/1.1" from www.httpwatch.com
-12: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
-12: Responding "HTTP/1.1 200 OK"
-7: Received "HTTP/1.1 301 Moved Permanently" from www.httpwatch.com
-7: Responding "HTTP/1.1 301 Moved Permanently"
-13: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:14 2023
-13: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-13: not in cache
-13: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-13: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-13: NOTE Cache-Control: no-cache, no-store
-13: NOTE Date: Tue Feb 28 15:28:13 2023 GMT
-13: not cacheable because the Cache-Control contains no-store
-13: Responding "HTTP/1.1 200 OK"
-17: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:14 2023
-16: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:14 2023
-19: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:14 2023
-18: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:14 2023
-14: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:14 2023
-17: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
-17: not in cache
-17: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
-18: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-18: not in cache
-18: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-19: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-19: not in cache
-19: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-16: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-16: not in cache
-16: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-14: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-14: not in cache
-14: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-17: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-17: Responding "HTTP/1.1 304 Not Modified"
-19: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-19: Responding "HTTP/1.1 304 Not Modified"
-18: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-18: Responding "HTTP/1.1 304 Not Modified"
-16: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-16: Responding "HTTP/1.1 304 Not Modified"
-14: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-14: Responding "HTTP/1.1 304 Not Modified"
-15: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:15 2023
-15: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-15: not in cache
-15: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-15: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-15: NOTE Cache-Control: no-cache, no-store
-15: NOTE Date: Tue Feb 28 15:28:15 2023 GMT
-15: not cacheable because the Cache-Control contains no-store
-15: Responding "HTTP/1.1 200 OK"
-20: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:15 2023
-21: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:15 2023
-22: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:15 2023
-23: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:15 2023
-25: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:15 2023
-20: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-20: not in cache
-20: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-21: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
-21: not in cache
-21: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
-22: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-22: not in cache
-22: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-25: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-25: not in cache
-25: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-23: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-23: not in cache
-23: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-21: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-21: Responding "HTTP/1.1 304 Not Modified"
-25: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-25: Responding "HTTP/1.1 304 Not Modified"
-22: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-22: Responding "HTTP/1.1 304 Not Modified"
-20: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-20: Responding "HTTP/1.1 304 Not Modified"
-23: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-23: Responding "HTTP/1.1 304 Not Modified"
-24: "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-24: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-24: not in cache
-24: Requesting "GET http://www.httpwatch.com/httpgallery/methods/ HTTP/1.1" from www.httpwatch.com
-24: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-24: NOTE Cache-Control: no-cache, no-store
-24: NOTE Date: Tue Feb 28 15:28:18 2023 GMT
-24: not cacheable because the Cache-Control contains no-store
-24: Responding "HTTP/1.1 200 OK"
-28: "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-27: "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-26: "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-29: "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-30: "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-26: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-28: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-28: not in cache
-28: Requesting "GET http://www.httpwatch.com/httpgallery/methods/retry.png HTTP/1.1" from www.httpwatch.com
-27: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
+5: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+5: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+5: NOTE Cache-Control: no-cache, no-store
+5: NOTE Date: Tue Feb 28 21:54:34 2023 GMT
+5: not cacheable because the Cache-Control contains no-store
+5: Responding "HTTP/1.1 200 OK"
+6: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:41 2023
+6: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+6: Responding "HTTP/1.1 200 OK"
+7: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:41 2023
+8: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:41 2023
+7: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+7: Responding "HTTP/1.1 200 OK"
+8: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
+8: Responding "HTTP/1.1 200 OK"
+9: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:46 2023
+9: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+9: Responding "HTTP/1.1 200 OK"
+10: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:52 2023
+10: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+10: Responding "HTTP/1.1 200 OK"
+10: Tunnel closed
+11: "GET http://www.baidu.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:54 2023
+11: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
+11: not in cache
+11: Requesting "GET http://www.baidu.com/ HTTP/1.1" from www.baidu.com
+11: Received "HTTP/1.1 200 OK" from www.baidu.com
+11: NOTE Date: Tue Feb 28 21:54:55 2023 GMT
+11: cached, expires at Tue Feb 28 23:18:15 2023 GMT
+11: Responding "HTTP/1.1 200 OK"
+13: "CONNECT dss0.bdstatic.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:55 2023
+19: "GET http://hectorstatic.baidu.com/cd37ed75a9387c5b.js HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:55 2023
+26: "CONNECT sp2.baidu.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:55 2023
+27: "GET http://www.baidu.com/sugrec?prod=pc_his&from=pc_web&json=1&sid=36558_38270_38131_37907_38148_38264_38177_38173_38231_38034_38261_37925_38089_26350_37881&hisdata=&_t=1677621295885&csor=0 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:55 2023
+22: "CONNECT sp1.baidu.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:55 2023
+20: "CONNECT sp1.baidu.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:55 2023
+27: Requesting "GET http://www.baidu.com/sugrec?prod=pc_his&from=pc_web&json=1&sid=36558_38270_38131_37907_38148_38264_38177_38173_38231_38034_38261_37925_38089_26350_37881&hisdata=&_t=1677621295885&csor=0 HTTP/1.1" from www.baidu.com
 27: not in cache
-27: Requesting "GET http://www.httpwatch.com/assets/images/logo2.png HTTP/1.1" from www.httpwatch.com
-26: not in cache
-26: Requesting "GET http://www.httpwatch.com/assets/images/httpwatch_32x32.png HTTP/1.1" from www.httpwatch.com
-29: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-29: not in cache
-29: Requesting "GET http://www.httpwatch.com/assets/images/page-head-bg.gif HTTP/1.1" from www.httpwatch.com
-30: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-30: not in cache
-30: Requesting "GET http://www.httpwatch.com/assets/images/logo1.png HTTP/1.1" from www.httpwatch.com
-27: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-27: Responding "HTTP/1.1 304 Not Modified"
-28: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-28: Responding "HTTP/1.1 304 Not Modified"
-26: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-26: Responding "HTTP/1.1 304 Not Modified"
-30: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-30: Responding "HTTP/1.1 304 Not Modified"
-29: Received "HTTP/1.1 304 Not Modified" from www.httpwatch.com
-29: Responding "HTTP/1.1 304 Not Modified"
-11: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:18 2023
-32: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:19 2023
-32: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+27: Requesting "GET http://www.baidu.com/sugrec?prod=pc_his&from=pc_web&json=1&sid=36558_38270_38131_37907_38148_38264_38177_38173_38231_38034_38261_37925_38089_26350_37881&hisdata=&_t=1677621295885&csor=0 HTTP/1.1" from www.baidu.com
+13: Requesting "CONNECT dss0.bdstatic.com:443 HTTP/1.1" from dss0.bdstatic.com
+13: Responding "HTTP/1.1 200 OK"
+13: Tunnel closed
+27: Received "HTTP/1.1 200 OK" from www.baidu.com
+27: NOTE Date: Tue Feb 28 21:54:56 2023 GMT
+27: cached, expires at Tue Feb 28 23:18:16 2023 GMT
+27: Responding "HTTP/1.1 200 OK"
+22: Requesting "CONNECT sp1.baidu.com:443 HTTP/1.1" from sp1.baidu.com
+22: Responding "HTTP/1.1 200 OK"
+20: Requesting "CONNECT sp1.baidu.com:443 HTTP/1.1" from sp1.baidu.com
+20: Responding "HTTP/1.1 200 OK"
+29: "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:56 2023
+30: "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:56 2023
+26: Requesting "CONNECT sp2.baidu.com:443 HTTP/1.1" from sp2.baidu.com
+26: Responding "HTTP/1.1 200 OK"
+29: Requesting "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from ocsp.globalsign.com
+30: Requesting "POST http://ocsp.globalsign.com/gsrsaovsslca2018 HTTP/1.1" from ocsp.globalsign.com
+30: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+30: Responding "HTTP/1.1 200 OK"
+29: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
+29: Responding "HTTP/1.1 200 OK"
+19: Requesting "GET http://hectorstatic.baidu.com/cd37ed75a9387c5b.js HTTP/1.1" from hectorstatic.baidu.com
+19: not in cache
+19: Requesting "GET http://hectorstatic.baidu.com/cd37ed75a9387c5b.js HTTP/1.1" from hectorstatic.baidu.com
+19: Received "HTTP/1.1 200 OK" from hectorstatic.baidu.com
+19: NOTE Cache-Control: max-age=3600
+19: NOTE Last-Modified: Tue, 28 Feb 2023 08:52:01 GMT
+19: NOTE Expires: Tue Feb 28 12:00:35 2023 GMT
+19: NOTE Date: Tue Feb 28 21:54:56 2023 GMT
+19: cached, expires at Tue Feb 28 22:54:56 2023 GMT
+19: Responding "HTTP/1.1 200 OK"
+21: "GET http://www.baidu.com/cache/fpid/chromelib_1_1.js?_=1677621295830 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:57 2023
+31: "CONNECT passport.baidu.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:57 2023
+21: Requesting "GET http://www.baidu.com/cache/fpid/chromelib_1_1.js?_=1677621295830 HTTP/1.1" from www.baidu.com
+21: not in cache
+21: Requesting "GET http://www.baidu.com/cache/fpid/chromelib_1_1.js?_=1677621295830 HTTP/1.1" from www.baidu.com
+21: Received "HTTP/1.1 200 OK" from www.baidu.com
+21: NOTE Cache-Control: max-age=315360000
+21: NOTE ETag: "4451-4fdbd6734c340"
+21: NOTE Last-Modified: Wed, 09 Jul 2014 07:10:29 GMT
+21: NOTE Expires: Fri Feb 25 21:54:57 2033 GMT
+21: NOTE Date: Tue Feb 28 21:54:57 2023 GMT
+21: cached, expires at Fri Feb 25 21:54:57 2033 GMT
+21: Responding "HTTP/1.1 200 OK"
+32: "CONNECT sp3.baidu.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 21:54:57 2023
+31: Requesting "CONNECT passport.baidu.com:443 HTTP/1.1" from passport.baidu.com
+31: Responding "HTTP/1.1 200 OK"
+32: Requesting "CONNECT sp3.baidu.com:443 HTTP/1.1" from sp3.baidu.com
 32: Responding "HTTP/1.1 200 OK"
-34: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:19 2023
-33: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:19 2023
-33: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-33: Responding "HTTP/1.1 200 OK"
-34: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
-34: Responding "HTTP/1.1 200 OK"
-35: "CONNECT www.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-35: Requesting "CONNECT www.amazon.com:443 HTTP/1.1" from www.amazon.com
-35: Responding "HTTP/1.1 200 OK"
-36: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-36: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-36: Responding "HTTP/1.1 200 OK"
-37: "CONNECT m.media-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-38: "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-37: Requesting "CONNECT m.media-amazon.com:443 HTTP/1.1" from m.media-amazon.com
-37: Responding "HTTP/1.1 200 OK"
-38: Requesting "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from images-na.ssl-images-amazon.com
-38: Responding "HTTP/1.1 200 OK"
-40: "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-40: Requesting "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from images-na.ssl-images-amazon.com
-40: Responding "HTTP/1.1 200 OK"
-42: "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-41: "CONNECT m.media-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-45: "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-42: Requesting "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from images-na.ssl-images-amazon.com
-42: Responding "HTTP/1.1 200 OK"
-41: Requesting "CONNECT m.media-amazon.com:443 HTTP/1.1" from m.media-amazon.com
-41: Responding "HTTP/1.1 200 OK"
-45: Requesting "CONNECT images-na.ssl-images-amazon.com:443 HTTP/1.1" from images-na.ssl-images-amazon.com
-45: Responding "HTTP/1.1 200 OK"
-42: Tunnel closed
-40: Tunnel closed
-45: Tunnel closed
-41: Tunnel closed
-39: "CONNECT fls-na.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-50: "CONNECT assoc-na.associates-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-50: Requesting "CONNECT assoc-na.associates-amazon.com:443 HTTP/1.1" from assoc-na.associates-amazon.com
-50: Responding "HTTP/1.1 200 OK"
-51: "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-52: "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:21 2023
-51: Requesting "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from aax-us-iad.amazon.com
-51: Responding "HTTP/1.1 200 OK"
-52: Requesting "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from aax-us-iad.amazon.com
-52: Responding "HTTP/1.1 200 OK"
-39: Requesting "CONNECT fls-na.amazon.com:443 HTTP/1.1" from fls-na.amazon.com
-39: Responding "HTTP/1.1 200 OK"
-53: "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-53: Requesting "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from ocsp.r2m02.amazontrust.com
-53: Received "HTTP/1.1 200 OK" from ocsp.r2m02.amazontrust.com
-53: Responding "HTTP/1.1 200 OK"
-54: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-54: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
-54: Responding "HTTP/1.1 200 OK"
-55: "CONNECT aax-us-east-retail-direct.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-56: "CONNECT aax-us-east-retail-direct.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-55: Requesting "CONNECT aax-us-east-retail-direct.amazon.com:443 HTTP/1.1" from aax-us-east-retail-direct.amazon.com
-55: Responding "HTTP/1.1 200 OK"
-56: Requesting "CONNECT aax-us-east-retail-direct.amazon.com:443 HTTP/1.1" from aax-us-east-retail-direct.amazon.com
-56: Responding "HTTP/1.1 200 OK"
-54: Tunnel closed
-57: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-58: "CONNECT completion.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-57: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
-57: Responding "HTTP/1.1 200 OK"
-58: Requesting "CONNECT completion.amazon.com:443 HTTP/1.1" from completion.amazon.com
-58: Responding "HTTP/1.1 200 OK"
-57: Tunnel closed
-63: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-65: "CONNECT metrics.media-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-64: "CONNECT p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-66: "CONNECT metrics.media-amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-62: "CONNECT d2in0p32vp1pij.cloudfront.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-61: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-67: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-60: "CONNECT d23tl967axkois.cloudfront.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-59: "CONNECT player.live-video.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-68: "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-63: Requesting "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from s.amazon-adsystem.com
-63: Responding "HTTP/1.1 200 OK"
-67: Requesting "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from unagi-na.amazon.com
-67: Responding "HTTP/1.1 200 OK"
-61: Requesting "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from unagi-na.amazon.com
-61: Responding "HTTP/1.1 200 OK"
-69: "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-65: Requesting "CONNECT metrics.media-amazon.com:443 HTTP/1.1" from metrics.media-amazon.com
-65: Responding "HTTP/1.1 200 OK"
-66: Requesting "CONNECT metrics.media-amazon.com:443 HTTP/1.1" from metrics.media-amazon.com
-66: Responding "HTTP/1.1 200 OK"
-59: Requesting "CONNECT player.live-video.net:443 HTTP/1.1" from player.live-video.net
-59: Responding "HTTP/1.1 200 OK"
-62: Requesting "CONNECT d2in0p32vp1pij.cloudfront.net:443 HTTP/1.1" from d2in0p32vp1pij.cloudfront.net
-62: Responding "HTTP/1.1 200 OK"
-68: Requesting "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from aax-us-iad.amazon.com
-68: Responding "HTTP/1.1 200 OK"
-69: Requesting "CONNECT aax-us-iad.amazon.com:443 HTTP/1.1" from aax-us-iad.amazon.com
-69: Responding "HTTP/1.1 200 OK"
-64: Requesting "CONNECT p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com:443 HTTP/1.1" from p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com
-64: Responding "HTTP/1.1 200 OK"
-60: Requesting "CONNECT d23tl967axkois.cloudfront.net:443 HTTP/1.1" from d23tl967axkois.cloudfront.net
-60: Responding "HTTP/1.1 200 OK"
-65: Tunnel closed
-70: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-72: "CONNECT player.live-video.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:22 2023
-70: Requesting "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from unagi-na.amazon.com
-70: Responding "HTTP/1.1 200 OK"
-72: Requesting "CONNECT player.live-video.net:443 HTTP/1.1" from player.live-video.net
-72: Responding "HTTP/1.1 200 OK"
-71: "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-73: "CONNECT usersync.samplicio.us:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-74: "CONNECT t.myvisualiq.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-78: "CONNECT pi.ispot.tv:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-77: "CONNECT lciapi.ninthdecimal.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-76: "CONNECT www.imdb.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-75: "CONNECT ads.samba.tv:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-71: Requesting "CONNECT unagi-na.amazon.com:443 HTTP/1.1" from unagi-na.amazon.com
-71: Responding "HTTP/1.1 200 OK"
-76: Requesting "CONNECT www.imdb.com:443 HTTP/1.1" from www.imdb.com
-76: Responding "HTTP/1.1 200 OK"
-77: Requesting "CONNECT lciapi.ninthdecimal.com:443 HTTP/1.1" from lciapi.ninthdecimal.com
-77: Responding "HTTP/1.1 200 OK"
-75: Requesting "CONNECT ads.samba.tv:443 HTTP/1.1" from ads.samba.tv
-75: Responding "HTTP/1.1 200 OK"
-78: Requesting "CONNECT pi.ispot.tv:443 HTTP/1.1" from pi.ispot.tv
-78: Responding "HTTP/1.1 200 OK"
-74: Requesting "CONNECT t.myvisualiq.net:443 HTTP/1.1" from t.myvisualiq.net
-74: Responding "HTTP/1.1 200 OK"
-73: Requesting "CONNECT usersync.samplicio.us:443 HTTP/1.1" from usersync.samplicio.us
-73: Responding "HTTP/1.1 200 OK"
-79: "POST http://ocsp.godaddy.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-80: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-81: "POST http://ocsp.godaddy.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-82: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-79: Requesting "POST http://ocsp.godaddy.com/ HTTP/1.1" from ocsp.godaddy.com
-83: "CONNECT player.stats.live-video.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-84: "CONNECT 4b64d6fa612f.us-east-1.playback.live-video.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-85: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-81: Requesting "POST http://ocsp.godaddy.com/ HTTP/1.1" from ocsp.godaddy.com
-82: Requesting "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from ocsp.r2m01.amazontrust.com
-86: "CONNECT unagi.amazon.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-80: Requesting "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from ocsp.r2m01.amazontrust.com
-85: Requesting "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from s.amazon-adsystem.com
-85: Responding "HTTP/1.1 200 OK"
-82: Received "HTTP/1.1 200 OK" from ocsp.r2m01.amazontrust.com
-82: Responding "HTTP/1.1 200 OK"
-86: Requesting "CONNECT unagi.amazon.com:443 HTTP/1.1" from unagi.amazon.com
-86: Responding "HTTP/1.1 200 OK"
-80: Received "HTTP/1.1 200 OK" from ocsp.r2m01.amazontrust.com
-80: Responding "HTTP/1.1 200 OK"
-83: Requesting "CONNECT player.stats.live-video.net:443 HTTP/1.1" from player.stats.live-video.net
-83: Responding "HTTP/1.1 200 OK"
-84: Requesting "CONNECT 4b64d6fa612f.us-east-1.playback.live-video.net:443 HTTP/1.1" from 4b64d6fa612f.us-east-1.playback.live-video.net
-84: Responding "HTTP/1.1 200 OK"
-79: Received "HTTP/1.1 200 OK" from ocsp.godaddy.com
-79: Responding "HTTP/1.1 200 OK"
-81: Received "HTTP/1.1 200 OK" from ocsp.godaddy.com
-81: Responding "HTTP/1.1 200 OK"
-87: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-87: Requesting "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from ocsp.r2m01.amazontrust.com
-95: "CONNECT rtb-csync.smartadserver.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-94: "CONNECT dsum-sec.casalemedia.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-93: "CONNECT ups.analytics.yahoo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-92: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-90: "CONNECT cms.analytics.yahoo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-91: "CONNECT tags.bluekai.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-96: "CONNECT x.bidswitch.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-97: "CONNECT beacon.krxd.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-99: "CONNECT match.360yield.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-98: "CONNECT pixel.rubiconproject.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-89: "CONNECT aa.agkn.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-88: "CONNECT amazon.partners.tremorhub.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-87: Received "HTTP/1.1 200 OK" from ocsp.r2m01.amazontrust.com
-87: Responding "HTTP/1.1 200 OK"
-100: "CONNECT ads.stickyadstv.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-93: Requesting "CONNECT ups.analytics.yahoo.com:443 HTTP/1.1" from ups.analytics.yahoo.com
-93: Responding "HTTP/1.1 200 OK"
-91: Requesting "CONNECT tags.bluekai.com:443 HTTP/1.1" from tags.bluekai.com
-91: Responding "HTTP/1.1 200 OK"
-99: Requesting "CONNECT match.360yield.com:443 HTTP/1.1" from match.360yield.com
-99: Responding "HTTP/1.1 200 OK"
-97: Requesting "CONNECT beacon.krxd.net:443 HTTP/1.1" from beacon.krxd.net
-97: Responding "HTTP/1.1 200 OK"
-88: Requesting "CONNECT amazon.partners.tremorhub.com:443 HTTP/1.1" from amazon.partners.tremorhub.com
-88: Responding "HTTP/1.1 200 OK"
-94: Requesting "CONNECT dsum-sec.casalemedia.com:443 HTTP/1.1" from dsum-sec.casalemedia.com
-94: Responding "HTTP/1.1 200 OK"
-96: Requesting "CONNECT x.bidswitch.net:443 HTTP/1.1" from x.bidswitch.net
-96: Responding "HTTP/1.1 200 OK"
-101: "CONNECT dpm.demdex.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-89: Requesting "CONNECT aa.agkn.com:443 HTTP/1.1" from aa.agkn.com
-89: Responding "HTTP/1.1 200 OK"
-98: Requesting "CONNECT pixel.rubiconproject.com:443 HTTP/1.1" from pixel.rubiconproject.com
-98: Responding "HTTP/1.1 200 OK"
-102: "CONNECT odr.mookie1.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-92: Requesting "CONNECT ib.adnxs.com:443 HTTP/1.1" from ib.adnxs.com
-92: Responding "HTTP/1.1 200 OK"
-95: Requesting "CONNECT rtb-csync.smartadserver.com:443 HTTP/1.1" from rtb-csync.smartadserver.com
-95: Responding "HTTP/1.1 200 OK"
-100: Requesting "CONNECT ads.stickyadstv.com:443 HTTP/1.1" from ads.stickyadstv.com
-100: Responding "HTTP/1.1 200 OK"
-90: Requesting "CONNECT cms.analytics.yahoo.com:443 HTTP/1.1" from cms.analytics.yahoo.com
-90: Responding "HTTP/1.1 200 OK"
-102: Requesting "CONNECT odr.mookie1.com:443 HTTP/1.1" from odr.mookie1.com
-102: Responding "HTTP/1.1 200 OK"
-101: Requesting "CONNECT dpm.demdex.net:443 HTTP/1.1" from dpm.demdex.net
-101: Responding "HTTP/1.1 200 OK"
-104: "CONNECT c1.adform.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-107: "CONNECT uipglob.semasio.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-112: "CONNECT cm.g.doubleclick.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-114: "CONNECT ssum-sec.casalemedia.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-105: "CONNECT sync.search.spotxchange.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-109: "CONNECT image2.pubmatic.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-108: "CONNECT bs.serving-sys.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-120: "CONNECT www.facebook.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-119: "CONNECT loadus.exelator.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-123: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-115: "CONNECT usermatch.krxd.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-116: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-113: "CONNECT sb.scorecardresearch.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-111: "CONNECT us-u.openx.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-110: "CONNECT token.rubiconproject.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-117: "CONNECT eb2.3lift.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-118: "CONNECT cm.g.doubleclick.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-125: "CONNECT image6.pubmatic.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-112: Requesting "CONNECT cm.g.doubleclick.net:443 HTTP/1.1" from cm.g.doubleclick.net
-112: Responding "HTTP/1.1 200 OK"
-114: Requesting "CONNECT ssum-sec.casalemedia.com:443 HTTP/1.1" from ssum-sec.casalemedia.com
-114: Responding "HTTP/1.1 200 OK"
-118: Requesting "CONNECT cm.g.doubleclick.net:443 HTTP/1.1" from cm.g.doubleclick.net
-118: Responding "HTTP/1.1 200 OK"
-105: Requesting "CONNECT sync.search.spotxchange.com:443 HTTP/1.1" from sync.search.spotxchange.com
-105: Responding "HTTP/1.1 200 OK"
-109: Requesting "CONNECT image2.pubmatic.com:443 HTTP/1.1" from image2.pubmatic.com
-109: Responding "HTTP/1.1 200 OK"
-126: "CONNECT us-u.openx.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-123: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-111: Requesting "CONNECT us-u.openx.net:443 HTTP/1.1" from us-u.openx.net
-111: Responding "HTTP/1.1 200 OK"
-120: Requesting "CONNECT www.facebook.com:443 HTTP/1.1" from www.facebook.com
-120: Responding "HTTP/1.1 200 OK"
-113: Requesting "CONNECT sb.scorecardresearch.com:443 HTTP/1.1" from sb.scorecardresearch.com
-113: Responding "HTTP/1.1 200 OK"
-110: Requesting "CONNECT token.rubiconproject.com:443 HTTP/1.1" from token.rubiconproject.com
-110: Responding "HTTP/1.1 200 OK"
-104: Requesting "CONNECT c1.adform.net:443 HTTP/1.1" from c1.adform.net
-104: Responding "HTTP/1.1 200 OK"
-116: Requesting "CONNECT ib.adnxs.com:443 HTTP/1.1" from ib.adnxs.com
-116: Responding "HTTP/1.1 200 OK"
-31: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-125: Requesting "CONNECT image6.pubmatic.com:443 HTTP/1.1" from image6.pubmatic.com
-125: Responding "HTTP/1.1 200 OK"
-117: Requesting "CONNECT eb2.3lift.com:443 HTTP/1.1" from eb2.3lift.com
-117: Responding "HTTP/1.1 200 OK"
-123: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-123: Responding "HTTP/1.1 200 OK"
-127: "CONNECT sync.taboola.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-126: Requesting "CONNECT us-u.openx.net:443 HTTP/1.1" from us-u.openx.net
-126: Responding "HTTP/1.1 200 OK"
-107: Requesting "CONNECT uipglob.semasio.net:443 HTTP/1.1" from uipglob.semasio.net
-107: Responding "HTTP/1.1 200 OK"
-128: "CONNECT ads.stickyadstv.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-106: "CONNECT video-weaver.iad03.hls.live-video.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-108: Requesting "CONNECT bs.serving-sys.com:443 HTTP/1.1" from bs.serving-sys.com
-108: Responding "HTTP/1.1 200 OK"
-119: Requesting "CONNECT loadus.exelator.com:443 HTTP/1.1" from loadus.exelator.com
-119: Responding "HTTP/1.1 200 OK"
-121: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-127: Requesting "CONNECT sync.taboola.com:443 HTTP/1.1" from sync.taboola.com
-127: Responding "HTTP/1.1 200 OK"
-122: "POST http://ocsp.godaddy.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-128: Requesting "CONNECT ads.stickyadstv.com:443 HTTP/1.1" from ads.stickyadstv.com
-128: Responding "HTTP/1.1 200 OK"
-121: Requesting "POST http://ocsp.sectigo.com/ HTTP/1.1" from ocsp.sectigo.com
-124: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-106: Requesting "CONNECT video-weaver.iad03.hls.live-video.net:443 HTTP/1.1" from video-weaver.iad03.hls.live-video.net
-106: Responding "HTTP/1.1 200 OK"
-122: Requesting "POST http://ocsp.godaddy.com/ HTTP/1.1" from ocsp.godaddy.com
-124: Requesting "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from ocsp.r2m01.amazontrust.com
-115: Requesting "CONNECT usermatch.krxd.net:443 HTTP/1.1" from usermatch.krxd.net
-115: Responding "HTTP/1.1 200 OK"
-124: Received "HTTP/1.1 200 OK" from ocsp.r2m01.amazontrust.com
-124: Responding "HTTP/1.1 200 OK"
-129: "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-130: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-131: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-129: Requesting "POST http://ocsp.r2m01.amazontrust.com/ HTTP/1.1" from ocsp.r2m01.amazontrust.com
-130: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-131: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-129: Received "HTTP/1.1 200 OK" from ocsp.r2m01.amazontrust.com
-129: Responding "HTTP/1.1 200 OK"
-130: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-130: Responding "HTTP/1.1 200 OK"
-132: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:23 2023
-131: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-131: Responding "HTTP/1.1 200 OK"
-132: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-132: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-132: Responding "HTTP/1.1 200 OK"
-133: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-134: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-135: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-133: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-122: Received "HTTP/1.1 200 OK" from ocsp.godaddy.com
-122: Responding "HTTP/1.1 200 OK"
-135: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-134: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-133: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-133: Responding "HTTP/1.1 200 OK"
-134: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-134: Responding "HTTP/1.1 200 OK"
-135: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-135: Responding "HTTP/1.1 200 OK"
-121: Received "HTTP/1.1 200 OK" from ocsp.sectigo.com
-121: Responding "HTTP/1.1 200 OK"
-137: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-136: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-138: "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-139: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-140: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-141: "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-138: Requesting "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from ocsp.r2m02.amazontrust.com
-137: Requesting "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from s.amazon-adsystem.com
-137: Responding "HTTP/1.1 200 OK"
-139: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-136: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-140: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-141: Requesting "POST http://ocsp.globalsign.com/gsgccr3dvtlsca2020 HTTP/1.1" from ocsp.globalsign.com
-138: Received "HTTP/1.1 200 OK" from ocsp.r2m02.amazontrust.com
-138: Responding "HTTP/1.1 200 OK"
-136: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-136: Responding "HTTP/1.1 200 OK"
-139: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-139: Responding "HTTP/1.1 200 OK"
-140: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-140: Responding "HTTP/1.1 200 OK"
-126: Tunnel closed
-118: Tunnel closed
-141: Received "HTTP/1.1 200 OK" from ocsp.globalsign.com
-141: Responding "HTTP/1.1 200 OK"
-144: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-142: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-143: "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-142: Requesting "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from s.amazon-adsystem.com
-142: Responding "HTTP/1.1 200 OK"
-144: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-143: Requesting "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from ocsp.r2m02.amazontrust.com
-144: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-144: Responding "HTTP/1.1 200 OK"
-143: Received "HTTP/1.1 200 OK" from ocsp.r2m02.amazontrust.com
-143: Responding "HTTP/1.1 200 OK"
-145: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-145: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-146: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-145: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-145: Responding "HTTP/1.1 200 OK"
-146: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-147: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-146: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-146: Responding "HTTP/1.1 200 OK"
-147: Requesting "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from s.amazon-adsystem.com
-147: Responding "HTTP/1.1 200 OK"
-148: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-149: "CONNECT lm.serving-sys.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-148: Requesting "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from s.amazon-adsystem.com
-148: Responding "HTTP/1.1 200 OK"
-149: Requesting "CONNECT lm.serving-sys.com:443 HTTP/1.1" from lm.serving-sys.com
-149: Responding "HTTP/1.1 200 OK"
-150: "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:24 2023
-150: Requesting "POST http://ocsp.r2m02.amazontrust.com/ HTTP/1.1" from ocsp.r2m02.amazontrust.com
-150: Received "HTTP/1.1 200 OK" from ocsp.r2m02.amazontrust.com
-150: Responding "HTTP/1.1 200 OK"
-114: Tunnel closed
-94: Tunnel closed
-151: "CONNECT dr3fr5q4g2ul9.cloudfront.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:25 2023
-152: "CONNECT d2ef20sk9hi1u3.cloudfront.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:25 2023
-151: Requesting "CONNECT dr3fr5q4g2ul9.cloudfront.net:443 HTTP/1.1" from dr3fr5q4g2ul9.cloudfront.net
-151: Responding "HTTP/1.1 200 OK"
-152: Requesting "CONNECT d2ef20sk9hi1u3.cloudfront.net:443 HTTP/1.1" from d2ef20sk9hi1u3.cloudfront.net
-152: Responding "HTTP/1.1 200 OK"
-153: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:25 2023
-153: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-153: Responding "HTTP/1.1 200 OK"
-149: Tunnel closed
-49: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:27 2023
-48: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:27 2023
-43: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:27 2023
-44: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:27 2023
-47: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:27 2023
-46: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:27 2023
-106: Tunnel closed
-103: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:29 2023
-154: "CONNECT youtube.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:29 2023
-154: Requesting "CONNECT youtube.com:443 HTTP/1.1" from youtube.com
-154: Responding "HTTP/1.1 200 OK"
-155: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:29 2023
-155: Requesting "CONNECT www.youtube.com:443 HTTP/1.1" from www.youtube.com
-155: Responding "HTTP/1.1 200 OK"
-156: "CONNECT i.ytimg.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:30 2023
-156: Requesting "CONNECT i.ytimg.com:443 HTTP/1.1" from i.ytimg.com
-156: Responding "HTTP/1.1 200 OK"
-160: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:30 2023
-160: Requesting "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from googleads.g.doubleclick.net
-160: Responding "HTTP/1.1 200 OK"
-161: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:30 2023
-161: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-161: Responding "HTTP/1.1 200 OK"
-162: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:31 2023
-162: Requesting "CONNECT yt3.ggpht.com:443 HTTP/1.1" from yt3.ggpht.com
-162: Responding "HTTP/1.1 200 OK"
-163: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:31 2023
-163: Requesting "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from jnn-pa.googleapis.com
-163: Responding "HTTP/1.1 200 OK"
-165: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-165: Requesting "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from rr3---sn-hjoj-gq0l.googlevideo.com
-165: Responding "HTTP/1.1 200 OK"
-166: "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-166: Requesting "CONNECT rr3---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from rr3---sn-hjoj-gq0l.googlevideo.com
-166: Responding "HTTP/1.1 200 OK"
-167: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-168: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-169: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-167: Requesting "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from tpc.googlesyndication.com
-167: Responding "HTTP/1.1 200 OK"
-168: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
-168: Responding "HTTP/1.1 200 OK"
-170: "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-169: Requesting "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from rr4---sn-hjoj-gq0l.googlevideo.com
-169: Responding "HTTP/1.1 200 OK"
-170: Requesting "CONNECT rr4---sn-hjoj-gq0l.googlevideo.com:443 HTTP/1.1" from rr4---sn-hjoj-gq0l.googlevideo.com
-170: Responding "HTTP/1.1 200 OK"
-171: "CONNECT rr4---sn-5ualdnsy.googlevideo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-165: Tunnel closed
-172: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-171: Requesting "CONNECT rr4---sn-5ualdnsy.googlevideo.com:443 HTTP/1.1" from rr4---sn-5ualdnsy.googlevideo.com
-171: Responding "HTTP/1.1 200 OK"
-168: Tunnel closed
-172: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-172: not in cache
-172: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-173: "CONNECT rr4---sn-5ualdnsy.googlevideo.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-174: "CONNECT lh4.googleusercontent.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-172: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-172: NOTE Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
-172: NOTE Date: Tue Feb 28 08:04:44 2023 GMT
-172: cached, expires at Tue Feb 28 09:04:44 2023 GMT
-172: Responding "HTTP/1.1 200 OK"
-174: Requesting "CONNECT lh4.googleusercontent.com:443 HTTP/1.1" from lh4.googleusercontent.com
-174: Responding "HTTP/1.1 200 OK"
-173: Requesting "CONNECT rr4---sn-5ualdnsy.googlevideo.com:443 HTTP/1.1" from rr4---sn-5ualdnsy.googlevideo.com
-173: Responding "HTTP/1.1 200 OK"
-175: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-175: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
-175: not in cache
-175: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
-175: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-175: NOTE Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
-175: NOTE Date: Tue Feb 28 10:12:25 2023 GMT
-175: cached, expires at Tue Feb 28 11:12:25 2023 GMT
-175: Responding "HTTP/1.1 200 OK"
-176: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-177: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-176: Requesting "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from pagead2.googlesyndication.com
-176: Responding "HTTP/1.1 200 OK"
-177: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-177: Responding "HTTP/1.1 200 OK"
-178: "CONNECT ad.doubleclick.net:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:32 2023
-179: "CONNECT ade.googlesyndication.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:33 2023
-178: Requesting "CONNECT ad.doubleclick.net:443 HTTP/1.1" from ad.doubleclick.net
-178: Responding "HTTP/1.1 200 OK"
-179: Requesting "CONNECT ade.googlesyndication.com:443 HTTP/1.1" from ade.googlesyndication.com
-179: Responding "HTTP/1.1 200 OK"
-180: "CONNECT yt3.googleusercontent.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:33 2023
-180: Requesting "CONNECT yt3.googleusercontent.com:443 HTTP/1.1" from yt3.googleusercontent.com
-180: Responding "HTTP/1.1 200 OK"
-181: "CONNECT yt4.ggpht.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:33 2023
-181: Requesting "CONNECT yt4.ggpht.com:443 HTTP/1.1" from yt4.ggpht.com
-181: Responding "HTTP/1.1 200 OK"
-116: Tunnel closed
-95: Tunnel closed
-92: Tunnel closed
-157: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:35 2023
-158: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:35 2023
-159: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:35 2023
-164: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 15:28:36 2023
-182: "CONNECT www.googleadservices.com:443 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:43 2023
-182: Requesting "CONNECT www.googleadservices.com:443 HTTP/1.1" from www.googleadservices.com
-182: Responding "HTTP/1.1 200 OK"
-183: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.233.187 @ Tue Feb 28 15:28:43 2023
-183: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-183: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-183: Responding "HTTP/1.1 200 OK"
+14: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:00 2023
+12: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:00 2023
+18: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:00 2023
+17: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:00 2023
+15: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:00 2023
+16: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:00 2023
+23: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:01 2023
+28: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:01 2023
+25: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:01 2023
+24: WARNING Invalid Request from 10.197.233.187 @ Tue Feb 28 21:55:01 2023
+31: Tunnel closed
+22: Tunnel closed
+20: Tunnel closed
+26: Tunnel closed
+32: Tunnel closed

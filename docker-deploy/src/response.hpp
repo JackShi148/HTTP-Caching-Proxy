@@ -5,6 +5,7 @@
 #include <vector>
 #include <time.h>
 
+#include "exception.h"
 #include "timeprocessing.hpp"
 
 class Response

@@ -226,6 +226,10 @@ void Proxy::proxyResponse(int client_connect_socket_fd, std::string exp, void *h
   {
     errMsg += "400 Bad Request";
   }
+  else if (exp == "RESPONSE ERROR")
+  {
+    errMsg += "502 Bad Gateway";
+  }
   else
   {
     errMsg += "503 Server Unavailable";
@@ -441,7 +445,7 @@ void Proxy::printNoteLog(Response res, int max_stale, void *hook)
     if (res.formatFinder("Date") != "")
     {
       time_t res_moment = mktime(res.getResponseTime().convertGMT());
-      const char * resTime_c = asctime(gmtime(&res_moment));
+      const char *resTime_c = asctime(gmtime(&res_moment));
       std::string resTime = std::string(resTime_c);
       std::string msg = "Date: " + resTime.substr(0, resTime.size() - 1) + " GMT";
       log->writeLogFile(h, msg, NOTE);
