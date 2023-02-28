@@ -3,6 +3,10 @@
 void Response::parseResponse()
 {
     size_t header_end = this->response_msg.find_first_of("\r\n");
+    if (header_end == std::string::npos)
+    {
+    	throw Exception("RESPONSE ERROR");
+    }
     this->status_line = this->response_msg.substr(0, header_end);
     this->Etag = formatFinder("Etag");
     this->last_modified = formatFinder("Last-Modified");
@@ -39,6 +43,10 @@ std::string Response::formatFinder(std::string field)
 std::string Response::getResponseHead()
 {
     size_t start_pos = this->response_msg.find("\r\n\r\n");
+    if (start_pos == std::string::npos)
+    {
+        throw Exception("RESPONSE ERROR");
+    }
     return this->response_msg.substr(0, start_pos);
 }
 
@@ -71,6 +79,10 @@ int Response::getContentLength()
 std::string Response::getStatusCode()
 {
     size_t pos1 = this->status_line.find_first_of(' ');
+    if (pos1 == std::string::npos)
+    {
+        throw Exception("RESPONSE ERROR");
+    }
     size_t pos2 = this->status_line.find_first_of(' ', pos1 + 1);
     std::string code = this->status_line.substr(pos1 + 1, pos2 - pos1 - 1);
     return code;
@@ -79,6 +91,10 @@ std::string Response::getStatusCode()
 std::string Response::getHttpVer()
 {
     size_t pos1 = this->status_line.find_first_of(' ');
+    if (pos1 == std::string::npos)
+    {
+        throw Exception("RESPONSE ERROR");
+    }
     std::string httpVer = this->status_line.substr(0, pos1);
     return httpVer;
 }
