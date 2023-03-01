@@ -5,5 +5,4 @@ RUN mkdir /app
 WORKDIR /app
 add . /app/
 
-RUN chmod o+x run.sh
 ENTRYPOINT ["./run.sh"]
