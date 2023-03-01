@@ -11,6 +11,10 @@ Firstly, go:
 ```
 cd docker-deploy/src
 ```
+Then, go:
+```
+chmod o+x run.sh
+```
 Finally, go:
 ```
 sudo docker-compose up
